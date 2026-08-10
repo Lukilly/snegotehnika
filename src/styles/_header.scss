@@ -1,0 +1,72 @@
+@use "sass:math";
+@use "vars" as *;
+
+.dart-header{
+  background-color: var(--primary-color);
+  padding: 30px 0;
+  .dart-header__menu-btn{
+    display: none;
+  }
+  .dart-header__text{
+    span{
+      display: block;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.3;
+      color: #F8FAFF;
+      i{
+        color: #FFE82A;
+        font-style: normal;
+      }
+      & + span{
+        margin-top: 16px;
+      }
+    }
+  }
+  .dart-header__right_tools_wrap{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: end;
+    gap: 64px;
+  }
+  .dart-header__phone{
+    a{
+      display: block;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1.3;
+      color: #F8FAFF;
+      & + span{
+        margin-top: 8px;
+      }
+    }
+    span{
+      display: block;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.3;
+      text-transform: uppercase;
+      color: #E2EAF9;
+    }
+  }
+  @media (max-width: $tablets){
+    padding: 8px 0;
+    .dart-header__menu-btn{
+      display: block;
+    }
+    .dart-header__logo-container{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      img{
+        max-height: 37px;
+      }
+    }
+  }
+}
+
