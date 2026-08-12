@@ -412,10 +412,7 @@ header {
   display: flex;
   align-items: center;
 
-  &:active{
-    .catalog__option{
-      background-color: var(--secondary-color);
-    }
+  &:hover{
 
     .catalog__circle{
       background-color: var(--secondary-color);
