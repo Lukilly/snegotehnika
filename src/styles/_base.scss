@@ -118,6 +118,9 @@ h1, h2, h3{
             width: 100%;
             padding: 10px 20px;
             text-transform: lowercase;
+            img{
+              margin-left: 10px;
+            }
           }
         }
         .cards__img{
@@ -217,10 +220,10 @@ h1, h2, h3{
       .cards__top{
         margin-bottom: 86px;
         .cards__title{
-          font-size: 36px;
+          font-size: 32px;
           font-weight: 700;
           b{
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
           }
         }
@@ -253,12 +256,12 @@ h1, h2, h3{
   .cards{
     .cards__inner{
       .cards__top{
-        margin-bottom: 86px;
+        margin-bottom: 66px;
         .cards__title{
-          font-size: 36px;
+          font-size: 30px;
           font-weight: 700;
           b{
-            font-size: 36px;
+            font-size: 30px;
             font-weight: 700;
           }
         }
@@ -276,7 +279,7 @@ h1, h2, h3{
           .cards__img{
             left: auto;
             right: 0;
-            max-width: 320px;
+            max-width: 300px;
             bottom: 5px;
           }
           .cards__background{
@@ -295,9 +298,92 @@ h1, h2, h3{
 }
 
 @media (max-width: $big-phones) {
-  
+  .cards{
+    .cards__inner{
+      .cards__top{
+        margin-bottom: 56px;
+        .cards__title{
+          font-size: 28px;
+          font-weight: 700;
+          b{
+            font-size: 28px;
+            font-weight: 700;
+          }
+        }
+      }
+      .cards__container{
+        grid-template-columns: 1fr;
+        gap: 60px;
+        .cards__item{
+          .cards__item__inner__mobile{
+            .cards__item__name{
+              margin-bottom: 15px;
+              font-size: 22px;
+            }
+            .cards__button__mobile{
+              img{
+                width: 18px;
+                height: 18px;
+              }
+            }
+          }
+          .cards__img{
+            left: auto;
+            right: 0;
+            max-width: 220px;
+            bottom: 5px;
+          }
+          .cards__background__mobile{
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: $phones) {
-  
+  .cards{
+    .cards__inner{
+      .cards__top{
+        margin-bottom: 32px;
+        .cards__title{
+          font-size: 26px;
+          font-weight: 700;
+          b{
+            font-size: 26px;
+            font-weight: 700;
+          }
+        }
+      }
+      .cards__container{
+        gap: 40px;
+        .cards__item{
+          .cards__item__inner__mobile{
+            .cards__item__name{
+              margin-bottom: 10px;
+              font-size: 16px;
+            }
+            .cards__button__mobile{
+              padding: 6px 10px;
+              font-size: 12px;
+              img{
+                width: 18px;
+                height: 18px;
+              }
+            }
+          }
+          .cards__img{
+            left: auto;
+            right: 0;
+            max-width: 140px;
+            bottom: 5px;
+          }
+          .cards__background__mobile{
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
 }

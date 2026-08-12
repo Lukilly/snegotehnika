@@ -15,6 +15,7 @@ header {
 
 .header-top__inner{
   padding: 30px 0 30px 0;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -138,13 +139,9 @@ header {
 
 // Menu
 
-.header__menu{
-  position: relative;
-  display: none;
-}
-
 .header__menu__btn{
   position: relative;
+  display: none;
   padding: 9.5px 15px;
   background-color: transparent;
   border: 1px var(--secondary-color) solid;
@@ -176,11 +173,11 @@ header {
   display: none;
   position: absolute;
   right: 0;
-  top: 95px;
+  top: 120px;
   z-index: 200;
   background-color: #F4F7FF;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 10px;
   width: 300px;
   box-shadow: -1px 9px 23.8px #3F71FF42;
 
@@ -225,10 +222,6 @@ header {
 }
 
 // Catalog
-.catalog{
-  display: block;
-  position: relative;
-}
 
 .catalog__toggle{
   margin-right: 20px;
@@ -294,8 +287,8 @@ header {
 .catalog__dropdown{
   display: none;
   position: absolute;
-  top: 120%;
-  left: 0;
+  top: 115%;
+  left: 0px;
   z-index: 200;
   align-items: flex-start;
 
@@ -539,6 +532,7 @@ header {
   }
 
   .header-bottom__inner{
+    position: relative;
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-areas: 
@@ -614,8 +608,17 @@ header {
   .hedaer__info, .header__buttons, .header__number, .header__cart {
     display: none;
   }
-  .header__menu{
+  .header__menu, .header__menu__btn{
     display: block;
+  }
+  .catalog__dropdown, .catalog__sidebar, .header__menu__sidebar{
+    width: 100%;
+  }
+  .catalog__dropdown{
+    top: 140%;
+  }
+  .header__menu__sidebar{
+    top: 100px;
   }
   .catalog__content{
     &.active{
@@ -631,7 +634,7 @@ header {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: $small-tablets){
   header{
     margin-bottom: 50px;
   }
@@ -640,18 +643,24 @@ header {
   }
 }
 
-@media (max-width: 611px){
+@media (max-width: $big-phones){
   header{
     margin-bottom: 40px;
+  }
+  .header__menu__sidebar{
+    top: 80px;
   }
   .header-top__inner{
     padding: 10px 0;
   }
 }
 
-@media (max-width: 430px){
+@media (max-width: $phones){
   header{
     margin-bottom: 30px;
+  }
+  .header__menu__sidebar{
+    top: 70px;
   }
   .header__logo{
     max-width: 150px;
