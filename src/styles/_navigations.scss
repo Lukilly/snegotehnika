@@ -1,0 +1,91 @@
+@use "sass:math";
+@use "vars" as *;
+
+.navigation{
+  padding: 0px 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+.nav__link{
+  padding: 13.5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 120%;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  color: var(--primary-color);
+}
+
+.side__navigation{
+  display: inline-block;
+  position: fixed;
+  top: 312px;
+  right: 0;
+  z-index: 400;
+
+  .side__navigation__close{
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: right;
+  }
+
+  .side__navigation__close__link{
+    img {
+      display: block;
+    }
+  }
+
+  .side__navigation__item{
+    padding: 17.5px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    border-radius: 8px 0 0 8px;
+
+    .side__navigation__icon{
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .side__navigation__text{
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    & + a {
+      margin-top: 8px;
+    }
+  }
+
+  &.hide{
+    display: none;
+  }
+}
+
+@media (max-width: $small-desktop){
+  .side__navigation{
+    .side__navigation__item{
+      padding: 12.5px 18px;
+    }
+  }
+}
+
+@media (max-width: $tablets) {
+  .navigation, .side__navigation{
+    display: none;
+  }
+}
