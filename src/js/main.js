@@ -137,6 +137,18 @@ items.forEach(item => {
   })
 })
 
+// Offers__swiper
+const swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 'auto',
+  modules:[Navigation],
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
 
 // Scroll__footer
 const scrollTopButton = document.querySelector('[data-scroll-top]');
