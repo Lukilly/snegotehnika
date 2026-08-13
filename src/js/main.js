@@ -140,6 +140,7 @@ items.forEach(item => {
 // Offers__swiper
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
+  spaceBetween: 22,
   loop: true,
   slidesPerView: 'auto',
   modules:[Navigation],
@@ -147,6 +148,32 @@ const swiper = new Swiper('.swiper', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
+});
+
+
+// Video
+const videoBlocks = document.querySelectorAll('.video__container');
+
+videoBlocks.forEach((block) => {
+  const video = block.querySelector('.video__item');
+  const playButton = block.querySelector('.video__play');
+
+  playButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+
+    video.play();
+    playButton.style.opacity = '0';
+  });
+
+  video.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      playButton.style.opacity = '0';
+    } else {
+      video.pause();
+      playButton.style.opacity = '1';
+    }
+  });
 });
 
 
