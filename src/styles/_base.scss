@@ -55,13 +55,17 @@ h1, h2, h3{
   font-weight: 500;
   text-transform: uppercase;
   color: #fff;
-  border: 0px;
+  border: 1px var(--secondary-color) solid;
   border-radius: 8px;
   background-color: var(--secondary-color);
   font-family: "Roboto", sans-serif;
 
   img {
     display: block;
+  }
+
+  &:hover{
+    background-color: transparent;
   }
 }
 
@@ -340,7 +344,7 @@ h1, h2, h3{
             width: 42%;
           }
           &:last-child{
-            width: 52%;
+            width: 53%;
           }
         }
       }
