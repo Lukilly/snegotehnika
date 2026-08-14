@@ -185,6 +185,31 @@ header {
     width: 100%;
     display: inline-block;
     border-bottom: 1px #DEE9FF solid;
+
+    &:nth-child(6), &:nth-child(7), &:nth-child(8){
+      border-bottom: 0px;
+    }
+  }
+
+  .header__menu__info{
+    position: relative;
+    a{
+      span{
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--secondary-color);
+      }
+    }
+    &:before{
+      content: "";
+      width: 95%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 1px;
+      background-color: #3F71FF8A;
+    }
   }
 
   a{
