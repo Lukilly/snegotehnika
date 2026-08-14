@@ -518,7 +518,9 @@ h1, h2, h3{
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        left: -14%;
+        left: -20%;
+        width: 120%;
+        max-width: none;
         z-index: 100;
       }
     }
@@ -632,6 +634,8 @@ h1, h2, h3{
     }
   }
 }
+
+// Reviews
 
 @media (max-width: $desktop) {
   h1, h2, h3{
