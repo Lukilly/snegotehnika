@@ -525,6 +525,113 @@ h1, h2, h3{
   }
 }
 
+// Dealer
+.dealer{
+  margin-bottom: 90px;
+  .dealer__img__mobile{
+    border-radius: 15px 15px 0 0 ;
+    display: none;
+    width: 100%;
+    height: auto;
+  }
+  .dealer__inner{
+    border-radius: 15px;
+    padding: 90px 690px 90px 98px;
+    background-image: url(/img/dealer/dealer_backgroung.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .dealer__title{
+      margin-bottom: 40px;
+      color: #fff;
+    }
+    .dealer__suptitle{
+      margin-bottom: 45px;
+      font-size: 24px;
+      font-weight: 400;
+      color: #fff;
+      opacity: 0.8;
+    }
+    .dealer__buttons{
+      max-width: 400px;
+      .dealer__button{
+        @include button;
+
+        & + a{
+          margin-top: 20px;
+        }
+      }
+    }
+    .dealer__buttons__mobile{
+      display: none;
+      .dealer__input{
+        margin-bottom: 15px;
+        display: block;
+        width: 100%;
+        border-radius: 8px;
+        border: 2px #E2EAF9 solid;
+        background-color: #E2EAF9;
+        padding: 18.5px 30px;
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--primary-color);
+
+        &:focus{
+          outline: none;
+          border: 2px var(--secondary-color) solid;
+        }
+      }
+      .dealer__button{
+        margin-bottom: 15px;
+        @include button;
+        padding: 18.5px 30px;
+        font-size: 14px;
+        width: 100%;
+      }
+      input[type="checkbox"]{
+        display: none;
+      }
+      .dealer__approval{
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 300;
+        color: #fff;
+        a{
+          color: var(--secondary-color);
+          cursor: pointer;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+        .check-circle{
+          margin-right: 15px;
+          flex-shrink: 0;
+          position: relative;
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border: 1px var(--secondary-color) solid;
+          border-radius: 50%;
+          background-color: transparent;
+        }
+      }
+      input[type="checkbox"]:checked + .dealer__approval .check-circle {
+        &:before{
+          content: "";
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          position: absolute;
+          background-color: var(--secondary-color);
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}
 
 @media (max-width: $desktop) {
   h1, h2, h3{
@@ -639,6 +746,26 @@ h1, h2, h3{
         .sets__button{
           margin-bottom: 10px;
           padding: 15px 25px;
+        }
+      }
+    }
+  }
+
+  .dealer{
+    margin-bottom: 80px;
+    .dealer__inner{
+      padding: 50px 450px 50px 60px;
+      .dealer__title{
+        margin-bottom: 35px;
+        font-size: 34px;
+      }
+      .dealer__suptitle{
+        margin-bottom: 40px;
+        font-size: 22px;
+      }
+      .dealer__buttons{
+        .dealer__button{
+          padding: 16.5px 30px;
         }
       }
     }
@@ -781,6 +908,29 @@ h1, h2, h3{
       }
     }
   }
+
+  .dealer{
+    margin-bottom: 75px;
+    .dealer__inner{
+      padding: 50px 300px 50px 40px;
+      .dealer__title{
+        margin-bottom: 25px;
+        font-size: 30px;
+      }
+      .dealer__suptitle{
+        margin-bottom: 30px;
+        font-size: 18px;
+        opacity: 1;
+      }
+      .dealer__buttons{
+        max-width: 360px;
+        .dealer__button{
+          padding: 14.5px 26px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: $tablets) {
@@ -842,9 +992,20 @@ h1, h2, h3{
             .swiper-slide{
               width: 305px;
             .offers__item{
+              padding: 30px 28px;
               background-color: #E2EAF9;
+              border: 2px #E2EAF9 solid;
               .offers__item__top{
                 margin-bottom: 20px;
+              }
+              .offers__item__bottom{
+                .offers__item__text{
+                  font-size: 16px;
+                }
+                .offers__item__link{
+                  width: 22px;
+                  height: 22px;
+                }
               }
             }
             }
@@ -911,6 +1072,34 @@ h1, h2, h3{
         .sets__approval{
           font-size: 16px;
         }
+      }
+    }
+  }
+
+  .dealer{
+    margin-bottom: 70px;
+    .dealer__img__mobile{
+      display: block;
+    }
+    .dealer__inner{
+      background-image: none;
+      background-color: var(--primary-color);
+      border-radius: 0 0 15px 15px;
+      padding: 30px 72px 54px 72px;
+      .dealer__title{
+        margin-bottom: 30px;
+        font-size: 36px;
+      }
+      .dealer__suptitle{
+        margin-bottom: 45px;
+        font-size: 22px;
+        opacity: 0.8;
+      }
+      .dealer__buttons{
+        display: none;
+      }
+      .dealer__buttons__mobile{
+        display: block;
       }
     }
   }
@@ -1054,6 +1243,36 @@ h1, h2, h3{
       }
     }
   }
+
+  .dealer{
+    margin: 0px -20px 70px -20px;
+    .dealer__inner{
+      padding: 30px 72px 46px 72px;
+      .dealer__title{
+        margin-bottom: 25px;
+        font-size: 32px;
+      }
+      .dealer__suptitle{
+        margin-bottom: 40px;
+        font-size: 18px;
+      }
+      .dealer__buttons__mobile{
+        .dealer__input{
+          padding: 16.5px 24px;
+          font-size: 16px;
+        }
+        .dealer__button{
+          padding: 14.5px 24px;
+        }
+        .dealer__approval{
+          font-size: 12px;
+          span{
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: $big-phones) {
@@ -1130,6 +1349,7 @@ h1, h2, h3{
   .info{
     .info__inner{
       .info__right{
+        border-radius: 10px;
         padding: 38px 24px;
         .info__title{
           margin-bottom: 38px;
@@ -1195,6 +1415,37 @@ h1, h2, h3{
           p{
             margin-top: 5px;
             font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .dealer{
+    margin: 0px -20px 60px -20px;
+    .dealer__inner{
+      padding: 20px 24px 38px 24px;
+      .dealer__title{
+        margin-bottom: 25px;
+        font-size: 26px;
+      }
+      .dealer__suptitle{
+        margin-bottom: 35px;
+        font-size: 18px;
+      }
+      .dealer__buttons__mobile{
+        .dealer__input{
+          padding: 14.5px 20px;
+          font-size: 14px;
+        }
+        .dealer__button{
+          padding: 12px 20px;
+          font-size: 12px;
+        }
+        .dealer__approval{
+          font-size: 12px;
+          a{
+            display: block;
           }
         }
       }
@@ -1354,6 +1605,40 @@ h1, h2, h3{
             content: "";
             width: 4.29px;
             height: 4.29px;
+          }
+        }
+      }
+    }
+  }
+
+  .dealer{
+    margin: 0px -20px 50px -20px;
+    .dealer__inner{
+      padding: 10px 20px 36px 20px;
+      .dealer__title{
+        margin-bottom: 20px;
+        font-size: 20px;
+      }
+      .dealer__suptitle{
+        margin-bottom: 30px;
+        font-size: 18px;
+      }
+      .dealer__buttons__mobile{
+        .dealer__input{
+          padding: 14.5px 20px;
+          font-size: 14px;
+        }
+        .dealer__button{
+          padding: 12px 20px;
+          font-size: 12px;
+        }
+        .dealer__approval{
+          font-size: 12px;
+          span{
+            margin-right: 5px;
+          }
+          a{
+            display: block;
           }
         }
       }

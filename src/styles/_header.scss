@@ -122,6 +122,10 @@ header {
     font-family: "Open Sans", sans-serif;
     width: 30px;
     height: 30px;
+
+    &.has-items{
+      background-color: #F93131;
+    }
   }
 }
 

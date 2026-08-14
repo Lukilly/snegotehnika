@@ -27,6 +27,10 @@ const addToCartButton = document.querySelector('.catalog__toggle')
 addToCartButton.addEventListener('click', () => {
   cartCount++;
   cartCountElement.textContent = cartCount
+
+  if (cartCount > 0) {
+    cartCountElement.classList.add('has-items')
+  }
 });
 
 
