@@ -32,7 +32,6 @@ addToCartButton.addEventListener('click', () => {
 
 
 // Menu
-const Menu = document.querySelector('.header__menu')
 const MenuBtn = document.querySelector('.header__menu__btn')
 const MenuSidebar = document.querySelector('.header__menu__sidebar')
 
@@ -48,7 +47,10 @@ MenuBtn.addEventListener('click', (e) => {
 });
 
 document.addEventListener('click', (e) => {
-  if (!Menu.contains(e.target)) {
+  if (
+    !MenuBtn.contains(e.target) &&
+    !MenuSidebar.contains(e.target)
+  ) {
     MenuBtn.classList.remove('active');
     MenuSidebar.classList.remove('active');
   }
@@ -61,7 +63,6 @@ const CatalogBurger = document.querySelector('.catalog__toggle');
 const CatalogInner = document.querySelector('.catalog__dropdown')
 const CatalogMoreBtns = document.querySelectorAll('.catalog__item__btn');
 const CatalogMore = document.querySelector('.catalog__content');
-const Catalog = document.querySelector('.catalog')
 const items = document.querySelectorAll('.catalog__item');
 const panels = document.querySelectorAll('.catalog__panel');
 // Открытие каталога
@@ -74,7 +75,10 @@ CatalogBurger.addEventListener('click', () => {
 });
 // Закрытие каталога при нажатии вне каталога
 document.addEventListener("click", (e) =>{
-  if (!Catalog.contains(e.target)) {
+  if (
+    !CatalogBurger.contains(e.target) &&
+    !CatalogInner.contains(e.target)
+  ) {
     CatalogBurger.classList.remove('active');
     CatalogInner.classList.remove('active');
     CatalogMoreBtns.forEach(btn => {

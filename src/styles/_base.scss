@@ -177,6 +177,7 @@ h1, h2, h3{
           margin: 5px;
           display: block;
           padding: 8px;
+          cursor: pointer;
           border: 2px var(--secondary-color) solid;
           border-radius: 6px;
           img{
@@ -199,6 +200,7 @@ h1, h2, h3{
               justify-content: space-between;
               padding: 30px;
               background-color: #fff;
+              border: 2px #fff solid;
               border-radius: 15px;
               .offers__item__top{
                 margin-bottom: 30px;
@@ -227,7 +229,14 @@ h1, h2, h3{
                     display: block;
                     width: 24px;
                     height: 24px;
+                    color: var(--secondary-color);
                   }
+                }
+              }
+              &:hover{
+                border: 2px #F93131 dashed;
+                .offers__item__icon rect{
+                  color: #F93131;
                 }
               }
             }
