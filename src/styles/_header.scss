@@ -647,6 +647,11 @@ header {
   .catalog__dropdown{
     top: 140%;
   }
+  .catalog__content__inner{
+    &:last-child{
+      border-bottom: 1px #DEE9FF solid;
+    }
+  }
   .header__menu__sidebar{
     top: 100px;
   }
@@ -714,6 +719,13 @@ header {
       }
       .header__search{
         flex: 1 1 auto;
+        .header-search-form{
+          form{
+            input[type=text]{
+              color: #000;
+            }
+          }
+        }
       }
     }
   }
@@ -728,6 +740,7 @@ header {
         input[type=text]{
           background-color: #E2EAF9;
           border: 0px;
+          color: transparent;
           &::placeholder{
             opacity: 0;
           }
