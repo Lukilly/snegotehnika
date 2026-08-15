@@ -34,6 +34,19 @@ addToCartButton.addEventListener('click', () => {
 });
 
 
+// Header search placeholder
+const searchInput = document.querySelector('.header-search-form input');
+const defaultPlaceholder = 'Введите фразу для поиска';
+const mobilePlaceholder = 'Поиск';
+
+const updateSearchPlaceholder = () => {
+  searchInput.placeholder = window.innerWidth <= 430 ? mobilePlaceholder : defaultPlaceholder;
+};
+
+updateSearchPlaceholder();
+window.addEventListener('resize', updateSearchPlaceholder);
+
+
 
 // Menu
 const MenuBtn = document.querySelector('.header__menu__btn')

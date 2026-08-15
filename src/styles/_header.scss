@@ -638,6 +638,9 @@ header {
   .header__menu, .header__menu__btn{
     display: block;
   }
+  .catalog__toggle{
+    margin-right: 12px;
+  }
   .catalog__dropdown, .catalog__sidebar, .header__menu__sidebar{
     width: 100%;
   }
@@ -656,6 +659,7 @@ header {
     display: none;
   }
   .header-bottom__inner{
+    gap: 0px;
     display: flex;
     justify-content: space-between;
   }
@@ -680,6 +684,14 @@ header {
   .header-top__inner{
     padding: 10px 0;
   }
+  .catalog__toggle{
+    width: auto;
+    font-size: 12px;
+    padding: 12.5px 20px;
+  }
+  .header__search .header-search-form form input[type=text]{
+    font-size: 14px;
+  }
 }
 
 @media (max-width: $phones){
@@ -692,5 +704,51 @@ header {
   .header__logo{
     max-width: 150px;
   }
-
+  .header-bottom{
+    &:has(.header__search:focus-within) {
+      .catalog__toggle {
+        width: auto;
+        p{
+          display: none;
+        }
+      }
+      .header__search{
+        flex: 1 1 auto;
+      }
+    }
+  }
+  .catalog__toggle{
+    width: 100%;
+    justify-content: space-between;
+  }
+  .header__search{
+    flex: 0 0 20%;
+    .header-search-form {
+      form{
+        input[type=text]{
+          background-color: #E2EAF9;
+          border: 0px;
+          &::placeholder{
+            opacity: 0;
+          }
+          &:focus{
+            &::placeholder{
+              opacity: 1;
+            }
+          }
+        }
+        button{
+          pointer-events: none;
+          img{
+            flex-shrink: 0;
+          }
+        }
+        &:focus-within{
+          button{
+            pointer-events: auto;
+          }
+        }
+      }
+    }
+  }
 }
