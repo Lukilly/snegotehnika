@@ -138,8 +138,11 @@ items.forEach(item => {
     }
   })
 
-  item.addEventListener("click", () => {
-    if (window.innerWidth <= 992) {
+  item.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (window.innerWidth > 992) {
+      openDesktop(item);
+    } else {
       openMobile(item);
     }
   })
@@ -182,6 +185,35 @@ videoBlocks.forEach((block) => {
       playButton.style.opacity = '1';
     }
   });
+});
+
+// Accordion
+const accordionItems = document.querySelectorAll('.accordion__item');
+const accordion = document.querySelector('.accordion');
+
+const setActiveAccordion = (index) => {
+  accordionItems.forEach((el, i) => el.classList.toggle('active', i === index));
+};
+
+setActiveAccordion(0);
+
+accordionItems.forEach((item, index) => {
+  item.addEventListener('mouseenter', () => {
+    if (window.innerWidth > 991) {
+      setActiveAccordion(index);
+    }
+  });
+
+  item.querySelector('.accordion__button').addEventListener('click', () => {
+    accordionItems.forEach((el) => el.classList.remove('active'));
+    item.classList.add('active');
+  });
+});
+
+accordion.addEventListener('mouseleave', () => {
+  if (window.innerWidth > 991) {
+    setActiveAccordion(0);
+  }
 });
 
 

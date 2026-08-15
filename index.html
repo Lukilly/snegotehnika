@@ -6,6 +6,17 @@
 </head>
 
 <body>
+  <!-- Sprite -->
+  <svg style="display: none;">
+
+    <symbol viewBox="0 0 32 32" id="accordion__plus"><path d="M16.0013 2.66699C8.6373 2.66699 2.66797 8.63633 2.66797 16.0003C2.66797 23.3643 8.6373 29.3337 16.0013 29.3337C23.3653 29.3337 29.3346 23.3643 29.3346 16.0003C29.3346 8.63633 23.3653 2.66699 16.0013 2.66699ZM21.3346 17.3337H17.3346V21.3337C17.3346 22.0697 16.7373 22.667 16.0013 22.667C15.2653 22.667 14.668 22.0697 14.668 21.3337V17.3337H10.668C9.93197 17.3337 9.33464 16.7363 9.33464 16.0003C9.33464 15.2643 9.93197 14.667 10.668 14.667H14.668V10.667C14.668 9.93099 15.2653 9.33366 16.0013 9.33366C16.7373 9.33366 17.3346 9.93099 17.3346 10.667V14.667H21.3346C22.0706 14.667 22.668 15.2643 22.668 16.0003C22.668 16.7363 22.0706 17.3337 21.3346 17.3337Z" fill="currentColor"/></symbol>
+
+  </svg>
+
+
+
+
+
   <div class="dart_wrapper">
     {{> header}}
     <div class="dart_main">
@@ -368,6 +379,104 @@
        </div>
 
        <!-- Reviews -->
+       <div class="reviews">
+        <div class="dart-container">
+          <div class="reviews__inner">
+            <h3 class="reviews__title">отзывы о нас</h3>
+            <div class="reviews__map">
+              <iframe src="https://yandex.ru/maps-reviews-widget/126289223109?comments" width="50%" height="auto" frameborder="0"></iframe>
+              <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae4343829a699d0f271d6eb541c403031a38cae5ec701982d0014ca1260d556b4&amp;source=constructor" width="50%" height="auto" class="reviews__map__mobile" frameborder="0"></iframe>
+            </div>
+          </div>
+        </div>
+       </div>
+
+       <!-- Accordion -->
+       <div class="accordion">
+        <div class="dart-container">
+          <div class="accordion__inner">
+            <h3 class="accordion__title">раскрывающаяся информация, поведение при наведении</h3>
+
+            <div class="accordion__item">
+              <button class="accordion__button" type="button">
+                <span>Оплата банковской картой</span>
+                <svg class="accordion__icon">
+                  <use xlink:href="#accordion__plus"></use>
+                </svg>
+              </button>
+
+              <div class="accordion__content">
+                <p>Оплата банковской картой, через Интернет, возможна через системы электронных платежей.</p>
+                <p>Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.</p>
+                <p>Мы принимаем платежи с сайта по следующим банковским картам</p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__button" type="button">
+                <span>Оплата через СПБ (Система быстрых платежей)</span>
+                <svg class="accordion__icon">
+                  <use xlink:href="#accordion__plus"></use>
+                </svg>
+              </button>
+
+              <div class="accordion__content">
+                <p>Оплата банковской картой, через Интернет, возможна через системы электронных платежей.</p>
+                <p>Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.</p>
+                <p>Мы принимаем платежи с сайта по следующим банковским картам</p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__button" type="button">
+                <span>Оплата наложенным платежом</span>
+                <svg class="accordion__icon">
+                  <use xlink:href="#accordion__plus"></use>
+                </svg>
+              </button>
+
+              <div class="accordion__content">
+                <p>Оплата банковской картой, через Интернет, возможна через системы электронных платежей.</p>
+                <p>Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.</p>
+                <p>Мы принимаем платежи с сайта по следующим банковским картам</p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__button" type="button">
+                <span>Оплата на счёт юридических лиц</span>
+                <svg class="accordion__icon">
+                  <use xlink:href="#accordion__plus"></use>
+                </svg>
+              </button>
+
+              <div class="accordion__content">
+                <p>Оплата банковской картой, через Интернет, возможна через системы электронных платежей.</p>
+                <p>Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.</p>
+                <p>Мы принимаем платежи с сайта по следующим банковским картам</p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__button" type="button">
+                <span>Покупка в кредит</span>
+                <svg class="accordion__icon">
+                  <use xlink:href="#accordion__plus"></use>
+                </svg>
+              </button>
+
+              <div class="accordion__content">
+                <p>Оплата банковской картой, через Интернет, возможна через системы электронных платежей.</p>
+                <p>Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.</p>
+                <p>Мы принимаем платежи с сайта по следующим банковским картам</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+       </div>
+
+       <!-- Popular -->
 
 
     </div>
