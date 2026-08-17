@@ -192,11 +192,16 @@ h1, h2, h3{
           cursor: pointer;
           border: 2px var(--secondary-color) solid;
           border-radius: 6px;
-          img{
-            display: block;
-          }
           svg{
-            display: none;
+            display: block;
+            color: var(--secondary-color);
+          }
+
+          &:hover{
+            border: 2px var(--primary-color) solid;
+            svg{
+              color: var(--primary-color);
+            }
           }
         }
       }
