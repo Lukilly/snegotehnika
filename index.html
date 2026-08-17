@@ -11,7 +11,23 @@
 
     <symbol viewBox="0 0 32 32" id="accordion__plus"><path d="M16.0013 2.66699C8.6373 2.66699 2.66797 8.63633 2.66797 16.0003C2.66797 23.3643 8.6373 29.3337 16.0013 29.3337C23.3653 29.3337 29.3346 23.3643 29.3346 16.0003C29.3346 8.63633 23.3653 2.66699 16.0013 2.66699ZM21.3346 17.3337H17.3346V21.3337C17.3346 22.0697 16.7373 22.667 16.0013 22.667C15.2653 22.667 14.668 22.0697 14.668 21.3337V17.3337H10.668C9.93197 17.3337 9.33464 16.7363 9.33464 16.0003C9.33464 15.2643 9.93197 14.667 10.668 14.667H14.668V10.667C14.668 9.93099 15.2653 9.33366 16.0013 9.33366C16.7373 9.33366 17.3346 9.93099 17.3346 10.667V14.667H21.3346C22.0706 14.667 22.668 15.2643 22.668 16.0003C22.668 16.7363 22.0706 17.3337 21.3346 17.3337Z" fill="currentColor"/></symbol>
     <symbol viewBox="0 0 24 24" fill="none" id="buttonArrow"><path d="M6 6V8H14.59L5 17.59L6.41 19L16 9.41V18H18V6H6Z" fill="currentColor"/></symbol>
-  
+    <symbol width="34" height="34" viewBox="0 0 34 34" fill="none" id="rutube">
+      <g clip-path="url(#clip0_680_6652)">
+      <circle cx="17.2148" cy="17.2031" r="17" fill="#currentColor"/>
+      <g clip-path="url(#clip1_680_6652)">
+      <path d="M17.7348 18.4765H10.5699V15.6059H17.7348C18.1533 15.6059 18.4443 15.6798 18.5903 15.8088C18.7364 15.9377 18.8269 16.177 18.8269 16.5264V17.5572C18.8269 17.9254 18.7364 18.1646 18.5903 18.2936C18.4443 18.4225 18.1533 18.4776 17.7348 18.4776V18.4765ZM18.2263 12.8995H7.53125V25.1758H10.5699V21.1818H16.1697L18.8269 25.1758H22.2295L19.2999 21.1631C20.3799 21.001 20.865 20.6659 21.2649 20.1136C21.6649 19.5613 21.8655 18.6783 21.8655 17.4998V16.5793C21.8655 15.8804 21.7924 15.3281 21.6649 14.9048C21.5374 14.4815 21.3194 14.1133 21.0099 13.7826C20.6829 13.4695 20.3189 13.249 19.8819 13.1013C19.4448 12.9723 18.8988 12.8984 18.2263 12.8984V12.8995Z" fill="#0F2A4F"/>
+      <path d="M24.5629 12.8993C25.8522 12.8993 26.8974 11.8542 26.8974 10.5649C26.8974 9.27563 25.8522 8.23047 24.5629 8.23047C23.2737 8.23047 22.2285 9.27563 22.2285 10.5649C22.2285 11.8542 23.2737 12.8993 24.5629 12.8993Z" fill="#0F2A4F"/>
+      </g>
+      </g>
+      <defs>
+      <clipPath id="clip0_680_6652">
+      <rect width="34" height="34" fill="white"/>
+      </clipPath>
+      <clipPath id="clip1_680_6652">
+      <rect width="19.3671" height="16.9462" fill="white" transform="translate(7.53125 8.23047)"/>
+      </clipPath>
+      </defs>
+    </symbol>
   </svg>
 
 
@@ -343,7 +359,9 @@
                   <span>Получить каталог</span>
                   <p>с подборкой 5 каталогов</p>
                 </div>
-                <img src="img/icons/arrow.svg" alt="">
+                <svg class="button__icon">
+                  <use xlink:href="#buttonArrow"></use>
+                </svg>
               </a>
               <input type="checkbox" id="privacy" name="approval">
               <label for="privacy" class="sets__approval">
@@ -367,13 +385,17 @@
             <h3 class="dealer__title">станьте  дилером в своем городе</h3>
             <p class="dealer__suptitle">Оставляйте номер, руководитель перезвонит и расскажет про все условия сотрудничества</p>
             <div class="dealer__buttons">
-              <a class="dealer__button" href="#">
+              <a class="dealer__button dealer__button--transparent" href="#">
                 подробнее о дилерской программе
-                <img src="img/icons/arrow.svg" alt="">
+                <svg class="button__icon">
+                  <use xlink:href="#buttonArrow"></use>
+                </svg>
               </a>
               <a class="dealer__button" href="#">
                 отправить запрос на звонок
-                <img src="img/icons/arrow.svg" alt="">
+                <svg class="button__icon">
+                  <use xlink:href="#buttonArrow"></use>
+                </svg>
               </a>
             </div>
             <div class="dealer__buttons__mobile">
@@ -387,7 +409,9 @@
               >
               <a class="dealer__button" href="#">
                 запрос на звонок
-                <img src="img/icons/arrow.svg" alt="">
+                <svg class="button__icon">
+                  <use xlink:href="#buttonArrow"></use>
+                </svg>
               </a>
               <input type="checkbox" id="privacy__dealer" name="approval">
               <label for="privacy__dealer" class="dealer__approval">

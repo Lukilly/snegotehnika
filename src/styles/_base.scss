@@ -512,9 +512,6 @@ h1, h2, h3{
           color: #FBFBFB;
           text-transform: lowercase;
         }
-        &:hover{
-          background-color: #e12323;
-        }
       }
       input[type="checkbox"]{
         display: none;
@@ -616,6 +613,10 @@ h1, h2, h3{
 
         & + a{
           margin-top: 20px;
+        }
+
+        &--transparent{
+          @include button__transparent;
         }
       }
     }
