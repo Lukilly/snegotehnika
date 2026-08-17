@@ -60,8 +60,10 @@ h1, h2, h3{
   background-color: var(--secondary-color);
   font-family: "Roboto", sans-serif;
 
-  img {
+  svg{
     display: block;
+    width: 24px;
+    height: 24px;
   }
 
   &:hover{
@@ -70,6 +72,39 @@ h1, h2, h3{
     transition: all .2s;
     svg{
       transform: rotate(45deg);
+      transition: all .2s;
+    }
+  }
+}
+
+@mixin button__transparent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18.5px 35px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px var(--secondary-color) solid;
+  border-radius: 8px;
+  background-color: transparent;
+  font-family: "Roboto", sans-serif;
+
+  svg{
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover{
+    background-color: transparent;
+    color: var(--secondary-color);
+    transition: all .2s;
+    svg{
+      transform: rotate(45deg);
+      color: var(--secondary-color);
       transition: all .2s;
     }
   }
@@ -368,11 +403,11 @@ h1, h2, h3{
         align-items: center;
         .info__right__button{
           @include button;
-          &:first-child{
+          width: 53%;
+
+          &--transparent{
+            @include button__transparent;
             width: 42%;
-          }
-          &:last-child{
-            width: 53%;
           }
         }
       }
@@ -822,6 +857,11 @@ h1, h2, h3{
           .info__right__button{
             padding: 14.5px 16px;
             font-size: 12px;
+
+            svg{
+              width: 20px;
+              height: 20px;
+            }
           }
         }
       }
