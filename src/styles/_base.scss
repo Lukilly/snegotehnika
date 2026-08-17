@@ -65,7 +65,13 @@ h1, h2, h3{
   }
 
   &:hover{
-    background-color: transparent;
+    background-color: #305BC9;
+    border-color: #305BC9;
+    transition: all .2s;
+    svg{
+      transform: rotate(45deg);
+      transition: all .2s;
+    }
   }
 }
 
@@ -103,6 +109,12 @@ h1, h2, h3{
         display: block;
         position: relative;
         z-index: 1;
+        
+        .button__icon{
+          color: #fff;
+          width: 24px;
+          height: 24px;
+        }
         .cards__item__inner__mobile{
           display: none;
           position: absolute;
@@ -124,7 +136,7 @@ h1, h2, h3{
             width: 100%;
             padding: 10px 20px;
             text-transform: lowercase;
-            img{
+            svg{
               margin-left: 10px;
             }
           }
@@ -1090,7 +1102,7 @@ h1, h2, h3{
             font-size: 12px;
             width: 81.03%;
             bottom: 20px;
-            img{
+            .button__icon{
               width: 20px;
               height: 20px;
             }
@@ -1480,7 +1492,7 @@ h1, h2, h3{
               font-size: 22px;
             }
             .cards__button__mobile{
-              img{
+              svg{
                 width: 18px;
                 height: 18px;
               }
@@ -1672,10 +1684,6 @@ h1, h2, h3{
             .cards__button__mobile{
               padding: 6px 10px;
               font-size: 12px;
-              img{
-                width: 18px;
-                height: 18px;
-              }
             }
           }
           .cards__img{
