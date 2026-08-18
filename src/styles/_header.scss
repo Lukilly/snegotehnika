@@ -2,7 +2,6 @@
 @use "vars" as *;
 
 header {
-  margin-bottom: 80px;
   display: block;
   position: relative;
   z-index: 100;
@@ -260,7 +259,7 @@ header {
 
 // Catalog
 
-.catalog__toggle{
+.header__catalog__toggle{
   margin-right: 20px;
   display: flex;
   align-items: center;
@@ -321,7 +320,7 @@ header {
   }
 }
 
-.catalog__dropdown{
+.header__catalog__dropdown{
   display: none;
   position: absolute;
   top: 115%;
@@ -334,7 +333,7 @@ header {
   }
 }
 
-.catalog__sidebar{
+.header__catalog__sidebar{
   position: static;
   display:block;
   width:300px;
@@ -344,7 +343,7 @@ header {
   box-shadow: -1px 9px 23.8px #3F71FF42;
 }
 
-.catalog__content{
+.header__catalog__content{
   margin-left: 15px;
   position: static;
   display:none;
@@ -359,7 +358,7 @@ header {
   }
 }
 
-.catalog__item{
+.header__catalog__item{
   padding: 6px 10px;
   width: 100%;
   display: flex;
@@ -367,23 +366,23 @@ header {
   align-items: center;
   border-bottom: 1px #DEE9FF solid;
 
-  .catalog__icon{
+  .header__catalog__icon{
     display: flex;
   }
 
   &.active{
     background-color: #F4F7FF;
 
-    .catalog__item__btn{
+    .header__catalog__item__btn{
       background-color: #F4F7FF;
     }
 
-    .catalog__name{
+    .header__catalog__name{
       color: var(--secondary-color);
       transition: all .2s;
     }
 
-    .catalog__menu__icon{
+    .header__catalog__menu__icon{
       transition: all .2s;
       transform: rotate(-90deg);
     }
@@ -394,7 +393,7 @@ header {
   }
 }
 
-.catalog__item__btn{
+.header__catalog__item__btn{
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -403,18 +402,18 @@ header {
   background-color: #FFF;
 }
 
-.catalog__left{
+.header__catalog__left{
   display: flex;
   align-items: center;
 }
 
-.catalog__logo{
+.header__catalog__logo{
   margin-right: 15px;
   width: 28px;
   height: 28px;
 }
 
-.catalog__name{
+.header__catalog__name{
   font-size: 14px;
   font-weight: 400;
   line-height: 120%;
@@ -422,12 +421,12 @@ header {
   font-family: "Roboto", sans-serif;
 }
 
-.catalog__menu{
+.header__catalog__menu{
   margin-left: 115px;
   width: 18px;
 }
 
-.catalog__panel{
+.header__catalog__panel{
   display: none;
 
   &.active{
@@ -435,7 +434,7 @@ header {
   }
 }
 
-.catalog__content__inner{
+.header__catalog__content__inner{
   border-bottom: 1px #DEE9FF solid;
 
   &:last-child{
@@ -443,7 +442,7 @@ header {
   }
 }
 
-.catalog__option{
+.header__catalog__option{
   padding: 11.5px 10px;
   margin-bottom: 0px;
   display: flex;
@@ -451,17 +450,17 @@ header {
 
   &:hover{
 
-    .catalog__circle{
+    .header__catalog__circle{
       background-color: var(--secondary-color);
     }
 
-    .catalog__text{
+    .header__catalog__text{
       color: var(--secondary-color);
     }
   }
 }
 
-.catalog__circle{
+.header__catalog__circle{
   margin-right: 15px;
   width: 10px;
   height: 10px;
@@ -469,7 +468,7 @@ header {
   border-radius: 50%;
 }
 
-.catalog__text{
+.header__catalog__text{
   font-size: 14px;
   font-weight: 400;
   font-family: "Roboto", sans-serif;
@@ -624,9 +623,6 @@ header {
 }
 
 @media (max-width: $tablets) {
-  header{
-    margin-bottom: 60px;
-  }
   .header-top{
     margin-bottom: 10px;
   }
@@ -642,16 +638,16 @@ header {
   .header__menu, .header__menu__btn{
     display: block;
   }
-  .catalog__toggle{
+  .header__catalog__toggle{
     margin-right: 12px;
   }
-  .catalog__dropdown, .catalog__sidebar, .header__menu__sidebar{
+  .header__catalog__dropdown, .header__catalog__sidebar, .header__menu__sidebar{
     width: 100%;
   }
-  .catalog__dropdown{
+  .header__catalog__dropdown{
     top: 140%;
   }
-  .catalog__content__inner{
+  .header__catalog__content__inner{
     &:last-child{
       border-bottom: 1px #DEE9FF solid;
     }
@@ -659,7 +655,7 @@ header {
   .header__menu__sidebar{
     top: 100px;
   }
-  .catalog__content{
+  .header__catalog__content{
     &.active{
       display: none;
     }
@@ -699,25 +695,19 @@ header {
 }
 
 @media (max-width: $small-tablets){
-  header{
-    margin-bottom: 50px;
-  }
   .header-top__inner{
     padding: 20px 0;
   }
 }
 
 @media (max-width: $big-phones){
-  header{
-    margin-bottom: 40px;
-  }
   .header__menu__sidebar{
     top: 80px;
   }
   .header-top__inner{
     padding: 10px 0;
   }
-  .catalog__toggle{
+  .header__catalog__toggle{
     width: auto;
     font-size: 12px;
     padding: 12.5px 20px;
@@ -728,9 +718,6 @@ header {
 }
 
 @media (max-width: $phones){
-  header{
-    margin-bottom: 30px;
-  }
   .header__menu__btn{
     padding: 6.5px 10px;
 
@@ -746,7 +733,7 @@ header {
   }
   .header-bottom{
     &:has(.header__search:focus-within) {
-      .catalog__toggle {
+      .header__catalog__toggle {
         width: auto;
         p{
           display: none;
@@ -764,7 +751,7 @@ header {
       }
     }
   }
-  .catalog__toggle{
+  .header__catalog__toggle{
     width: 100%;
     justify-content: space-between;
   }

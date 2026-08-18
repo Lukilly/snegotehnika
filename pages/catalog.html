@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  {{> meta }}
+</head>
+
+<body>
+  <!-- Sprite -->
+  <svg style="display: none;">
+
+    <symbol viewBox="0 0 32 32" id="accordion__plus"><path d="M16.0013 2.66699C8.6373 2.66699 2.66797 8.63633 2.66797 16.0003C2.66797 23.3643 8.6373 29.3337 16.0013 29.3337C23.3653 29.3337 29.3346 23.3643 29.3346 16.0003C29.3346 8.63633 23.3653 2.66699 16.0013 2.66699ZM21.3346 17.3337H17.3346V21.3337C17.3346 22.0697 16.7373 22.667 16.0013 22.667C15.2653 22.667 14.668 22.0697 14.668 21.3337V17.3337H10.668C9.93197 17.3337 9.33464 16.7363 9.33464 16.0003C9.33464 15.2643 9.93197 14.667 10.668 14.667H14.668V10.667C14.668 9.93099 15.2653 9.33366 16.0013 9.33366C16.7373 9.33366 17.3346 9.93099 17.3346 10.667V14.667H21.3346C22.0706 14.667 22.668 15.2643 22.668 16.0003C22.668 16.7363 22.0706 17.3337 21.3346 17.3337Z" fill="currentColor"/></symbol>
+    <symbol viewBox="0 0 24 24" fill="none" id="buttonArrow"><path d="M6 6V8H14.59L5 17.59L6.41 19L16 9.41V18H18V6H6Z" fill="currentColor"/></symbol>
+
+  </svg>
+
+
+  <div class="dart_wrapper">
+    {{> header}}
+    <div class="dart_main">
+
+    <div class="dart-container">
+      <nav class="breadcrumbs">
+        <a href="/index.html">Главная</a>
+        <span>●</span>
+        <a href="/pages/catalog.html">Каталог</a>
+        <span>●</span>
+        <a class="current" href="/pages/catalog.html">Снегоходы 4T Лифан и 2Т</a>
+      </nav>
+    </div>
+
+    <div class="catalog">
+      <div class="dart-container">
+        <div class="catalog__top">
+          <h1 class="catalog__title">СНЕГОХОДЫ <b>4Т ЛИФАН И 2Т</b></h1>
+          <button class="catalog__pay__qr">
+            Оплата по qr коду
+            <img src="/img/icons/QR.svg" alt="">
+          </button>
+        </div>
+        <div class="catalog__info">
+          <div class="catalog__info__item">
+            <div class="catalog__info__item__inner">
+              <div class="catalog__info__item__left">
+                <img src="/img/icons/logo_no_text.svg" alt="">
+              </div>
+              <div class="catalog__info__item__right">
+                <h3>Мы производители</h3>
+                <p>Производство и поставка c завода г. Рыбинск.</p>
+              </div>
+            </div>
+          </div>
+          <div class="catalog__info__item">
+            <div class="catalog__info__item__inner">
+              <div class="catalog__info__item__left">
+                <img src="/img/icons/hot-price.svg" alt="">
+              </div>
+              <div class="catalog__info__item__right">
+                <h3>Спец Тариф </h3>
+                <p>Специальные предложения на доставку в ТК</p>
+              </div>
+            </div>
+          </div>
+          <div class="catalog__info__item">
+            <div class="catalog__info__item__inner">
+              <div class="catalog__info__item__left">
+                <img src="/img/icons/ShieldCheck.svg" alt="">
+              </div>
+              <div class="catalog__info__item__right">
+                <h3>Гарантия - 1 год</h3>
+                <p>Заводская гарантия 12 месяцев</p>
+              </div>
+            </div>
+          </div>
+          <div class="catalog__info__item">
+            <div class="catalog__info__item__inner">
+              <div class="catalog__info__item__left">
+                <img src="/img/icons/ShieldCheck.svg" alt="">
+              </div>
+              <div class="catalog__info__item__right">
+                <h3>еще преимущество</h3>
+                <p>Заводская гарантия 12 месяцев</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="catalog__sort">
+          <span class="catalog__sort__label">сортировка:</span>
+          <div class="catalog__sort__select">
+            <a class="catalog__sort__select__link active" href="/">по наименованию</a>
+            <a class="catalog__sort__select__link" href="/">дешевле</a>
+            <a class="catalog__sort__select__link" href="/">дороже</a>
+            <a class="catalog__sort__select__link" href="/">новинки</a>
+            <a class="catalog__sort__select__link" href="/">по цене</a>
+            <a class="catalog__sort__select__link" href="/">акции</a>
+          </div>
+        </div>
+        <div class="catalog__container">
+          <div class="catalog__item">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    </div>
+    {{> footer}}
+  </div>
+  {{> scripts}}
+</body>
+</html>

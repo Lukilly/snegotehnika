@@ -23,7 +23,7 @@ sideNavigationBtn.addEventListener('click', () => {
 // Cart
 let cartCount = 0;
 const cartCountElement = document.querySelector('.cart-count')
-const addToCartButton = document.querySelector('.catalog__toggle')
+const addToCartButton = document.querySelector('.header__catalog__toggle')
 addToCartButton.addEventListener('click', () => {
   cartCount++;
   cartCountElement.textContent = cartCount
@@ -76,12 +76,12 @@ document.addEventListener('click', (e) => {
 
 
 // Catalog
-const CatalogBurger = document.querySelector('.catalog__toggle');
-const CatalogInner = document.querySelector('.catalog__dropdown')
-const CatalogMoreBtns = document.querySelectorAll('.catalog__item__btn');
-const CatalogMore = document.querySelector('.catalog__content');
-const items = document.querySelectorAll('.catalog__item');
-const panels = document.querySelectorAll('.catalog__panel');
+const CatalogBurger = document.querySelector('.header__catalog__toggle');
+const CatalogInner = document.querySelector('.header__catalog__dropdown')
+const CatalogMoreBtns = document.querySelectorAll('.header__catalog__item__btn');
+const CatalogMore = document.querySelector('.header__catalog__content');
+const items = document.querySelectorAll('.header__catalog__item');
+const panels = document.querySelectorAll('.header__catalog__panel');
 // Открытие каталога
 CatalogBurger.addEventListener('click', () => {
   CatalogBurger.classList.toggle('active');
