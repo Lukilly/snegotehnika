@@ -894,6 +894,7 @@ h1, h2, h3{
     }
   }
   .catalog__container{
+    margin-bottom: 40px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr 1fr;
@@ -1124,11 +1125,24 @@ h1, h2, h3{
       }
     }
   }
-  .catalog__more__button{
-    @include button;
-    background-color: transparent;
-    width: auto;
-    
+  .catalog__more{
+    display: flex;
+    justify-content: center;
+    .catalog__more__link{
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      svg{
+        margin-left: 15px;
+        width: 24px;
+        height: 24px;
+        color: var(--secondary-color);
+        transform: rotate(45deg);
+      }
+    }
   }
 }
 
