@@ -659,7 +659,14 @@ header {
   }
   .header__catalog__dropdown, .header__catalog__sidebar, .header__menu__sidebar{
     width: 100%;
-    height: 100vh;
+  }
+  .header__catalog__dropdown, .header__catalog__sidebar{
+    height: calc(100vh - 160px);
+    overflow-y: auto;
+  }
+  .header__menu__sidebar{
+    height: calc(100vh - 100px);
+    overflow-y: auto;
   }
   .header__catalog__dropdown{
     top: 140%;

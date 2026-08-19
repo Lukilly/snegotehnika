@@ -54,7 +54,7 @@ const MenuSidebar = document.querySelector('.header__menu__sidebar')
 
 MenuBtn.addEventListener('click', (e) => {
   e.stopPropagation();
-
+  document.body.style.overflow = 'hidden';
   MenuBtn.classList.toggle('active');
   MenuSidebar.classList.toggle('active');
 
@@ -68,6 +68,7 @@ document.addEventListener('click', (e) => {
     !MenuBtn.contains(e.target) &&
     !MenuSidebar.contains(e.target)
   ) {
+    document.body.style.overflow = '';
     MenuBtn.classList.remove('active');
     MenuSidebar.classList.remove('active');
   }
@@ -96,6 +97,7 @@ document.addEventListener("click", (e) =>{
     !CatalogBurger.contains(e.target) &&
     !CatalogInner.contains(e.target)
   ) {
+    document.body.style.overflow = '';
     CatalogBurger.classList.remove('active');
     CatalogInner.classList.remove('active');
     CatalogMoreBtns.forEach(btn => {
@@ -105,32 +107,33 @@ document.addEventListener("click", (e) =>{
 });
 
 function openMobile(item) {
-const id = item.dataset.category;
-const panel = document.getElementById(id);
-if (item.classList.contains("active")) {
-    item.classList.remove("active");
-    panel.classList.remove("active");
-    CatalogMore.append(panel);
-    items.forEach(el => {
-        el.classList.remove("hidden");
-    });
-    return;
-}
-items.forEach(el => {
-    el.classList.remove("active");
-    el.classList.remove("hidden");
-});
-panels.forEach(el => {
-    el.classList.remove("active");
-});
-item.classList.add("active");
-panel.classList.add("active");
-item.after(panel);
-items.forEach(el => {
-    if (el !== item) {
-        el.classList.add("hidden");
-    }
-});
+  document.body.style.overflow = 'hidden';
+  const id = item.dataset.category;
+  const panel = document.getElementById(id);
+  if (item.classList.contains("active")) {
+      item.classList.remove("active");
+      panel.classList.remove("active");
+      CatalogMore.append(panel);
+      items.forEach(el => {
+          el.classList.remove("hidden");
+      });
+      return;
+  }
+  items.forEach(el => {
+      el.classList.remove("active");
+      el.classList.remove("hidden");
+  });
+  panels.forEach(el => {
+      el.classList.remove("active");
+  });
+  item.classList.add("active");
+  panel.classList.add("active");
+  item.after(panel);
+  items.forEach(el => {
+      if (el !== item) {
+          el.classList.add("hidden");
+      }
+  });
 
 }
 
