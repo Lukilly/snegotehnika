@@ -48,19 +48,40 @@ window.addEventListener('resize', updateSearchPlaceholder);
 
 
 
+// Scroll lock
+const lockBodyScroll = () => {
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
+};
+
+const unlockBodyScroll = () => {
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+};
+
+const syncScrollLock = () => {
+  if (
+    MenuSidebar.classList.contains('active') ||
+    CatalogInner.classList.contains('active')
+  ) {
+    lockBodyScroll();
+  } else {
+    unlockBodyScroll();
+  }
+};
+
 // Menu
 const MenuBtn = document.querySelector('.header__menu__btn')
 const MenuSidebar = document.querySelector('.header__menu__sidebar')
 
 MenuBtn.addEventListener('click', (e) => {
   e.stopPropagation();
-  document.body.style.overflow = 'hidden';
   MenuBtn.classList.toggle('active');
   MenuSidebar.classList.toggle('active');
 
   CatalogBurger.classList.remove('active');
   CatalogInner.classList.remove('active');
-
+  syncScrollLock();
 });
 
 document.addEventListener('click', (e) => {
@@ -68,9 +89,9 @@ document.addEventListener('click', (e) => {
     !MenuBtn.contains(e.target) &&
     !MenuSidebar.contains(e.target)
   ) {
-    document.body.style.overflow = '';
     MenuBtn.classList.remove('active');
     MenuSidebar.classList.remove('active');
+    syncScrollLock();
   }
 });
 
@@ -79,7 +100,6 @@ document.addEventListener('click', (e) => {
 // Catalog
 const CatalogBurger = document.querySelector('.header__catalog__toggle');
 const CatalogInner = document.querySelector('.header__catalog__dropdown')
-const CatalogMoreBtns = document.querySelectorAll('.header__catalog__item__btn');
 const CatalogMore = document.querySelector('.header__catalog__content');
 const items = document.querySelectorAll('.header__catalog__item');
 const panels = document.querySelectorAll('.header__catalog__panel');
@@ -90,6 +110,7 @@ CatalogBurger.addEventListener('click', () => {
 
   MenuBtn.classList.remove('active');
   MenuSidebar.classList.remove('active');
+  syncScrollLock();
 });
 // Закрытие каталога при нажатии вне каталога
 document.addEventListener("click", (e) =>{
@@ -97,17 +118,14 @@ document.addEventListener("click", (e) =>{
     !CatalogBurger.contains(e.target) &&
     !CatalogInner.contains(e.target)
   ) {
-    document.body.style.overflow = '';
     CatalogBurger.classList.remove('active');
     CatalogInner.classList.remove('active');
-    CatalogMoreBtns.forEach(btn => {
-      btn.classList.remove('active');
-    });
+    syncScrollLock();
   }
 });
 
 function openMobile(item) {
-  document.body.style.overflow = 'hidden';
+  syncScrollLock();
   const id = item.dataset.category;
   const panel = document.getElementById(id);
   if (item.classList.contains("active")) {

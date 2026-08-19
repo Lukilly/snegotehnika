@@ -36,6 +36,15 @@ footer {
     border-radius: 8px;
     width: 60px;
     height: 60px;
+    span{
+      font-size: 24px;
+    }
+    &:hover{
+      background-color: var(--primary-color);
+      .icon-arrow-top:before{
+        color: var(--secondary-color);
+      }
+    }
   }
 
   .contacts {
@@ -151,12 +160,20 @@ footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
 
-    a, img {
-      width: 34px;
-      height: 34px;
-      text-decoration: none;
+      a, img{
+        width: 34px;
+        height: 34px;
+        text-decoration: none;
+        span{
+          font-size: 34px;
+        }
+        &:hover{
+          .icon-rutube .path1:before, .icon-tiktok::before, .icon-vk::before, .icon-youtube::before{
+            color: #E2EAF9;
+          }
+        }
+      }
     }
 
     a {
@@ -460,8 +477,8 @@ footer {
       width: 35px;
       height: 35px;
 
-      img {
-        width: 12px;
+      span{
+        font-size: 12px;
       }
     }
 
