@@ -660,26 +660,24 @@ header {
   .header__catalog__dropdown, .header__catalog__sidebar, .header__menu__sidebar{
     width: 100%;
   }
-  .header__catalog__dropdown, .header__catalog__sidebar{
-    max-height: calc(100vh - 160px);
-    max-height: calc(100dvh - 160px);
+  .header__catalog__sidebar{
+    height: calc(100vh - 160px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
   .header__catalog__list{
-    flex: 0 0 auto;
+    flex: 1;
   }
   .header__catalog__item{
-    flex: 0 0 auto;
+    flex: 1;
   }
   .header__menu__sidebar{
-    max-height: calc(100vh - 100px);
-    max-height: calc(100dvh - 100px);
+    height: calc(100vh - 100px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
     li{
-      flex: 0 0 auto;
+      flex: 1;
     }
   }
   .header__catalog__dropdown{
@@ -741,8 +739,7 @@ header {
 @media (max-width: $big-phones){
   .header__menu__sidebar{
     top: 80px;
-    max-height: calc(100vh - 80px);
-    max-height: calc(100dvh - 80px);
+    height: calc(100vh - 80px);
   }
   .header-top__inner{
     padding: 10px 0;
@@ -767,8 +764,7 @@ header {
   }
   .header__menu__sidebar{
     top: 60px;
-    max-height: calc(100vh - 60px);
-    max-height: calc(100dvh - 60px);
+    height: calc(100vh - 60px);
   }
   .header__logo{
     max-width: 126px;
