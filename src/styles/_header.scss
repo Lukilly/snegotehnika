@@ -675,6 +675,14 @@ header {
   }
   .header__catalog__item{
     flex: 1;
+    .header__catalog__menu__icon{
+      transform: rotate(180deg);
+    }
+    &.active{
+      .header__catalog__menu__icon{
+        transform: rotate(0deg);
+      }
+    }
   }
   .header__menu__sidebar{
     height: calc(100vh - 100px);
