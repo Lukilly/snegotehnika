@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, Scrollbar } from 'swiper/modules';
 
 import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
@@ -195,31 +195,51 @@ const swiper = new Swiper('.swiper', {
   },
 });
 
+// slider card
+const sliderCards = document.querySelectorAll(".swiper__catalog");
+if (sliderCards.length > 0) {
+  const dartContainerRef = document.querySelector(".dart_footer .dart-container");
+  const getSliderOffset = () => {
+    if (!dartContainerRef) return 0;
+    const rect = dartContainerRef.getBoundingClientRect();
+    const paddingLeft = parseFloat(getComputedStyle(dartContainerRef).paddingLeft) || 0;
+    return rect.left + paddingLeft;
+  };
 
-// Video
-const videoBlocks = document.querySelectorAll('.video__container');
+  sliderCards.forEach((sliderCard) => {
+    const applySliderOffset = (swiperCard) => {
+      const offset = getSliderOffset();
+      sliderCard.style.setProperty("--slides-offset", `${offset}px`);
+      if (!swiperCard) return;
+      swiperCard.params.slidesOffsetBefore = offset;
+      swiperCard.update();
+    };
 
-videoBlocks.forEach((block) => {
-  const video = block.querySelector('.video__item');
-  const playButton = block.querySelector('.video__play');
+    applySliderOffset();
 
-  playButton.addEventListener('click', (event) => {
-    event.stopPropagation();
+    const swiperCard = new Swiper(sliderCard, {
+      slidesOffsetBefore: getSliderOffset(),
+      overflow: 'hidden',
+      modules: [Scrollbar],
+      scrollbar: {
+        el: sliderCard.parentElement.querySelector(".swiper__catalog-scrollbar"),
+        draggable: true,
+        hide: false,
+      },
+      breakpoints: {
+        1800: { slidesPerView: 'auto', spaceBetween: 20, allowTouchMove: false },
+        1200: { slidesPerView: 'auto', spaceBetween: 18, allowTouchMove: true },
+        992: { scrollbar: false },
+        991: { slidesPerView: 'auto', spaceBetween: 14 },
+        768: { slidesPerView: 'auto', spaceBetween: 12 },
+        400: { slidesPerView: 'auto', spaceBetween: 10 },
+      },
+    });
 
-    video.play();
-    playButton.style.opacity = '0';
+    window.addEventListener("resize", () => applySliderOffset(swiperCard));
   });
+}
 
-  video.addEventListener('click', () => {
-    if (video.paused) {
-      video.play();
-      playButton.style.opacity = '0';
-    } else {
-      video.pause();
-      playButton.style.opacity = '1';
-    }
-  });
-});
 
 // Accordion
 const accordionItems = document.querySelectorAll('.accordion__item');
