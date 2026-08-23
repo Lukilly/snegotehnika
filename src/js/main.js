@@ -183,29 +183,43 @@ items.forEach(item => {
 })
 
 // Offers__swiper
-const swiper = new Swiper('.swiper', {
-  direction: 'horizontal',
-  spaceBetween: 22,
-  loop: true,
-  slidesPerView: 'auto',
-  modules:[Navigation],
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
+const dartContainerRef =
+  document.querySelector(".dart_footer .dart-container") ||
+  document.querySelector(".dart-container");
+
+const getSliderOffset = () => {
+  if (!dartContainerRef) return 0;
+  const rect = dartContainerRef.getBoundingClientRect();
+  const paddingLeft = parseFloat(getComputedStyle(dartContainerRef).paddingLeft) || 0;
+  return rect.left + paddingLeft;
+};
+
+const swiperEl = document.querySelector('.swiper');
+if (swiperEl) {
+  const applySwiperOffset = () => {
+    swiperEl.style.setProperty("--slides-offset", `${getSliderOffset()}px`);
+  };
+
+  applySwiperOffset();
+
+  const swiper = new Swiper(swiperEl, {
+    direction: 'horizontal',
+    spaceBetween: 22,
+    loop: true,
+    slidesPerView: 'auto',
+    modules:[Navigation],
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
+  window.addEventListener("resize", applySwiperOffset);
+}
 
 // slider card
 const sliderCards = document.querySelectorAll(".swiper__catalog");
 if (sliderCards.length > 0) {
-  const dartContainerRef = document.querySelector(".dart_footer .dart-container");
-  const getSliderOffset = () => {
-    if (!dartContainerRef) return 0;
-    const rect = dartContainerRef.getBoundingClientRect();
-    const paddingLeft = parseFloat(getComputedStyle(dartContainerRef).paddingLeft) || 0;
-    return rect.left + paddingLeft;
-  };
-
   sliderCards.forEach((sliderCard) => {
     const applySliderOffset = (swiperCard) => {
       const offset = getSliderOffset();
@@ -240,6 +254,31 @@ if (sliderCards.length > 0) {
   });
 }
 
+
+// Video
+const videoBlocks = document.querySelectorAll('.video__container');
+
+videoBlocks.forEach((block) => {
+  const video = block.querySelector('.video__item');
+  const playButton = block.querySelector('.video__play');
+
+  playButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+
+    video.play();
+    playButton.style.opacity = '0';
+  });
+
+  video.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      playButton.style.opacity = '0';
+    } else {
+      video.pause();
+      playButton.style.opacity = '1';
+    }
+  });
+});
 
 // Accordion
 const accordionItems = document.querySelectorAll('.accordion__item');

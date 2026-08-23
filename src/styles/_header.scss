@@ -195,7 +195,6 @@ header {
   li{
     width: 100%;
     display: flex;
-    flex: 1;
     border-bottom: 1px #DEE9FF solid;
 
     &:nth-child(6), &:nth-child(7), &:nth-child(8){
@@ -688,10 +687,6 @@ header {
     height: calc(100vh - 100px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-
-    li{
-      flex: 1;
-    }
   }
   .header__catalog__dropdown{
     top: 140%;

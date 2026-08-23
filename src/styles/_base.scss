@@ -169,7 +169,8 @@ h1, h2, h3{
           }
           .cards__button__mobile{
             @include button;
-            width: 100%;
+            width: 240px;
+            font-size: 18px;
             padding: 10px 20px;
             text-transform: lowercase;
             svg{
@@ -195,6 +196,7 @@ h1, h2, h3{
         }
         .cards__button{
           @include button;
+          font-size: 20px;
           font-family: "Oswald", sans-serif;
           width: 81.03%;
           position: absolute;
@@ -243,55 +245,56 @@ h1, h2, h3{
         }
       }
     }
-    .offers__swiper{
-      width: calc(50vw + 760px);
-      .swiper{
-        .swiper-wrapper{
-          .swiper-slide{
-            width: 358px;
-            .offers__item{
+  }
+  .offers__swiper{
+    .swiper{
+      --slides-offset: 0px;
+      margin-left: var(--slides-offset);
+      .swiper-wrapper{
+        .swiper-slide{
+          width: 358px;
+          .offers__item{
+            display: block;
+            justify-content: space-between;
+            padding: 30px;
+            background-color: #fff;
+            border: 2px #fff solid;
+            border-radius: 15px;
+            .offers__item__top{
+              margin-bottom: 30px;
               display: block;
-              justify-content: space-between;
-              padding: 30px;
-              background-color: #fff;
-              border: 2px #fff solid;
-              border-radius: 15px;
-              .offers__item__top{
-                margin-bottom: 30px;
-                display: block;
-                .offers__item__title{
-                  font-size: 18px;
-                  font-weight: 500;
-                  color: var(--secondary-color);
-                }
+              .offers__item__title{
+                font-size: 18px;
+                font-weight: 500;
+                color: var(--secondary-color);
               }
-              .offers__item__bottom{
-                display: flex;
-                justify-content: space-between;
-                .offers__item__text{
-                  font-size: 18px;
-                  font-weight: 400;
-                  color: var(--primary-color);
-                }
-                .offers__item__link{
-                  align-self: flex-end;
-                  flex-shrink: 0;
+            }
+            .offers__item__bottom{
+              display: flex;
+              justify-content: space-between;
+              .offers__item__text{
+                font-size: 18px;
+                font-weight: 400;
+                color: var(--primary-color);
+              }
+              .offers__item__link{
+                align-self: flex-end;
+                flex-shrink: 0;
+                display: block;
+                width: 24px;
+                height: 24px;
+                .offers__item__icon{
                   display: block;
                   width: 24px;
                   height: 24px;
-                  .offers__item__icon{
-                    display: block;
-                    width: 24px;
-                    height: 24px;
-                    color: var(--secondary-color);
-                  }
+                  color: var(--secondary-color);
                 }
               }
-              &:hover{
-                border: 2px #F93131 dashed;
-                .offers__item__icon rect{
-                  color: #F93131;
-                }
+            }
+            &:hover{
+              border: 2px #F93131 dashed;
+              .offers__item__icon rect{
+                color: #F93131;
               }
             }
           }
@@ -300,6 +303,7 @@ h1, h2, h3{
     }
   }
 }
+
 
 // Info 
 .info{
@@ -1297,6 +1301,7 @@ h1, h2, h3{
       .cards__container{
         .cards__item{
           .cards__button{
+            font-size: 18px;
             padding: 12.5px 26px;
             width: 81.03%;
             bottom: 26px;
@@ -1466,6 +1471,7 @@ h1, h2, h3{
       .cards__container{
         .cards__item{
           .cards__button{
+            font-size: 16px;
             padding: 10.5px 22px;
             width: 81.03%;
             bottom: 20px;
@@ -1693,8 +1699,8 @@ h1, h2, h3{
             border-radius: 10px;
           }
           .cards__button{
+            font-size: 14px;
             padding: 8.5px 16px;
-            font-size: 12px;
             width: 81.03%;
             bottom: 20px;
             .button__icon{
@@ -1716,11 +1722,12 @@ h1, h2, h3{
           display: none;
         }
       }
-      .offers__swiper{
-        .swiper{
-          .swiper-wrapper{
-            .swiper-slide{
-              width: 305px;
+    }
+    .offers__swiper{
+      .swiper{
+        .swiper-wrapper{
+          .swiper-slide{
+            width: 305px;
             .offers__item{
               padding: 30px 28px;
               background-color: #E2EAF9;
@@ -1737,7 +1744,6 @@ h1, h2, h3{
                   height: 22px;
                 }
               }
-            }
             }
           }
         }
@@ -1911,7 +1917,7 @@ h1, h2, h3{
       }
       .cards__container{
         grid-template-columns: 1fr;
-        gap: 90px;
+        gap: 80px;
         .cards__item{
           .cards__item__inner__mobile{
             display: block;
@@ -1920,7 +1926,6 @@ h1, h2, h3{
             left: auto;
             right: 0;
             max-width: 300px;
-            bottom: 5px;
           }
           .cards__background{
             display: none;
@@ -2126,6 +2131,8 @@ h1, h2, h3{
               font-size: 22px;
             }
             .cards__button__mobile{
+              font-size: 14px;
+              width: 160px;
               svg{
                 width: 18px;
                 height: 18px;
@@ -2133,10 +2140,7 @@ h1, h2, h3{
             }
           }
           .cards__img{
-            left: auto;
-            right: 0;
             max-width: 220px;
-            bottom: 5px;
           }
           .cards__background__mobile{
             border-radius: 20px;
@@ -2309,7 +2313,7 @@ h1, h2, h3{
         }
       }
       .cards__container{
-        gap: 40px;
+        gap: 32px;
         .cards__item{
           .cards__item__inner__mobile{
             .cards__item__name{
@@ -2318,14 +2322,11 @@ h1, h2, h3{
             }
             .cards__button__mobile{
               padding: 6px 10px;
-              font-size: 12px;
+              width: 120px;
             }
           }
           .cards__img{
-            left: auto;
-            right: 0;
             max-width: 140px;
-            bottom: 5px;
           }
           .cards__background__mobile{
             border-radius: 10px;
@@ -2498,7 +2499,7 @@ h1, h2, h3{
         .accordion__button{
           padding: 10px 16px;
           span{
-            font-size: 12px;
+            font-size: 14px;
           }
           .accordion__icon{
             width: 22px;
@@ -2508,7 +2509,7 @@ h1, h2, h3{
         .accordion__content{
           padding: 22px 16px;
           p{
-            font-size: 10px;
+            font-size: 12px;
           }
         }
       }
