@@ -19,18 +19,20 @@
     {{> header}}
     <div class="dart_main">
 
-    <div class="dart-container">
-      <nav class="breadcrumbs">
-        <a href="/index.html">Главная</a>
-        <span>●</span>
-        <a href="/pages/catalog.html">Каталог</a>
-        <span>●</span>
-        <a class="current" href="/pages/catalog.html">Снегоходы 4T Лифан и 2Т</a>
-      </nav>
-    </div>
-
+<!-- Catalog -->
     <div class="catalog">
       <div class="dart-container">
+        <ul class="breadcrumbs">
+          <li>
+            <a href="/index.html">Главная</a>
+          </li>
+          <li>
+            <a href="/pages/catalog.html">Каталог</a>
+          </li>
+          <li>
+            <span>Снегоходы 4T Лифан и 2Т</span>
+          </li>
+        </ul>
         <div class="catalog__top">
           <h1 class="catalog__title">СНЕГОХОДЫ <b>4Т ЛИФАН И 2Т</b></h1>
           <button class="catalog__pay__qr">
@@ -146,8 +148,11 @@
             <div class="catalog__item__inner">
               <div class="catalog__item__header">
                 <div class="catalog__item__header__top">
-                  <span class="catalog__item__stock catalog__item__stock--in-stock">В наличии: 3 шт.</span>
-                  <span class="catalog__item__stock">Акция</span>
+                  <span class="catalog__item__parameter">В наличии: 3 шт.</span>
+                  <div class="catalog__item__container__parameter">
+                    <span class="catalog__item__parameter catalog__item__parameter--stock">Акция</span>
+                    <span class="catalog__item__parameter catalog__item__parameter--new">Новинка</span>
+                  </div>
                 </div>
                 <h4 class="catalog__item__name">Снегоход 4Т с двигателем Лончин</h4>
               </div>
@@ -177,7 +182,7 @@
                 <span>от <b>300 000₽</b></span>
                 <div class="catalog__item__footer__buttons">
                   <a href="#" class="catalog__item__footer__calculation">
-                    рассчитать стоимость
+                    <p>рассчитать стоимость</p>
                     <span class="icon-calculyator"></span>
                   </a>
                   <a href="#" class="catalog__item__footer__link">
@@ -198,8 +203,10 @@
             <div class="catalog__item__inner">
               <div class="catalog__item__header">
                 <div class="catalog__item__header__top">
-                  <span class="catalog__item__stock catalog__item__stock--in-stock">В наличии: 3 шт.</span>
-                  <span class="catalog__item__stock catalog__item__stock--new">Новинка</span>
+                  <span class="catalog__item__parameter">В наличии: 3 шт.</span>
+                  <div class="catalog__item__container__parameter">
+                    <span class="catalog__item__parameter catalog__item__parameter--stock">Акция</span>
+                  </div>
                 </div>
                 <h4 class="catalog__item__name">Снегоход 4Т с двигателем Лончин</h4>
               </div>
@@ -268,6 +275,10 @@
                     <div>нажимая на кнопку, я соглашаюсь с <a href="#">политикой о конфиденциальности</a></div>
                 </label>
               </div>
+              <div class="catalog__advertisement__buttons catalog__advertisement__buttons--mobile">
+                <a href="#">Подобрать снегоход</a>
+              </div>
+              <img src="/img/catalog/catalog__advertisement.png" alt="" class="catalog__advertisement__image">
             </div>
           </div>
 

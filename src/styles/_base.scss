@@ -780,28 +780,37 @@ h1, h2, h3{
 
 
 // Page Catalog
-.breadcrumbs{
-  margin-bottom: 80px;
-  margin-top: 36px;
-  padding: 9.5px 22px;
-  display: inline-block;
-  background-color: #fff;
-  border-radius: 6px;
-  a{
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--primary-color);
-  }
-  span{
-    margin: 0px 10px;
-    color: var(--primary-color);
-  }
-  .current{
-    color: var(--secondary-color);
-  }
-}
 
 .catalog{
+  .breadcrumbs{
+    margin-bottom: 80px;
+    margin-top: 36px;
+    padding: 9.5px 22px;
+    display: inline-flex;
+    background-color: #fff;
+    border-radius: 6px;
+    li{
+      display: flex;
+      align-items: center;
+      a,span{
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--primary-color);
+      }
+      span{
+        color: var(--secondary-color);
+      }
+      & + li::before {
+        content: "";
+        margin: 0 10px;
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+      }
+    }
+  }
   .catalog__top{
     margin-bottom: 60px;
     display: flex;
@@ -962,12 +971,13 @@ h1, h2, h3{
     margin-bottom: 40px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
     gap: 30px;
     .catalog__item{
       background-color: #fff;
       border-radius: 10px;
       box-shadow: 5px 6px 10px #0000000D;
+      display: flex;
+      flex-direction: column;
       .catalog__item__img{
         img{
           display: block;
@@ -975,31 +985,53 @@ h1, h2, h3{
       }
       .catalog__item__inner{
         padding: 26px 26px 32px 26px;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
         .catalog__item__header{
           border-bottom: 2px #E2EAF9 solid;
           padding-bottom: 30px;
           margin-bottom: 30px;
           .catalog__item__header__top{
             margin-bottom: 30px;
-            .catalog__item__stock{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            .catalog__item__parameter{
               border-radius: 6px;
               padding: 6px 15px;
-              background-color: #F93131;
+              background-color: #E2EAF9;
+              color: var(--primary-color);
               font-size: 14px;
               font-weight: 400;
-              color: #fff;
-              &--in-stock{
-                background-color: #E2EAF9;
-                color: var(--primary-color);
+              &--stock{
+                background-color: #F93131;
+                color: #fff;
               }
               &--new{
                 background-color: var(--primary-color);
+                color: #fff;
               }
-              & + span{
-                margin-left: 10px;
+            }
+            .catalog__item__container__parameter{
+              display: contents;
+            }
+            &:has(.catalog__item__parameter--stock):has(.catalog__item__parameter--new){
+              gap: 12px;
+              > .catalog__item__parameter{
+                flex-basis: 100%;
+                text-align: center;
+              }
+              .catalog__item__parameter--stock,
+              .catalog__item__parameter--new{
+                flex-basis: calc(50% - 6px);
+                flex-grow: 1;
+                text-align: center;
               }
             }
           }
+
           .catalog__item__name{
             font-size: 20px;
             font-weight: 400;
@@ -1040,6 +1072,7 @@ h1, h2, h3{
           }
         }
         .catalog__item__footer{
+          margin-top: auto;
           span{
             font-size: 14px;
             font-weight: 400;
@@ -1057,8 +1090,16 @@ h1, h2, h3{
             align-items: center;
             .catalog__item__footer__calculation{
               @include button;
-              font-size: 12px;
               padding: 13px 20px;
+              p{
+                font-size: 0px;
+                &:after{
+                  content: "рассчитать стоимость";
+                  font-size: 14px;
+                  color: #fff;
+                  font-weight: 500;
+                }
+              }
               span{
                 margin-left: 20px;
                 font-size: 18px;
@@ -1091,6 +1132,9 @@ h1, h2, h3{
       &--advertisement{
         padding: 0px 28px;
         display: flex;
+        position: relative;
+        overflow: hidden;
+        flex-direction: row;
         align-items: center;
         background-image: url(/img/catalog/advertisement.png);
         background-size: cover;
@@ -1185,6 +1229,29 @@ h1, h2, h3{
                 transform: translate(-50%, -50%);
               }
             }
+            &--mobile{
+              display: none;
+              a{
+                @include button;
+                text-transform: none;
+                padding: 12.5px 20px;
+                align-items: center;
+                justify-content: center;
+                background-color: #F93131;
+                &:hover{
+                  background-color: rgb(189, 5, 5);
+                  transition: all .2s;
+                }
+              }
+            }
+          }
+          .catalog__advertisement__image{
+            display: none;
+            position: absolute;
+            width: 180px;
+            bottom: -20px;
+            right: -20px;
+            z-index: 50;
           }
         }
       }
@@ -1442,6 +1509,9 @@ h1, h2, h3{
         font-size: 46px;
       }
     }
+    .catalog__container{
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
 
@@ -1631,13 +1701,13 @@ h1, h2, h3{
     }
     .catalog__container{
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
       .catalog__item{
-        max-width: 265px;
+        width: 265px;
         &--desktop{
           display: none;
         }
         .catalog__item__inner{
+          padding: 26px 18px 30px 18px;
           .catalog__item__header{
             .catalog__item__header__top{
               display: flex;
@@ -1664,7 +1734,43 @@ h1, h2, h3{
           .catalog__item__info{
             display: none;
           }
+          .catalog__item__footer{
+            .catalog__item__footer__buttons{
+              .catalog__item__footer__calculation{
+                width: 100%;
+                p:after{
+                  content: "рассчитать цену";
+                }
+              }
+              .catalog__item__footer__link{
+                display: none;
+              }
+            }
+          }
         }
+        &--advertisement{
+            padding: 0 20px;
+            .catalog__advertisement__item{
+              h3{
+                font-size: 30px;
+              }
+              p{
+                font-size: 18px;
+                padding-bottom: 0px;
+                margin-bottom: 40px;
+                border-bottom: 0px;
+              }
+              .catalog__advertisement__buttons{
+                display: none;
+                &--mobile{
+                  display: block;
+                }
+              }
+              .catalog__advertisement__image{
+                display: block;
+              }
+            }
+          }
       }
     }
   }

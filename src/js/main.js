@@ -217,7 +217,7 @@ if (swiperEl) {
   window.addEventListener("resize", applySwiperOffset);
 }
 
-// slider card
+// slider catalog
 const sliderCards = document.querySelectorAll(".swiper__catalog");
 if (sliderCards.length > 0) {
   sliderCards.forEach((sliderCard) => {
@@ -233,7 +233,7 @@ if (sliderCards.length > 0) {
 
     const swiperCard = new Swiper(sliderCard, {
       slidesOffsetBefore: getSliderOffset(),
-      overflow: 'hidden',
+      slidesPerView: 'auto',
       modules: [Scrollbar],
       scrollbar: {
         el: sliderCard.parentElement.querySelector(".swiper__catalog-scrollbar"),
@@ -241,12 +241,11 @@ if (sliderCards.length > 0) {
         hide: false,
       },
       breakpoints: {
-        1800: { slidesPerView: 'auto', spaceBetween: 20, allowTouchMove: false },
-        1200: { slidesPerView: 'auto', spaceBetween: 18, allowTouchMove: true },
-        992: { scrollbar: false },
-        991: { slidesPerView: 'auto', spaceBetween: 14 },
-        768: { slidesPerView: 'auto', spaceBetween: 12 },
-        400: { slidesPerView: 'auto', spaceBetween: 10 },
+        1800: { spaceBetween: 20, allowTouchMove: false },
+        1200: { spaceBetween: 18, allowTouchMove: true },
+        991: { spaceBetween: 14, scrollbar: false },
+        768: { spaceBetween: 12, scrollbar: false },
+        400: { spaceBetween: 10, scrollbar: false },
       },
     });
 
