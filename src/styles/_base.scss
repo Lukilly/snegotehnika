@@ -1559,6 +1559,11 @@ h1, h2, h3{
     }
     .catalog__container{
       grid-template-columns: repeat(3, 1fr);
+      .catalog__item{
+        &--desktop{
+          display: none;
+        }
+      }
     }
   }
 }
@@ -1749,9 +1754,6 @@ h1, h2, h3{
     }
     .catalog__container{
       .catalog__item{
-        &--desktop{
-          display: none;
-        }
         .catalog__item__inner{
           padding: 26px 18px 30px 18px;
           .catalog__item__header{
