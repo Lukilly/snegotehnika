@@ -110,6 +110,35 @@ h1, h2, h3{
   }
 }
 
+@mixin swiper-buttons-style {
+  margin: 0 -5px;
+  display: flex;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    margin: 5px;
+    display: block;
+    background-color: transparent;
+    padding: 8px;
+    cursor: pointer;
+    border: 2px var(--secondary-color) solid;
+    border-radius: 6px;
+
+    svg {
+      display: block;
+      color: var(--secondary-color);
+    }
+
+    &:hover {
+      border: 2px var(--primary-color) solid;
+
+      svg {
+        color: var(--primary-color);
+      }
+    }
+  }
+}
+
 // Cards
 .cards{
   margin-top: 80px;
@@ -221,28 +250,7 @@ h1, h2, h3{
       align-items: center;
       justify-content: space-between;
       .swiper__buttons{
-        margin: 0 -5px;
-        display: flex;
-        .swiper-button-prev, .swiper-button-next{
-          margin: 5px;
-          display: block;
-          background-color: transparent;
-          padding: 8px;
-          cursor: pointer;
-          border: 2px var(--secondary-color) solid;
-          border-radius: 6px;
-          svg{
-            display: block;
-            color: var(--secondary-color);
-          }
-
-          &:hover{
-            border: 2px var(--primary-color) solid;
-            svg{
-              color: var(--primary-color);
-            }
-          }
-        }
+        @include swiper-buttons-style;
       }
     }
   }
@@ -1385,6 +1393,88 @@ h1, h2, h3{
       display: block;
       & + span{
         margin-top: 15px;
+      }
+    }
+  }
+}
+
+// Product-card
+.product-card{
+  .breadcrumbs{
+    margin-bottom: 80px;
+    margin-top: 36px;
+    padding: 9.5px 22px;
+    display: inline-flex;
+    background-color: #fff;
+    border-radius: 6px;
+    li{
+      display: flex;
+      align-items: center;
+      a,span{
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--primary-color);
+      }
+      span{
+        color: var(--secondary-color);
+      }
+      & + li::before {
+        content: "";
+        margin: 0 10px;
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+      }
+    }
+  }
+  .product-card__title, b{
+    margin-bottom: 60px;
+    font-size: 56px;
+    font-weight: 700;
+  }
+  .product-card__swiper__container{
+    span{
+      & + span{
+        margin-left: 15px;
+      }
+    }
+    .product-card__swiper__top{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .product-card__swiper__top__manufacturer{
+        padding: 0px 30px;
+        display: flex;
+        height: auto;
+        align-items: center;
+        background-color: #E2EAF9;
+        border-radius: 6px;
+        img{
+          margin-left: 10px;
+          max-width: 126px;
+        }
+      }
+      .product-card__swiper__top__product-code{
+        padding: 14.5px 30px;
+        background-color: transparent;
+        border-radius: 6px;
+        border: 1px #9FC0FF solid;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--primary-color);
+      }
+      .product-card__swiper__top__availability{
+        padding: 14.5px 30px;
+        background-color: var(--primary-color);
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #fff;
+      }
+      .swiper__buttons{
+        @include swiper-buttons-style;
       }
     }
   }
