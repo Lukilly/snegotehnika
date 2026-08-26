@@ -279,6 +279,29 @@ videoBlocks.forEach((block) => {
   });
 });
 
+// Catalog__sort
+const catalogSortItems = document.querySelectorAll('.catalog__sorting__item');
+catalogSortItems.forEach((item) => {
+  item.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const hasArrow = item.classList.contains('catalog__sorting__item--choice');
+
+    if (item.classList.contains('active')) {
+      if (hasArrow) {
+        item.classList.toggle('sort-desc');
+      } else {
+        item.classList.remove('active');
+      }
+      return;
+    }
+
+    catalogSortItems.forEach((el) => {
+      el.classList.remove('active', 'sort-desc');
+    });
+    item.classList.add('active');
+  });
+});
+
 // Accordion
 const accordionItems = document.querySelectorAll('.accordion__item');
 const accordion = document.querySelector('.accordion');

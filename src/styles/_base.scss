@@ -928,17 +928,30 @@ h1, h2, h3{
       display: block;
       background-color: #fff;
       border-radius: 6px;
-      a{
+      .catalog__sorting__item{
+        border: 0px;
+        background-color: transparent;
         font-size: 14px;
         font-weight: 500;
         text-transform: uppercase;
         color: var(--primary-color);
         text-decoration: underline;
-        & + a{
+        & + .catalog__sorting__item{
           margin-left: 15px;
         }
         &.active{
           color: var(--secondary-color);
+        }
+        &--choice{
+          &.active{
+            span:before{
+              color: var(--secondary-color);
+            }
+          }
+          &.sort-desc .icon-arrow-top{
+            display: inline-block;
+            transform: rotate(180deg);
+          }
         }
       }
     }
