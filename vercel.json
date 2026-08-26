@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/catalog.html", "destination": "/pages/catalog.html" }
+  ]
+}
