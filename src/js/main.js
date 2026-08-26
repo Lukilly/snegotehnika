@@ -241,11 +241,11 @@ if (sliderCards.length > 0) {
         hide: false,
       },
       breakpoints: {
-        1800: { spaceBetween: 20, allowTouchMove: false },
-        1200: { spaceBetween: 18, allowTouchMove: true },
-        991: { spaceBetween: 14, scrollbar: false },
-        768: { spaceBetween: 12, scrollbar: false },
-        400: { spaceBetween: 10, scrollbar: false },
+        1800: { spaceBetween: 20, allowTouchMove: false, scrollbar: false },
+        1200: { spaceBetween: 18, allowTouchMove: true, scrollbar: false },
+        991: { spaceBetween: 14 },
+        768: { spaceBetween: 12 },
+        0: { spaceBetween: 10 },
       },
     });
 
