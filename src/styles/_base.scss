@@ -337,6 +337,7 @@ h1, h2, h3{
         transition: all .2s;
         border: 0px;
         background-color: transparent;
+        cursor: pointer;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -375,6 +376,7 @@ h1, h2, h3{
           transition: all .2s;
           border: 0px;
           background-color: transparent;
+          cursor: pointer;
           position: absolute;
           top: 50%;
           left: 50%;
@@ -1581,11 +1583,139 @@ h1, h2, h3{
         transition: all .2s;
         border: 0px;
         background-color: transparent;
+        cursor: pointer;
         position: absolute;
         top: 50%;
         left: 50%;
         z-index: 100;
         transform: translate(-50%, -50%);
+      }
+    }
+  }
+  .product-card__tabs{
+    .product-card__tabs__nav{
+      margin-bottom: 60px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      .product-card__tabs__nav__item{
+        display: block;
+        padding: 15px 30px;
+        border: 2px var(--primary-color) solid;
+        border-left: 0px;
+        font-size: 14px;
+        font-weight: 700;
+        font-family: "Roboto", sans-serif;
+        cursor: pointer;
+        background-color: transparent;
+        text-align: left;
+        text-transform: uppercase;
+        color: var(--primary-color);
+        &:first-child{
+          border-radius: 6px 0px 0px 6px;
+          border-left: 2px var(--primary-color) solid;
+        }
+        &:last-child{
+          border-radius: 0px 6px 6px 0px;
+        }
+        &.active{
+          background-color: var(--secondary-color);
+          border: 0px;
+          color: #F4F7FF;
+        }
+      }
+    }
+    .product-card__features{
+      .product-card__features__title, b{
+        margin-bottom: 60px;
+        font-size: 40px;
+        font-weight: 500;
+      }
+      .product-card__features__item{
+        .product-card__features__item__top{
+          margin-bottom: 60px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .product-card__features__item__parameter{
+            padding: 13.5px 20px;
+            border-radius: 6px;
+            background-color: var(--primary-color);
+            font-size: 20px;
+            font-weight: 400;
+            color: #fff;
+          }
+          .swiper__buttons{
+            @include swiper-buttons-style;
+          }
+        }
+        .swiper__product-card__features{
+          .swiper-wrapper{
+            .swiper-slide{
+              .video__container{
+                position: relative;
+                cursor: pointer;
+                border-radius: 15px;
+                overflow: hidden;
+                .video__item{
+                  width: auto;
+                  display: block;
+                  height: auto;
+                  object-fit: cover;
+                  object-position: center;
+                }
+                .video__play{
+                  display: block;
+                  transition: all .2s;
+                  border: 0px;
+                background-color: transparent;
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 100;
+                transform: translate(-50%, -50%);
+              }
+                a{
+                  padding: 12px 15px;
+                  width: 80%;
+                  min-height: 70px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  position: absolute;
+                  bottom: 30.5px;
+                  left: 50%;
+                  z-index: 120;
+                  transform: translateX(-50%);
+                  background-color: #E2EAF9;
+                  border: 2px #E2EAF9 solid;
+                  border-radius: 10px;
+                  font-size: 18px;
+                  font-weight: 500;
+                  color: var(--primary-color);
+                  font-family: "Oswald", sans-serif;
+                  text-transform: uppercase;
+                  svg{
+                    flex-shrink: 0;
+                    margin-left: 20px;
+                    color: var(--secondary-color);
+                  }
+                  &:hover{
+                    transition: all .2s;
+                    border: 2px #F93131 dashed;
+                    svg{
+                      color: #F93131;
+                      transition: all .2s;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        & + .product-card__features__item{
+          margin-top: 60px;
+        }
       }
     }
   }

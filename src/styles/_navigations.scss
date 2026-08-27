@@ -40,6 +40,9 @@
   }
 
   .side__navigation__close__link{
+    border: 0px;
+    background-color: transparent;
+    cursor: pointer;
     img {
       display: block;
     }

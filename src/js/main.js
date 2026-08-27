@@ -253,7 +253,7 @@ if (sliderCards.length > 0) {
   });
 }
 
-// swiper__images__intro
+// swiper__product-card__images__intro
 const swiper__intro = new Swiper('.swiper__images__intro', {
   slidesPerView: 3,
   spaceBetween: 30,
@@ -273,6 +273,43 @@ const swiper__intro = new Swiper('.swiper__images__intro', {
   },
 });
 
+// swipers__product-card__features
+const sliders = document.querySelectorAll('[data-slider]')
+sliders.forEach((slider) => {
+  const sliderName = slider.dataset.slider;
+  const scope = slider.closest('.product-card__features__item') || slider.parentElement;
+  const next = scope.querySelector(`[data-slider-next="${sliderName}"]`)
+  const prev = scope.querySelector(`[data-slider-prev="${sliderName}"]`)
+  const scrollbar = scope.querySelector(`[data-scrollbar="${sliderName}"]`)
+  const slidesCount = slider.querySelectorAll('.swiper-slide').length;
+
+  const isTabs = slider.closest('.product-card__tabs');
+  if (isTabs && slidesCount <= 4) {
+    if (next) next.style.display = 'none';
+    if (prev) prev.style.display = 'none';
+  }
+
+  new Swiper(slider, {
+    slidesPerView: sliderName === 'product__intro' ? 3 : 4,
+    spaceBetween: 22,
+    navigation: {
+      nextEl: next,
+      prevEl: prev,
+    },
+    scrollbar: {
+      el: scrollbar,
+      draggable: true,
+    },
+  });
+});
+
+// чтобы не переходило на fancybox при клике на ссылку
+const featuresLinks = document.querySelectorAll('.swiper__product-card__features .video__container a');
+featuresLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.stopPropagation();
+  });
+});
 
 // Video
 const videoBlocks = document.querySelectorAll('.video__container');
