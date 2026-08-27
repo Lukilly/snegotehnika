@@ -253,6 +253,26 @@ if (sliderCards.length > 0) {
   });
 }
 
+// swiper__images__intro
+const swiper__intro = new Swiper('.swiper__images__intro', {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  loop: false,
+  modules: [Navigation, Scrollbar],
+  navigation: {
+    nextEl: `[data-slider-next="product__intro"]`,
+    prevEl: `[data-slider-prev="product__intro"]`,
+  },
+  scrollbar: {
+    el: `[data-scrollbar="product__intro"]`,
+    draggable: true,
+  },
+  breakpoints: {
+    991: {spaceBetween: 30},
+    0: {spaceBetween: 15},
+  },
+});
+
 
 // Video
 const videoBlocks = document.querySelectorAll('.video__container');
@@ -260,8 +280,10 @@ const videoBlocks = document.querySelectorAll('.video__container');
 videoBlocks.forEach((block) => {
   const video = block.querySelector('.video__item');
   const playButton = block.querySelector('.video__play');
+  const isFancybox = block.hasAttribute('data-fancybox');
 
   playButton.addEventListener('click', (event) => {
+    if (isFancybox) return;
     event.stopPropagation();
 
     video.play();
@@ -269,6 +291,7 @@ videoBlocks.forEach((block) => {
   });
 
   video.addEventListener('click', () => {
+    if (isFancybox) return;
     if (video.paused) {
       video.play();
       playButton.style.opacity = '0';
