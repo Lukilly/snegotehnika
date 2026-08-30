@@ -12,7 +12,7 @@
     <symbol viewBox="0 0 32 32" id="accordion__plus"><path d="M16.0013 2.66699C8.6373 2.66699 2.66797 8.63633 2.66797 16.0003C2.66797 23.3643 8.6373 29.3337 16.0013 29.3337C23.3653 29.3337 29.3346 23.3643 29.3346 16.0003C29.3346 8.63633 23.3653 2.66699 16.0013 2.66699ZM21.3346 17.3337H17.3346V21.3337C17.3346 22.0697 16.7373 22.667 16.0013 22.667C15.2653 22.667 14.668 22.0697 14.668 21.3337V17.3337H10.668C9.93197 17.3337 9.33464 16.7363 9.33464 16.0003C9.33464 15.2643 9.93197 14.667 10.668 14.667H14.668V10.667C14.668 9.93099 15.2653 9.33366 16.0013 9.33366C16.7373 9.33366 17.3346 9.93099 17.3346 10.667V14.667H21.3346C22.0706 14.667 22.668 15.2643 22.668 16.0003C22.668 16.7363 22.0706 17.3337 21.3346 17.3337Z" fill="currentColor"/></symbol>
     <symbol viewBox="0 0 24 24" fill="none" id="buttonArrow"><path d="M6 6V8H14.59L5 17.59L6.41 19L16 9.41V18H18V6H6Z" fill="currentColor"/></symbol>
     <symbol viewBox="0 0 24 24" fill="none" id="plus"><path d="M7.00098 12H11.001V8H12.001V12H16.001V13H12.001V17H11.001V13H7.00098V12ZM11.501 3C14.0205 3 16.4369 4.00089 18.2185 5.78249C20.0001 7.56408 21.001 9.98044 21.001 12.5C21.001 15.0196 20.0001 17.4359 18.2185 19.2175C16.4369 20.9991 14.0205 22 11.501 22C8.98142 22 6.56506 20.9991 4.78346 19.2175C3.00187 17.4359 2.00098 15.0196 2.00098 12.5C2.00098 9.98044 3.00187 7.56408 4.78346 5.78249C6.56506 4.00089 8.98142 3 11.501 3ZM11.501 4C9.24664 4 7.08463 4.89553 5.49057 6.48959C3.89651 8.08365 3.00098 10.2457 3.00098 12.5C3.00098 14.7543 3.89651 16.9163 5.49057 18.5104C7.08463 20.1045 9.24664 21 11.501 21C12.6172 21 13.7225 20.7801 14.7538 20.353C15.7851 19.9258 16.7221 19.2997 17.5114 18.5104C18.3007 17.7211 18.9268 16.7841 19.354 15.7528C19.7811 14.7215 20.001 13.6162 20.001 12.5C20.001 10.2457 19.1054 8.08365 17.5114 6.48959C15.9173 4.89553 13.7553 4 11.501 4Z" fill="#3F71FF" stroke="#3F71FF"/></symbol>
-    <symbol viewBox="0 0 24 24" fill="none" id="plus-added"><path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM10 17.414L5.293 12.707L6.707 11.293L10 14.586L17.293 7.293L18.707 8.707L10 17.414Z" fill="#F93131"/></symbol>
+    <symbol viewBox="0 0 24 24" fill="none" id="plus-added"><path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM10 17.414L5.293 12.707L6.707 11.293L10 14.586L17.293 7.293L18.707 8.707L10 17.414Z" fill="currentColor"/></symbol>
 
   </svg>
 
@@ -816,12 +816,12 @@
             <div data-tab__content="questions" class="product-card__questions">
               <div class="product-card__questions__top">
                 <h3>Вопросы и ответы</h3>
-                <div class="product-card__questions__button">
+                <button type="button" class="product-card__questions__button" data-modal-open="questions">
                   Задать вопрос
                   <svg class="button__icon">
                     <use xlink:href="#buttonArrow"></use>
                   </svg>
-                </div>
+                </button>
               </div>
               <ul class="product-card__fac">
                 <li class="product-card__fac__item">
@@ -891,8 +891,150 @@
                   </div>
                 </li>
               </ul>
+              <div class="product-card__fac__bottom">
+                <button type="button" class="product-card__fac__button">еще больше ответов</button>
+              </div>
             </div>
-            <!-- ЕЩЕ ОКНА product-card__tabs__content -->
+            <div data-tab__content="reviews" class="product-card__reviews">
+              <div class="product-card__reviews__top">
+                <h3>Отзывы покупателей</h3>
+                <!-- ВИджет яндекса -->
+                <button type="button" data-modal-open="reviews">
+                  Оставить отзыв
+                  <svg class="button__icon">
+                    <use xlink:href="#buttonArrow"></use>
+                  </svg>
+                </button>
+              </div>
+              <ul class="product-card__reviews__inner">
+                <li class="product-card__reviews__item">
+                  <div class="product-card__reviews__item__top">
+                    <div class="product-card__reviews__item__avatar">
+                      <img src="/img/product__card/images/Ellipse 11.jpg" alt="">
+                    </div>
+                    <div>
+                      <div class="product-card__reviews__item__author">Сергей Архипов</div>
+                      <div class="product-card__reviews__item__container">
+                        <div class="product-card__reviews__item__rating-badge">
+                          <span class="product-card__stars">
+                            <span class="product-card__stars__star"></span>
+                            <span class="product-card__stars__star"></span>
+                            <span class="product-card__stars__star"></span>
+                            <span class="product-card__stars__star"></span>
+                            <span class="product-card__stars__star"></span>
+                          </span>
+                        </div>
+                        <span class="product-card__reviews__item__date">25 марта 2025</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p>Покупал снегоход бтс Арктик Лонг люкс. <br>Откатал 2 зимы, катаю уже 3й сезон. Техника меня устраивает. Понятно не брп или Ямаха. Но если понимать что ты хочешь от техники, и точно знать ее предназначение, то отличный аппарат. Я езжу до леса по накатанке и по водохранилищу во всех направлениях. Для моих нужд просто отлично. Понятно, что в глубокий пухляк не поедет техника, и это не вина производителя, а конструктив техники, катки, 50см гуся и малооборотистый двигатель не даст этого сделать. За 3 сезон проблем нет особо, подтекал суппорт тормоза, это проблема комплектующих, и потерял один каток, по своей вине. При этом обратился к производителю, они мне отправляют каток,ось и кронштейн пружины отдельно. В общем я доволен техникой ! Что касается заказа, то вОткатал 2 зимы, катаю уже 3й сезон. Техника меня устраивает. Понятно не брп или Ямаха. Но если понимать что ты хочешь от техники, и точно знать ее предназначение, то отличный аппарат. Я езжу до леса по накатанке и по водохранилищу во всех направлениях. Для моих нужд просто отлично. Понятно, что в глубокий пухляк не поедет техника, и это не вина производителя, а конструктив техники, катки,</p>
+                  <button class="faq__expand" type="button">подробнее или развернуть ответ</button>
+                  <button class="faq__expand faq__expand--collapse" type="button">свернуть ответ</button>
+                </li>
+                <li class="product-card__reviews__item">
+                  <div class="product-card__reviews__item__top">
+                    <div class="product-card__reviews__item__avatar">
+                      СА
+                    </div>
+                    <div>
+                      <div class="product-card__reviews__item__author">Сергей Архипов</div>
+                      <div class="product-card__reviews__item__container">
+                        <div class="product-card__reviews__item__rating-badge">
+                          <span class="product-card__stars">
+                            <span class="product-card__stars__star"></span>
+                            <span class="product-card__stars__star"></span>
+                            <span class="product-card__stars__star"></span>
+                            <span class="product-card__stars__star"></span>
+                            <span class="product-card__stars__star"></span>
+                          </span>
+                        </div>
+                        <span class="product-card__reviews__item__date">25 марта 2025</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p>Покупал снегоход бтс Арктик Лонг люкс. <br> они мне отправляют каток,ось и кронштейн пружины отдельно. В общем я доволен техникой ! Что касается заказа, то вОткатал 2 зимы, катаю уже 3й сезон. Техника меня устраивает. Понятно не брп или Ямаха. Но если понимать что ты хочешь от техники, и точно знать ее предназначение, то отличный аппарат. Я езжу до леса по накатанке и по водохранилищу во всех направлениях. Для моих нужд просто отлично. Понятно, что в глубокий пухляк не поедет техника, и это не вина производителя, а конструктив техники, катки,</p>
+                  <button class="faq__expand" type="button">подробнее или развернуть ответ</button>
+                  <button class="faq__expand faq__expand--collapse" type="button">свернуть ответ</button>
+                </li>
+                <li class="product-card__reviews__item">
+                  <div class="product-card__reviews__item__top">
+                    <div class="product-card__reviews__item__avatar">
+                      <img src="/img/product__card/images/Ellipse 11.jpg" alt="">
+                    </div>
+                    <div>
+                      <div class="product-card__reviews__item__author">Сергей Архипов</div>
+                      <div class="product-card__reviews__item__container">
+                        <div class="product-card__reviews__item__rating-badge">
+                          <span class="product-card__stars">
+                            <span class="product-card__stars__star"></span>
+                            <span class="product-card__stars__star"></span>
+                            <span class="product-card__stars__star"></span>
+                            <span class="product-card__stars__star"></span>
+                            <span class="product-card__stars__star"></span>
+                          </span>
+                        </div>
+                        <span class="product-card__reviews__item__date">25 марта 2025</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p>Покупал снегоход бтс Арктик Лонг люкс. <br>Откатал 2 зимы, катаю уже 3й сезон. Техника меня устраивает. Понятно не брп или Ямаха. Но если понимать что ты хочешь от техники, и точно знать ее предназначение, то отличный аппарат. Я езжу до леса по накатанке и по водохранилищу во всех направлениях. Для моих нужд просто отлично. Понятно, что в глубокий пухляк не поедет техника, и это не вина производителя, а конструктив техники, катки, 50см гуся и малооборотистый двигатель не даст этого сделать. За 3 сезон проблем нет особо, подтекал суппорт тормоза, это проблема комплектующих, и потерял один каток, по своей вине. При этом обратился к производителю, они мне отправляют каток,ось и кронштейн пружины отдельно. В общем я доволен техникой ! Что касается заказа, то вОткатал 2 зимы, катаю уже 3й сезон. Техника меня устраивает. Понятно не брп или Ямаха. Но если понимать что ты хочешь от техники, и точно знать ее предназначение, то отличный аппарат. Я езжу до леса по накатанке и по водохранилищу во всех направлениях. Для моих нужд просто отлично. Понятно, что в глубокий пухляк не поедет техника, и это не вина производителя, а конструктив техники, катки,</p>
+                  <button class="faq__expand" type="button">подробнее или развернуть ответ</button>
+                  <button class="faq__expand faq__expand--collapse" type="button">свернуть ответ</button>
+                </li>
+              </ul>
+              <div class="product-card__reviews__bottom">
+                <button type="button" class="product-card__reviews__button">еще больше отзывов</button>
+              </div>
+            </div>
+            <div data-tab__content="delivery" class="product-card__delivery">
+              <h3>Условия <b>оплаты и доставки</b></h3>
+              <div class="product-card__delivery__content">
+                <div class="product-card__delivery__content__left">
+                  <div class="product-card__delivery__content__left__container">
+                    <h4>Быстрая оплата По QR-коду</h4>
+                    <p>Перед оплатой по QR-коду обязательно подтверждайте наличие товара у менеджера</p>
+                  </div>
+                  <div class="product-card__delivery__content__left__qr">
+                    <img src="/img/product__card/images/qr.png" alt="">
+                  </div>
+                </div>
+                <div class="product-card__delivery__content__right">
+                  <ul>
+                    <li>
+                      <svg class="product-card__delivery__content__right__icon">
+                        <use xlink:href="#plus-added"></use>
+                      </svg>
+                      <p>Предоплата 100% на расчетный счет</p>
+                    </li>
+                    <li>
+                      <svg class="product-card__delivery__content__right__icon">
+                        <use xlink:href="#plus-added"></use>
+                      </svg>
+                      <p>Оплата по QR коду на р/с – без комиссии</p>
+                    </li>
+                    <li>
+                      <svg class="product-card__delivery__content__right__icon">
+                        <use xlink:href="#plus-added"></use>
+                      </svg>
+                      <p>Предоплата 50%, оставшиеся 50% по готовности снегохода</p>
+                    </li>
+                    <li>
+                      <svg class="product-card__delivery__content__right__icon">
+                        <use xlink:href="#plus-added"></use>
+                      </svg>
+                      <p>В пределах 1000 км от Рыбинска – предоплата за доставку, за технику оплата при получении</p>
+                    </li>
+                    <li>
+                      <svg class="product-card__delivery__content__right__icon">
+                        <use xlink:href="#plus-added"></use>
+                      </svg>
+                      <p>Более 1000 км от Рыбинска – предоплата 10 000 руб. Отгрузка через ТК ПЭК, оплата при получении наложенным платежом (комиссия 5%)</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
 
@@ -1481,7 +1623,17 @@
 
       </div>
 
-
+      <!-- modals -->
+      <div class="modal" id="modal-questions">
+        <div class="modal__content">
+          <button class="modal__close" data-modal-close>
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.0003 2.66699C8.65232 2.66699 2.66699 8.65232 2.66699 16.0003C2.66699 23.3483 8.65232 29.3337 16.0003 29.3337C23.3483 29.3337 29.3337 23.3483 29.3337 16.0003C29.3337 8.65232 23.3483 2.66699 16.0003 2.66699ZM16.0003 5.33366C21.9072 5.33366 26.667 10.0935 26.667 16.0003C26.667 21.9072 21.9072 26.667 16.0003 26.667C10.0935 26.667 5.33366 21.9072 5.33366 16.0003C5.33366 10.0935 10.0935 5.33366 16.0003 5.33366ZM11.6097 9.72428L9.72428 11.6097L14.1149 16.0003L9.72428 20.3909L11.6097 22.2764L16.0003 17.8857L20.3909 22.2764L22.2764 20.3909L17.8857 16.0003L22.2764 11.6097L20.3909 9.72428L16.0003 14.1149L11.6097 9.72428Z" fill="#5380FF"/>
+            </svg>
+          </button>
+          
+        </div>
+      </div>
     </div>
     {{> footer}}
   </div>

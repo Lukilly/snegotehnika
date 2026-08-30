@@ -374,10 +374,10 @@ if (accordion && accordionItems.length > 0) {
   });
 }
 
-// product-card__questions
-const facAnswers = document.querySelectorAll('.product-card__fac__answer');
+// product-card__questions / reviews expand-collapse
+const facAnswers = document.querySelectorAll('.product-card__fac__answer, .product-card__reviews__item');
 facAnswers.forEach(answer => {
-  const text = answer.querySelector('.product-card__fac__answer__container p');
+  const text = answer.querySelector('.product-card__fac__answer__container p, .product-card__reviews__item > p');
   const expand = answer.querySelector('.faq__expand:not(.faq__expand--collapse)');
   if (text && expand && text.scrollHeight <= text.clientHeight) {
     expand.style.display = 'none';
@@ -386,14 +386,14 @@ facAnswers.forEach(answer => {
 const expandButtons = document.querySelectorAll('.faq__expand:not(.faq__expand--collapse)');
 expandButtons.forEach(button =>{
   button.addEventListener('click', () => {
-    const item = button.closest('.product-card__fac__answer');
+    const item = button.closest('.product-card__fac__answer, .product-card__reviews__item');
     item.classList.add('active');
   });
 });
 const collapseButtons = document.querySelectorAll('.faq__expand--collapse');
 collapseButtons.forEach(button =>{
   button.addEventListener('click', () => {
-    const item = button.closest('.product-card__fac__answer');
+    const item = button.closest('.product-card__fac__answer, .product-card__reviews__item');
     item.classList.remove('active');
   });
 });

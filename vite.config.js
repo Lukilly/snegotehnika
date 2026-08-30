@@ -77,6 +77,7 @@ export default defineConfig({
         style: resolve(__dirname, "src/styles/global.scss"),
         index: resolve(__dirname, "index.html"),
         catalog: resolve(__dirname, "pages/catalog.html"),
+        poductCard: resolve(__dirname, "pages/poduct-card.html"),
         // contacts: resolve(__dirname, "pages/contacts.html"),
       },
       output: {
@@ -87,3 +88,4 @@ export default defineConfig({
     },
   },
 });
+
