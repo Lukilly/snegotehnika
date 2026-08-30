@@ -374,6 +374,29 @@ if (accordion && accordionItems.length > 0) {
   });
 }
 
+// product-card__questions
+const facAnswers = document.querySelectorAll('.product-card__fac__answer');
+facAnswers.forEach(answer => {
+  const text = answer.querySelector('.product-card__fac__answer__container p');
+  const expand = answer.querySelector('.faq__expand:not(.faq__expand--collapse)');
+  if (text && expand && text.scrollHeight <= text.clientHeight) {
+    expand.style.display = 'none';
+  }
+});
+const expandButtons = document.querySelectorAll('.faq__expand:not(.faq__expand--collapse)');
+expandButtons.forEach(button =>{
+  button.addEventListener('click', () => {
+    const item = button.closest('.product-card__fac__answer');
+    item.classList.add('active');
+  });
+});
+const collapseButtons = document.querySelectorAll('.faq__expand--collapse');
+collapseButtons.forEach(button =>{
+  button.addEventListener('click', () => {
+    const item = button.closest('.product-card__fac__answer');
+    item.classList.remove('active');
+  });
+});
 
 // product-card__set list scroll
 const setListWrapper = document.querySelector('.product-card__set__list-wrapper');
