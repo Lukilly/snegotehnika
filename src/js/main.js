@@ -264,13 +264,18 @@ sliders.forEach((slider) => {
   const slidesCount = slider.querySelectorAll('.swiper-slide').length;
 
   const isTabs = slider.closest('.product-card__tabs');
-  if (isTabs && slidesCount <= 4) {
-    if (next) next.style.display = 'none';
-    if (prev) prev.style.display = 'none';
-  }
+
+  const updateTabsArrows = () => {
+    if (!isTabs || !next || !prev) return;
+    const fitsAll = slidesCount <= 4 && window.innerWidth >= 1800;
+    next.style.display = fitsAll ? 'none' : '';
+    prev.style.display = fitsAll ? 'none' : '';
+  };
+
+  updateTabsArrows();
+  window.addEventListener('resize', updateTabsArrows);
 
   new Swiper(slider, {
-    slidesPerView: sliderName === 'product__intro' ? 3 : 4,
     spaceBetween: 22,
     modules: [Navigation, Scrollbar],
     navigation: {
@@ -281,6 +286,12 @@ sliders.forEach((slider) => {
       el: scrollbar,
       draggable: true,
     },
+    breakpoints: {
+      1800: {slidesPerView: sliderName === 'product__intro' ? 3 : 4,},
+      1200: {slidesPerView: 3},
+      991: {slidesPerView: 2.4},
+      0: {slidesPerView: 'auto'}
+    }
   });
 });
 
