@@ -1,4 +1,4 @@
-import Swiper from 'swiper';
+﻿import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay, Scrollbar } from 'swiper/modules';
 
 import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
@@ -272,6 +272,8 @@ sliders.forEach((slider) => {
     prev.style.display = fitsAll ? 'none' : '';
   };
 
+  const isProductsSlider = slider.classList.contains('swiper__product-card__products');
+
   updateTabsArrows();
   window.addEventListener('resize', updateTabsArrows);
 
@@ -290,10 +292,122 @@ sliders.forEach((slider) => {
       1800: {slidesPerView: sliderName === 'product__intro' ? 3 : 4,},
       1200: {slidesPerView: 3},
       991: {slidesPerView: 2.4},
-      0: {slidesPerView: 'auto'}
+      768: {slidesPerView: isProductsSlider ? 2.4 : 'auto'},
+      0: {slidesPerView: isProductsSlider ? 2 : 'auto'}
     }
   });
 });
+
+// Product-card__set__Swiper
+const swiper = new Swiper('.product-card__set__swiper', {
+  loop: false,
+  breakpoints: {
+    991: {
+      direction: "vertical",
+      slidesPerView: 'auto',
+      watchOverflow: true,
+    },
+    768: {
+      direction: "horizontal",
+      slidesPerView: '4',
+      spaceBetween: 20,
+      watchOverflow: true,
+    },
+    0: {
+      direction: "horizontal",
+      slidesPerView: 1.25,
+      spaceBetween: 18,
+      watchOverflow: true,
+    }
+  }
+});
+
+// не давать листать за последний ряд (карточки не должны уходить за wrapper)
+const setSwiperEl = document.querySelector('.product-card__set__swiper');
+const setWrapperEl = setSwiperEl.querySelector('.swiper-wrapper');
+const setScrollbarEl = setSwiperEl.querySelector('.swiper-scrollbar');
+const setScrollbarDragEl = setSwiperEl.querySelector('.swiper-scrollbar-drag');
+
+const isHorizontalSetSwiper = () => window.innerWidth < 991;
+
+const getSetMaxScroll = () => {
+  if (!setWrapperEl) return 0;
+  if (isHorizontalSetSwiper()) {
+    return Math.max(0, setWrapperEl.scrollWidth - setSwiperEl.clientWidth);
+  }
+  return Math.max(0, setWrapperEl.scrollHeight - setSwiperEl.clientHeight);
+};
+
+const updateSetScrollbar = () => {
+  if (!setScrollbarEl || !setScrollbarDragEl) return;
+  const max = getSetMaxScroll();
+  const progress = max > 0 ? Math.min(1, Math.max(0, -swiper.translate / max)) : 0;
+
+  if (isHorizontalSetSwiper()) {
+    const trackW = setScrollbarEl.clientWidth;
+    const thumbW = Math.max(20, trackW * (setSwiperEl.clientWidth / setWrapperEl.scrollWidth));
+    setScrollbarDragEl.style.height = '';
+    setScrollbarDragEl.style.width = `${thumbW}px`;
+    setScrollbarDragEl.style.transform = `translateX(${Math.round((trackW - thumbW) * progress)}px)`;
+    return;
+  }
+
+  const trackH = setScrollbarEl.clientHeight;
+  const thumbH = Math.max(20, trackH * (setSwiperEl.clientHeight / setWrapperEl.scrollHeight));
+  setScrollbarDragEl.style.width = '';
+  setScrollbarDragEl.style.height = `${thumbH}px`;
+  setScrollbarDragEl.style.transform = `translateY(${Math.round((trackH - thumbH) * progress)}px)`;
+};
+
+const clampSetSwiper = () => {
+  if (isHorizontalSetSwiper()) return;
+  const maxTranslate = getSetMaxScroll() + 70;
+  if (swiper.translate < -maxTranslate) {
+    swiper.setTranslate(-maxTranslate);
+  }
+  updateSetScrollbar();
+};
+swiper.on('setTranslate', clampSetSwiper);
+swiper.on('init', updateSetScrollbar);
+swiper.on('progress', updateSetScrollbar);
+window.addEventListener('resize', () => {
+  swiper.update();
+  updateSetScrollbar();
+});
+window.addEventListener('load', updateSetScrollbar);
+requestAnimationFrame(updateSetScrollbar);
+
+// перетаскивание кастомного скроллбара
+if (setScrollbarDragEl && setSwiperEl && setScrollbarEl) {
+  const dragSet = (clientX, clientY) => {
+    const isH = isHorizontalSetSwiper();
+    const track = isH ? setScrollbarEl.clientWidth : setScrollbarEl.clientHeight;
+    const thumb = isH ? setScrollbarDragEl.clientWidth : setScrollbarDragEl.clientHeight;
+    const rect = setScrollbarEl.getBoundingClientRect();
+    const pos = isH ? (clientX - rect.left) : (clientY - rect.top);
+    const max = getSetMaxScroll();
+    const ratio = max > 0 ? max / (track - thumb) : 0;
+    const progress = Math.min(1, Math.max(0, (pos - thumb / 2) / (track - thumb)));
+    swiper.setTranslate(-progress * max);
+    updateSetScrollbar();
+  };
+
+  setScrollbarDragEl.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    const onMove = (ev) => dragSet(ev.clientX, ev.clientY);
+    const onUp = () => {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+  });
+
+  setScrollbarEl.addEventListener('mousedown', (e) => {
+    if (e.target === setScrollbarDragEl) return;
+    dragSet(e.clientX, e.clientY);
+  });
+}
 
 // чтобы не переходило на fancybox при клике на ссылку
 const featuresLinks = document.querySelectorAll('.swiper__product-card__features .video__container a');
