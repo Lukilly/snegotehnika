@@ -3643,7 +3643,7 @@ h1 b, h2 b, h3 b {
   display: block;
 }
 .product-card .product-card__set .product-card__set__inner .product-card__set__swiper {
-  cursor: grab;
+  cursor: auto;
   position: relative;
   overflow: hidden;
   height: 639.53px;
@@ -4929,10 +4929,29 @@ h1 b, h2 b, h3 b {
   }
   .product-card .product-card__tabs .product-card__tabs__nav {
     margin-bottom: 42px;
+    display: block;
   }
   .product-card .product-card__tabs .product-card__tabs__nav .product-card__tabs__nav__item {
+    display: none;
+    width: 100%;
+    text-align: center;
     font-size: 12px;
     padding: 15px 0px;
+    border: 2px var(--primary-color) solid;
+    border-radius: 6px;
+  }
+  .product-card .product-card__tabs .product-card__tabs__nav .product-card__tabs__nav__item:first-child, .product-card .product-card__tabs .product-card__tabs__nav .product-card__tabs__nav__item:last-child {
+    border-radius: 6px;
+    border-left: 2px var(--primary-color) solid;
+  }
+  .product-card .product-card__tabs .product-card__tabs__nav .product-card__tabs__nav__item + .product-card__tabs__nav__item {
+    border-top: 0;
+  }
+  .product-card .product-card__tabs .product-card__tabs__nav .product-card__tabs__nav__item.active {
+    display: block;
+  }
+  .product-card .product-card__tabs .product-card__tabs__nav.product-card__tabs__nav--open .product-card__tabs__nav__item {
+    display: block;
   }
   .product-card .product-card__tabs .product-card__features .product-card__features__title b {
     margin-bottom: 42px;
@@ -5087,13 +5106,17 @@ h1 b, h2 b, h3 b {
     display: flex;
     gap: 0px;
   }
+  .product-card .product-card__set .product-card__set__inner .product-card__set__swiper .swiper-slide {
+    width: auto;
+    height: auto;
+  }
   .product-card .product-card__set .product-card__set__inner .product-card__set__swiper .swiper-scrollbar {
     position: absolute;
     top: auto;
     right: auto;
     bottom: 100px;
     left: 0;
-    height: 4px;
+    height: 2px;
     width: 100%;
     border-radius: 4px;
     background: #F4F7FF;
@@ -5106,7 +5129,7 @@ h1 b, h2 b, h3 b {
     top: 0;
     left: 0;
     height: 100%;
-    border-radius: 4px;
+    border-radius: 2px;
     background: var(--secondary-color);
     cursor: grab;
     opacity: 1;

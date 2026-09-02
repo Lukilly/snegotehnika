@@ -564,3 +564,46 @@ scrollTopButton.addEventListener('click', () => {
     behavior: 'smooth',
   });
 });
+
+// product-card__tabs mobile dropdown + tab switching
+const tabsNav = document.querySelector('.product-card__tabs__nav');
+if (tabsNav) {
+  const tabsSection = tabsNav.closest('.product-card__tabs');
+  const tabsItems = Array.from(tabsNav.querySelectorAll('.product-card__tabs__nav__item'));
+  const tabsPanels = tabsSection ? Array.from(tabsSection.querySelectorAll('[data-tab__content]')) : [];
+
+  const selectTab = (target) => {
+    tabsItems.forEach((it) => it.classList.toggle('active', it === target));
+    tabsNav.classList.remove('product-card__tabs__nav--open');
+    const key = target.getAttribute('data-tab');
+    let shownPanel = null;
+    tabsPanels.forEach((panel) => {
+      const show = panel.getAttribute('data-tab__content') === key;
+      panel.style.display = show ? '' : 'none';
+      if (show) shownPanel = panel;
+    });
+    if (shownPanel) {
+      requestAnimationFrame(() => {
+        shownPanel.querySelectorAll('[data-slider]').forEach((sl) => {
+          if (sl.swiper) sl.swiper.update();
+        });
+      });
+    }
+  };
+
+  tabsNav.addEventListener('click', (e) => {
+    const btn = e.target.closest('.product-card__tabs__nav__item');
+    if (!btn) return;
+    if (btn.classList.contains('active') && !tabsNav.classList.contains('product-card__tabs__nav--open')) {
+      tabsNav.classList.add('product-card__tabs__nav--open');
+      return;
+    }
+    selectTab(btn);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.product-card__tabs__nav')) {
+      tabsNav.classList.remove('product-card__tabs__nav--open');
+    }
+  });
+}
