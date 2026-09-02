@@ -1,5 +1,5 @@
 ﻿import Swiper from 'swiper';
-import { Navigation, Pagination, Autoplay, Scrollbar } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, Scrollbar, Mousewheel } from 'swiper/modules';
 
 import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
@@ -301,23 +301,34 @@ sliders.forEach((slider) => {
 // Product-card__set__Swiper
 const swiper = new Swiper('.product-card__set__swiper', {
   loop: false,
+  modules: [Mousewheel],
   breakpoints: {
     991: {
       direction: "vertical",
       slidesPerView: 'auto',
+      spaceBetween: 0,
       watchOverflow: true,
+      freeMode: { enabled: true, momentum: true, sticky: false },
+      mousewheel: { enabled: true },
+      allowTouchMove: true,
     },
     768: {
       direction: "horizontal",
-      slidesPerView: '4',
+      slidesPerView: 'auto',
       spaceBetween: 20,
       watchOverflow: true,
+      freeMode: false,
+      mousewheel: false,
+      allowTouchMove: true,
     },
     0: {
       direction: "horizontal",
-      slidesPerView: 1.25,
+      slidesPerView: 'auto',
       spaceBetween: 18,
       watchOverflow: true,
+      freeMode: false,
+      mousewheel: false,
+      allowTouchMove: true,
     }
   }
 });
@@ -362,6 +373,9 @@ const updateSetScrollbar = () => {
 const clampSetSwiper = () => {
   if (isHorizontalSetSwiper()) return;
   const maxTranslate = getSetMaxScroll() + 70;
+  if (swiper.translate > 0) {
+    swiper.setTranslate(0);
+  }
   if (swiper.translate < -maxTranslate) {
     swiper.setTranslate(-maxTranslate);
   }
