@@ -1617,7 +1617,7 @@ h1, h2, h3{
         display: block;
         padding: 15px 30px;
         border: 2px var(--primary-color) solid;
-        border-left: 0px;
+        border-right: 0px;
         font-size: 14px;
         font-weight: 700;
         font-family: "Roboto", sans-serif;
@@ -1628,15 +1628,18 @@ h1, h2, h3{
         color: var(--primary-color);
         &:first-child{
           border-radius: 6px 0px 0px 6px;
-          border-left: 2px var(--primary-color) solid;
         }
         &:last-child{
           border-radius: 0px 6px 6px 0px;
+          border-right: 2px var(--primary-color) solid;
         }
         &.active{
           background-color: var(--secondary-color);
           border: 0px;
           color: #F4F7FF;
+        }
+        &.active + .product-card__tabs__nav__item{
+          border-left: 0px;
         }
         svg{
           width: 30px;
