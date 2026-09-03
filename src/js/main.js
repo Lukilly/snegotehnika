@@ -278,7 +278,6 @@ sliders.forEach((slider) => {
   window.addEventListener('resize', updateTabsArrows);
 
   new Swiper(slider, {
-    spaceBetween: 22,
     modules: [Navigation, Scrollbar],
     navigation: {
       nextEl: next,
@@ -292,8 +291,8 @@ sliders.forEach((slider) => {
       1800: {slidesPerView: sliderName === 'product__intro' ? 3 : 4,},
       1200: {slidesPerView: 3},
       991: {slidesPerView: 2.4},
-      768: {slidesPerView: isProductsSlider ? 2.4 : 'auto'},
-      0: {slidesPerView: isProductsSlider ? 2 : 'auto'}
+      768: {slidesPerView: 'auto', spaceBetween: 22},
+      0: {slidesPerView: 'auto', spaceBetween: 14}
     }
   });
 });
@@ -606,4 +605,7 @@ if (tabsNav) {
       tabsNav.classList.remove('product-card__tabs__nav--open');
     }
   });
+
+  const initialTab = tabsItems.find((it) => it.classList.contains('active')) || tabsItems[0];
+  if (initialTab) selectTab(initialTab);
 }
