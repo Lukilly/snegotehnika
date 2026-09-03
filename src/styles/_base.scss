@@ -2413,6 +2413,8 @@ h1, h2, h3{
               border-radius: 10px;
               overflow: hidden;
               background-color: #fff;
+              display: flex;
+              flex-direction: column;
               .product-card__products__item__img{
                 img{
                   display: block;
@@ -2420,6 +2422,12 @@ h1, h2, h3{
               }
               .product-card__products__item__inner{
                 padding: 29px 28px 32px 28px;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                .product-card__products__item__content{
+                  margin-top: auto;
+                }
                 .product-card__products__item__top{
                   margin-bottom: 30px;
                   .product-card__item__parameter{
@@ -2440,6 +2448,11 @@ h1, h2, h3{
                     & + span{
                       margin-left: 6px;
                     }
+                  }
+                  .product-card__products__item__tags{
+                    display: inline-flex;
+                    gap: 6px;
+                    margin-left: 6px;
                   }
                 }
                 .product-card__products__item__name{
@@ -5294,11 +5307,34 @@ h1, h2, h3{
         .swiper__product-card__products{
           .swiper-wrapper{
             .swiper-slide{
-              width: auto;
-              height: auto;
+              display: flex;
               .product-card__products__item{
                 .product-card__products__item__inner{
                   padding: 26px 20px 30px 20px;
+                }
+                .product-card__products__item__top--has-tags{
+                  display: flex;
+                  flex-wrap: wrap;
+                  align-items: center;
+                  gap: 10px;
+                  > .product-card__item__parameter{
+                    flex: 0 0 auto;
+                  }
+                  .product-card__products__item__tags{
+                    display: flex;
+                    flex: 1 1 auto;
+                    gap: 10px;
+                    margin-left: 0;
+                    .product-card__item__parameter{
+                      flex: 1 1 auto;
+                      margin-left: 0;
+                    }
+                  }
+                }
+                .product-card__products__item__top--three{
+                  > .product-card__item__parameter{
+                    flex: 1 1 100%;
+                  }
                 }
               }
             }
