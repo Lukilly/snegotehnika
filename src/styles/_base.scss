@@ -1890,6 +1890,9 @@ h1, h2, h3{
             opacity: 1;
           }
         }
+        .scrollbar--features{
+          display: none;
+        }
       }
     }
     .product-card__questions{
@@ -3873,6 +3876,22 @@ h1, h2, h3{
                 }
               }
             }
+            .scrollbar--features{
+              margin-top: 15px;
+              display: block;
+              height: 2px;
+              border-radius: 4px;
+              background-color: #E2EAF9;
+              opacity: 1;
+              cursor: pointer;
+              .swiper-scrollbar-drag{
+                height: 100%;
+                border-radius: 4px;
+                background-color: var(--secondary-color);
+                cursor: grab;
+                opacity: 1;
+              }
+            }
           }
           & + .product-card__features__item{
             margin-top: 42px;
@@ -4992,6 +5011,15 @@ h1, h2, h3{
       }
       .swiper__images__intro{
         margin-bottom: 35px;
+        .swiper-wrapper{
+          .swiper-slide{
+            a{
+              img{
+                width: 267px;
+              }
+            }
+          }
+        }
       }
       .product-card__intro__info{
         margin-bottom: 54px;
