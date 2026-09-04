@@ -1261,6 +1261,7 @@ h1, h2, h3{
               display: none;
               a{
                 @include button;
+                border: 0px;
                 text-transform: none;
                 padding: 12.5px 20px;
                 align-items: center;
