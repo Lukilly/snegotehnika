@@ -5302,7 +5302,7 @@ h1, h2, h3{
               }
               .product-card__fac__answer__container{
                 padding: 10px 15px 10px 15px;
-                .faq__expand:not(.faq__expand--collapse){
+                .faq__expand{
                   font-size: 14px;
                 }
               }
@@ -5339,7 +5339,7 @@ h1, h2, h3{
         .product-card__reviews__inner{
           .product-card__reviews__item{
             margin-bottom: 25px;
-            .faq__expand:not(.faq__expand--collapse){
+            .faq__expand{
               font-size: 14px;
             }
             .product-card__reviews__item__top{
