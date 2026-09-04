@@ -278,6 +278,7 @@ sliders.forEach((slider) => {
   window.addEventListener('resize', updateTabsArrows);
 
   new Swiper(slider, {
+    spaceBetween: 22,
     modules: [Navigation, Scrollbar],
     navigation: {
       nextEl: next,

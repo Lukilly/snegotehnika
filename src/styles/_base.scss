@@ -2439,6 +2439,7 @@ h1, h2, h3{
                 }
                 .product-card__products__item__top{
                   margin-bottom: 30px;
+                  min-height: 62px;
                   .product-card__item__parameter{
                     border-radius: 6px;
                     padding: 6px 12px;
@@ -2465,6 +2466,7 @@ h1, h2, h3{
                   }
                 }
                 .product-card__products__item__name{
+                  display: flex;
                   margin-bottom: 48px;
                   font-size: 20px;
                   font-weight: 400;
@@ -5423,6 +5425,7 @@ h1, h2, h3{
                 .product-card__products__item__inner{
                   padding: 26px 20px 30px 20px;
                   .product-card__products__item__name{
+                    display: flex;
                     margin-bottom: 26px;
                   }
                   .product-card__products__item__top{
@@ -5442,7 +5445,7 @@ h1, h2, h3{
                 .product-card__products__item__top--has-tags{
                   display: flex;
                   flex-wrap: wrap;
-                  align-items: center;
+                  align-items: flex-start;
                   gap: 10px;
                   > .product-card__item__parameter{
                     text-align: center;
