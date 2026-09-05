@@ -299,7 +299,10 @@ sliders.forEach((slider) => {
 });
 
 // Product-card__set__Swiper
-const swiper = new Swiper('.product-card__set__swiper', {
+const setSwiperEl = document.querySelector('.product-card__set__swiper');
+
+if (setSwiperEl) {
+  const swiper = new Swiper(setSwiperEl, {
   loop: false,
   modules: [Mousewheel],
   breakpoints: {
@@ -334,8 +337,7 @@ const swiper = new Swiper('.product-card__set__swiper', {
 });
 
 // не давать листать за последний ряд (карточки не должны уходить за wrapper)
-const setSwiperEl = document.querySelector('.product-card__set__swiper');
-const setWrapperEl = setSwiperEl.querySelector('.swiper-wrapper');
+  const setWrapperEl = setSwiperEl.querySelector('.swiper-wrapper');
 const setScrollbarEl = setSwiperEl.querySelector('.swiper-scrollbar');
 const setScrollbarDragEl = setSwiperEl.querySelector('.swiper-scrollbar-drag');
 
@@ -422,6 +424,7 @@ if (setScrollbarDragEl && setSwiperEl && setScrollbarEl) {
     dragSet(e.clientX, e.clientY);
   });
 }
+}
 
 // чтобы не переходило на fancybox при клике на ссылку
 const featuresLinks = document.querySelectorAll('.swiper__product-card__features .video__container a');
@@ -460,18 +463,32 @@ videoBlocks.forEach((block) => {
 });
 
 // Catalog__sort
+const catalogSortSelect = document.querySelector('.catalog__sort__select');
 const catalogSortItems = document.querySelectorAll('.catalog__sorting__item');
+let catalogSortToggled = false;
+
+const closeCatalogSort = () => {
+  catalogSortSelect?.classList.remove('catalog__sort__select--open');
+  catalogSortToggled = false;
+};
+
 catalogSortItems.forEach((item) => {
   item.addEventListener('click', (e) => {
     e.stopPropagation();
     const hasArrow = item.classList.contains('catalog__sorting__item--choice');
+    const isActive = item.classList.contains('active');
 
-    if (item.classList.contains('active')) {
-      if (hasArrow) {
-        item.classList.toggle('sort-desc');
-      } else {
-        item.classList.remove('active');
+    if (isActive) {
+      if (catalogSortSelect?.classList.contains('catalog__sort__select--open')) {
+        closeCatalogSort();
+        return;
       }
+      if (hasArrow && !catalogSortToggled) {
+        catalogSortToggled = true;
+        item.classList.toggle('sort-desc');
+        return;
+      }
+      catalogSortSelect?.classList.add('catalog__sort__select--open');
       return;
     }
 
@@ -479,7 +496,14 @@ catalogSortItems.forEach((item) => {
       el.classList.remove('active', 'sort-desc');
     });
     item.classList.add('active');
+    closeCatalogSort();
   });
+});
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.catalog__sort__select')) {
+    closeCatalogSort();
+  }
 });
 
 // Accordion
@@ -554,6 +578,79 @@ setItems.forEach((item) => {
     item.classList.toggle('active');
   });
 });
+
+// cart__buttons
+const deliveryButtons = document.querySelectorAll('.delivery-choice__button');
+deliveryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        deliveryButtons.forEach(item => {
+            item.classList.remove('active');
+        });
+        button.classList.add('active');
+    });
+});
+
+const paymentButtons = document.querySelectorAll('.payment-choice__button');
+paymentButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        paymentButtons.forEach(item => {
+            item.classList.remove('active');
+        });
+        button.classList.add('active');
+    });
+});
+
+// cart__payment__promocode button active state
+const promocodeInput = document.querySelector('.cart__payment__promocode input');
+const promocodeButton = document.querySelector('.cart__payment__promocode button');
+if (promocodeInput && promocodeButton) {
+  promocodeInput.addEventListener('input', () => {
+    promocodeButton.classList.toggle('active', promocodeInput.value.trim().length > 0);
+  });
+}
+
+// Cart__total__price
+// Cart__total__price
+const formatCartPrice = (value) => value.toLocaleString('ru-RU').replace(/\s/g, '\u00A0');
+
+const parseCartPrice = (text) => Number(text.replace(/[^0-9]/g, ''));
+
+const recalcCartTotal = () => {
+  let productsTotal = 0;
+  cartProducts.forEach((product) => {
+    const qty = Number(product.querySelector('.quantity-value').textContent) || 0;
+    const price = parseCartPrice(product.querySelector('.cart__product__right__price span').textContent);
+    productsTotal += qty * price;
+  });
+
+  const delivery = parseCartPrice(deliverySumEl ? deliverySumEl.textContent : '0');
+  productsSumEl.textContent = formatCartPrice(productsTotal);
+  totalSumEl.textContent = formatCartPrice(productsTotal + delivery);
+};
+
+const cartProducts = document.querySelectorAll('.cart__product');
+const productsSumEl = document.querySelector('[data-cart-products-sum]');
+const deliverySumEl = document.querySelector('[data-cart-delivery-sum]');
+const totalSumEl = document.querySelector('[data-cart-total-sum]');
+
+if (cartProducts.length > 0 && productsSumEl && totalSumEl) {
+  cartProducts.forEach((product) => {
+    const qtyEl = product.querySelector('.quantity-value');
+    const minusBtn = product.querySelector('.quantity-minus');
+    const plusBtn = product.querySelector('.quantity-plus');
+
+    const changeQty = (delta) => {
+      qtyEl.textContent = Math.max(1, (Number(qtyEl.textContent) || 1) + delta);
+      recalcCartTotal();
+    };
+
+    minusBtn.addEventListener('click', () => changeQty(-1));
+    plusBtn.addEventListener('click', () => changeQty(1));
+  });
+
+  recalcCartTotal();
+}
+
 
 // Scroll__footer
 const scrollTopButton = document.querySelector('[data-scroll-top]');

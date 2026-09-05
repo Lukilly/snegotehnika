@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  {{> meta }}
+</head>
+
+<body>
+  <!-- Sprite -->
+  <svg style="display: none;">
+
+    <symbol viewBox="0 0 32 32" id="accordion__plus"><path d="M16.0013 2.66699C8.6373 2.66699 2.66797 8.63633 2.66797 16.0003C2.66797 23.3643 8.6373 29.3337 16.0013 29.3337C23.3653 29.3337 29.3346 23.3643 29.3346 16.0003C29.3346 8.63633 23.3653 2.66699 16.0013 2.66699ZM21.3346 17.3337H17.3346V21.3337C17.3346 22.0697 16.7373 22.667 16.0013 22.667C15.2653 22.667 14.668 22.0697 14.668 21.3337V17.3337H10.668C9.93197 17.3337 9.33464 16.7363 9.33464 16.0003C9.33464 15.2643 9.93197 14.667 10.668 14.667H14.668V10.667C14.668 9.93099 15.2653 9.33366 16.0013 9.33366C16.7373 9.33366 17.3346 9.93099 17.3346 10.667V14.667H21.3346C22.0706 14.667 22.668 15.2643 22.668 16.0003C22.668 16.7363 22.0706 17.3337 21.3346 17.3337Z" fill="currentColor"/></symbol>
+    <symbol viewBox="0 0 24 24" fill="none" id="buttonArrow"><path d="M6 6V8H14.59L5 17.59L6.41 19L16 9.41V18H18V6H6Z" fill="currentColor"/></symbol>
+    <symbol viewBox="0 0 24 24" fill="none" id="product-delete"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.42857 4.875V3.1875H12.5714V4.875H7.42857ZM5.71429 4.875V2.625C5.71429 2.32663 5.83469 2.04048 6.04902 1.8295C6.26335 1.61853 6.55404 1.5 6.85714 1.5H13.1429C13.446 1.5 13.7367 1.61853 13.951 1.8295C14.1653 2.04048 14.2857 2.32663 14.2857 2.625V4.875H17.1429C17.3702 4.875 17.5882 4.96389 17.7489 5.12213C17.9097 5.28036 18 5.49497 18 5.71875C18 5.94253 17.9097 6.15714 17.7489 6.31537C17.5882 6.47361 17.3702 6.5625 17.1429 6.5625H16.7257L15.8766 17.4221C15.8325 17.9874 15.5733 18.5154 15.1508 18.9007C14.7283 19.2859 14.1736 19.5 13.5977 19.5H6.40229C5.82637 19.5 5.2717 19.2859 4.84919 18.9007C4.42669 18.5154 4.16749 17.9874 4.12343 17.4221L3.27429 6.5625H2.85714C2.62981 6.5625 2.4118 6.47361 2.25105 6.31537C2.09031 6.15714 2 5.94253 2 5.71875C2 5.49497 2.09031 5.28036 2.25105 5.12213C2.4118 4.96389 2.62981 4.875 2.85714 4.875H5.71429ZM4.99429 6.5625H15.0057L14.1669 17.2928C14.1559 17.434 14.0912 17.566 13.9857 17.6624C13.8802 17.7587 13.7416 17.8123 13.5977 17.8125H6.40229C6.25836 17.8123 6.1198 17.7587 6.01428 17.6624C5.90877 17.566 5.84408 17.434 5.83314 17.2928L4.99429 6.5625Z" fill="currentColor"/></symbol>
+    <symbol viewBox="0 0 24 24" fill="none" id="park-outline-check"><path d="M12 22C13.3135 22.0016 14.6143 21.7437 15.8278 21.2411C17.0412 20.7384 18.1434 20.0009 19.071 19.071C20.0009 18.1434 20.7384 17.0412 21.2411 15.8278C21.7437 14.6143 22.0016 13.3135 22 12C22.0016 10.6866 21.7437 9.38572 21.2411 8.17225C20.7384 6.95878 20.0009 5.85659 19.071 4.92901C18.1434 3.99909 17.0412 3.26162 15.8278 2.75897C14.6143 2.25631 13.3135 1.99839 12 2.00001C10.6866 1.99839 9.38572 2.25631 8.17225 2.75897C6.95878 3.26162 5.85659 3.99909 4.92901 4.92901C3.99909 5.85659 3.26162 6.95878 2.75897 8.17225C2.25631 9.38572 1.99839 10.6866 2.00001 12C1.99839 13.3135 2.25631 14.6143 2.75897 15.8278C3.26162 17.0412 3.99909 18.1434 4.92901 19.071C5.85659 20.0009 6.95878 20.7384 8.17225 21.2411C9.38572 21.7437 10.6866 22.0016 12 22Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M8 12L11 15L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  
+  </svg>
+
+
+
+
+  <div class="dart_wrapper">
+    {{> header}}
+    <div class="dart_main">
+
+      <div class="cart">
+        <div class="dart-container">
+          <ul class="breadcrumbs">
+            <li>
+              <a href="/index.html">Главная</a>
+            </li>
+            <li>
+              <span>Корзина</span>
+            </li>
+        </ul>
+        <div class="cart__top">
+          <div class="cart__top__left">
+            <h3>корзина</h3>
+            <p>Гарантия от производителя + собственная сервисная мастерская в городе (пример подзаголовка, вы уже свой напишите).</p>
+          </div>
+          <div class="cart__top__right">
+            <div class="cart__top__button">
+              очистить корзину
+              <svg>
+                <use xlink:href="#product-delete"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="cart__inner">
+          <div class="cart__left">
+
+              <div class="cart__product">
+                <div class="cart__product__left">
+                  <img src="/img/cart/product__img.jpg" alt="" class="cart__product__img">
+                  <div class="cart__product__left__container">
+                    <span>SN008</span>
+                    <a href="#">Гусеница Рыбинка</a>
+                  </div>
+                </div>
+                <div class="cart__product__right">
+                  <div class="cart__product__quantity">
+                    <div class="cart__product__quantity__inner">
+                      <button class="quantity-minus">-</button>
+                      <span class="quantity-value">1</span>
+                      <button class="quantity-plus">+</button>
+                    </div>
+                  </div>
+                  <div class="cart__product__right__container">
+                    <button type="button">
+                      <svg>
+                        <use xlink:href="#product-delete"></use>
+                      </svg>
+                    </button>
+                    <div class="cart__product__right__price">
+                      <span>13 809</span> руб.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart__product">
+                <div class="cart__product__left">
+                  <img src="/img/cart/product__img.jpg" alt="" class="cart__product__img">
+                  <div class="cart__product__left__container">
+                    <span>SN008</span>
+                    <a href="#">Гусеница Рыбинка</a>
+                  </div>
+                </div>
+                <div class="cart__product__right">
+                  <div class="cart__product__quantity">
+                    <div class="cart__product__quantity__inner">
+                      <button class="quantity-minus">-</button>
+                      <span class="quantity-value">1</span>
+                      <button class="quantity-plus">+</button>
+                    </div>
+                  </div>
+                  <div class="cart__product__right__container">
+                    <button type="button">
+                      <svg>
+                        <use xlink:href="#product-delete"></use>
+                      </svg>
+                    </button>
+                    <div class="cart__product__right__price">
+                      <span>13 809</span> руб.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart__product">
+                <div class="cart__product__left">
+                  <img src="/img/cart/product__img.jpg" alt="" class="cart__product__img">
+                  <div class="cart__product__left__container">
+                    <span>SN008</span>
+                    <a href="#">Гусеница Рыбинка</a>
+                  </div>
+                </div>
+                <div class="cart__product__right">
+                  <div class="cart__product__quantity">
+                    <div class="cart__product__quantity__inner">
+                      <button class="quantity-minus">-</button>
+                      <span class="quantity-value">1</span>
+                      <button class="quantity-plus">+</button>
+                    </div>
+                  </div>
+                  <div class="cart__product__right__container">
+                    <button type="button">
+                      <svg>
+                        <use xlink:href="#product-delete"></use>
+                      </svg>
+                    </button>
+                    <div class="cart__product__right__price">
+                      <span>13 809</span> руб.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart__delivery">
+                <div class="cart__delivery__top">
+                  <span>1</span>
+                  <h3>Доставка и оплата</h3>
+                </div>
+                <div class="delivery-choice">
+                  <button type="button" class="delivery-choice__button">
+                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M24.7917 29.1666C26.4025 29.1666 27.7083 27.8607 27.7083 26.2499C27.7083 24.6391 26.4025 23.3333 24.7917 23.3333C23.1808 23.3333 21.875 24.6391 21.875 26.2499C21.875 27.8607 23.1808 29.1666 24.7917 29.1666Z" stroke="currentColor" stroke-width="2.1875"/>
+                      <path d="M10.2084 29.1666C11.8192 29.1666 13.125 27.8607 13.125 26.2499C13.125 24.6391 11.8192 23.3333 10.2084 23.3333C8.59752 23.3333 7.29169 24.6391 7.29169 26.2499C7.29169 27.8607 8.59752 29.1666 10.2084 29.1666Z" stroke="currentColor" stroke-width="2.1875"/>
+                      <path d="M7.29169 26.2091C5.6919 26.1303 4.69585 25.8926 3.98419 25.1824C3.27252 24.4722 3.03627 23.4747 2.95752 21.8749M13.125 26.2499H21.875M27.7084 26.2091C29.3081 26.1303 30.3042 25.8926 31.0159 25.1824C32.0834 24.1135 32.0834 22.3955 32.0834 18.9583V16.0416H25.2292C24.1427 16.0416 23.6002 16.0416 23.1613 15.8987C22.7236 15.7564 22.3257 15.5126 22.0003 15.1872C21.6748 14.8617 21.431 14.4639 21.2888 14.0262C21.1459 13.5872 21.1459 13.0447 21.1459 11.9583C21.1459 10.3293 21.1459 9.51554 20.9315 8.85638C20.7181 8.1998 20.3524 7.60303 19.8642 7.11486C19.3761 6.6267 18.7793 6.26098 18.1227 6.04763C17.4636 5.83325 16.6498 5.83325 15.0209 5.83325H2.91669M2.91669 11.6666H11.6667M2.91669 16.0416H8.75002" stroke="currentColor" stroke-width="2.1875" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M21.1459 8.75H23.8015C25.9248 8.75 26.985 8.75 27.8484 9.26625C28.7132 9.78104 29.2163 10.7158 30.2225 12.5854L32.0834 16.0417" stroke="currentColor" stroke-width="2.1875" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="delivery-choice__button__info">
+                      <h4>Транспортные компании</h4>
+                      <p>До ПВЗ</p>
+                    </div>
+                  </button>
+                  <button type="button" class="delivery-choice__button">
+                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M4.08917 12.1816C3.68084 15.9776 3.69834 20.3555 4.26709 24.137C4.42024 25.153 4.91067 26.088 5.6595 26.7916C6.40833 27.4952 7.37203 27.9265 8.39563 28.0161L10.5977 28.2057C15.1915 28.6053 19.8085 28.6053 24.4023 28.2057L26.6044 28.0161C27.628 27.9265 28.5917 27.4952 29.3405 26.7916C30.0893 26.088 30.5798 25.153 30.7329 24.137C31.3017 20.3555 31.3192 15.9776 30.9108 12.1816C30.8582 11.7412 30.7989 11.3017 30.7329 10.8632C30.5798 9.84719 30.0893 8.91218 29.3405 8.20859C28.5917 7.50499 27.628 7.0737 26.6044 6.98406L24.4023 6.79447C19.8099 6.39566 15.1916 6.39566 10.5992 6.79447L8.39709 6.98406C7.37323 7.07338 6.40919 7.50454 5.66007 8.20817C4.91095 8.91179 4.42031 9.84696 4.26709 10.8632C4.20098 11.3027 4.14167 11.7421 4.08917 12.1816ZM10.7873 8.97322C15.2535 8.58391 19.7451 8.58391 24.2113 8.97322L26.4133 9.16427C26.948 9.21094 27.4514 9.43609 27.8426 9.8035C28.2338 10.1709 28.4901 10.6592 28.5702 11.1899L28.6198 11.5297L20.51 16.0359C19.5892 16.5475 18.5533 16.8159 17.5 16.8159C16.4467 16.8159 15.4108 16.5475 14.49 16.0359L6.38021 11.5297L6.4298 11.1899C6.50984 10.6594 6.7659 10.1713 7.15682 9.80392C7.54774 9.43654 8.05082 9.21125 8.58521 9.16427L10.7873 8.97322ZM28.8867 13.8834C29.1714 17.1933 29.0652 20.5253 28.5702 23.8103C28.4902 24.3408 28.2341 24.8289 27.8432 25.1963C27.4523 25.5637 26.9492 25.7889 26.4148 25.8359L24.2127 26.027C19.746 26.4164 15.254 26.4164 10.7873 26.027L8.58521 25.8359C8.05082 25.7889 7.54774 25.5637 7.15682 25.1963C6.7659 24.8289 6.50984 24.3408 6.4298 23.8103C5.9343 20.5253 5.82759 17.1934 6.11188 13.8834L13.4269 17.9478C14.6726 18.6399 16.0742 19.0031 17.4993 19.0031C18.9244 19.0031 20.3259 18.6399 21.5717 17.9478L28.8867 13.8834Z" fill="currentColor"/>
+                    </svg>
+                    <div class="delivery-choice__button__info">
+                      <h4>Почта России</h4>
+                      <p>Упаковка для одной посылки стоит 150-250 р.</p>
+                    </div>
+                  </button>
+                </div>
+                <div class="payment-choice">
+                  <button type="button" class="payment-choice__button">
+                    <h4>Оплата банковской картой</h4>
+                    <p>Безопасно и быстро, любые банковские карты.</p>
+                  </button>
+                  <button type="button" class="payment-choice__button">
+                    <h4>Оплата по реквизитам на р/счет</h4>
+                    <p>по квитанции, по счету</p>
+                  </button>
+                  <button type="button" class="payment-choice__button">
+                    <h4>Кредит</h4>
+                    <p>Описание</p>
+                  </button>
+                </div>
+              </div>
+
+              <div class="cart__address">
+                <div class="cart__address__top">
+                  <span>1</span>
+                  <h3>Доставка и оплата</h3>
+                </div>
+                <div class="cart__address__parameter">
+                  <span>Получатель</span>
+                  <input class="cart__address__recipient__name" type="text" placeholder="ФИО полностью">
+                </div>
+                <div class="cart__address__recipient__container">
+                  <input class="cart__address__recipient__email" type="text" placeholder="email">
+                  <input class="cart__address__recipient__number" type="number" placeholder="+7(___)___-__-__">
+                </div>
+                <div class="cart__address__parameter">
+                  <span>Адрес доставки</span>
+                  <p>Выберите подходящий населенный пункт из списка</p>
+                  <input class="cart__address__address__input" type="text">
+                </div>
+                <div class="cart__address__parameter">
+                  <span>Комментарий</span>
+                  <textarea class="cart__address__comment__input" rows="6" placeholder="Текст..."></textarea>
+                </div>
+              </div>
+
+            </div>
+            <div class="cart__right">
+              <div class="cart__payment">
+                 <div class="cart__payment__promocode">
+                  <input type="text" placeholder="Укажите промокод">
+                  <button>
+                    <svg>
+                      <use xlink:href="#park-outline-check"></use>
+                    </svg>
+                  </button>
+                </div>
+                <div class="cart__payment__info">
+                  <div class="cart__payment__info__container">
+                    <p>Товары:</p>
+                    <h4><span data-cart-products-sum>41 427</span> руб.</h4>
+                  </div>
+                  <div class="cart__payment__info__container">
+                    <p>Доставка:</p>
+                    <h4><span data-cart-delivery-sum>0</span> руб.</h4>
+                  </div>
+                </div>
+                <div class="cart__payment__result">
+                  <h3>Итого: <b><span data-cart-total-sum>0</span> руб.</b></h3>
+                </div>
+                <div class="cart__payment__buttons">
+                  <input type="checkbox" id="privacy" name="approval">
+                  <label for="privacy" class="cart__payment__approval">
+                      <span class="check-circle"></span>
+                      <div>нажимая на кнопку, я соглашаюсь с <a href="#">политикой о конфиденциальности</a></div>
+                  </label>
+                  <a class="cart__payment__button" href="#">
+                    оформить заказ
+                    <svg class="button__icon">
+                      <use xlink:href="#buttonArrow"></use>
+                    </svg>
+                  </a>
+                  <a class="cart__payment__button__transparent" href="#">
+                    оформить по телефону
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_846_5837)">
+                        <path d="M24 16.6148L16.9727 15.8014L13.6124 19.1617C9.8273 17.2361 6.75059 14.1594 4.825 10.3742L8.19863 7.00061L7.38522 0H0.0379202C-0.73548 13.5745 10.4255 24.7355 24 23.9621V16.6148Z" fill="currentColor"/>
+                      </g>
+                      <defs>
+                      <clipPath id="clip0_846_5837">
+                      <rect width="24" height="24" fill="white"/>
+                      </clipPath>
+                      </defs>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    {{> footer}}
+  </div>
+  {{> scripts}}
+</body>
+</html>
