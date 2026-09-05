@@ -2964,12 +2964,14 @@ h1, h2, h3{
           }
           .cart__payment__button{
             @include button();
+            padding: 14.5px 35px;
             margin-bottom: 20px;
             border: 1px #F93131 solid;
             background-color: #F93131;
           }
           .cart__payment__button__transparent{
             @include button__transparent();
+            padding: 14.5px 35px;
             border: 2px var(--secondary-color) solid;
             color: var(--secondary-color);
             svg{

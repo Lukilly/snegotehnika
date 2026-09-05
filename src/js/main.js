@@ -610,14 +610,13 @@ if (promocodeInput && promocodeButton) {
 }
 
 // Cart__total__price
-// Cart__total__price
 const formatCartPrice = (value) => value.toLocaleString('ru-RU').replace(/\s/g, '\u00A0');
 
 const parseCartPrice = (text) => Number(text.replace(/[^0-9]/g, ''));
 
 const recalcCartTotal = () => {
   let productsTotal = 0;
-  cartProducts.forEach((product) => {
+  document.querySelectorAll('.cart__product').forEach((product) => {
     const qty = Number(product.querySelector('.quantity-value').textContent) || 0;
     const price = parseCartPrice(product.querySelector('.cart__product__right__price span').textContent);
     productsTotal += qty * price;
@@ -646,9 +645,22 @@ if (cartProducts.length > 0 && productsSumEl && totalSumEl) {
 
     minusBtn.addEventListener('click', () => changeQty(-1));
     plusBtn.addEventListener('click', () => changeQty(1));
+
+    product.querySelector('.cart__product__right__container button').addEventListener('click', () => {
+      product.remove();
+      recalcCartTotal();
+    });
   });
 
   recalcCartTotal();
+}
+
+const clearCartBtn = document.querySelector('.cart__top__button');
+if (clearCartBtn) {
+  clearCartBtn.addEventListener('click', () => {
+    document.querySelectorAll('.cart__product').forEach((product) => product.remove());
+    recalcCartTotal();
+  });
 }
 
 
