@@ -965,34 +965,6 @@ h1, h2, h3{
       }
     }
   }
-  .catalog__deliver{
-    margin-bottom: 35px;
-    display: none;
-    .catalog__deliver__top{
-      margin-bottom: 14px;
-      display: flex;
-      .catalog__deliver__title{
-        margin-right: 50px;
-        font-family: 'Montserrat' sans-serif;
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--primary-color);
-      }
-    }
-    .catalog__deliver__button{
-      @include button;
-      max-width: 380px;
-      padding: 12px 20px;
-      svg{
-        color: #fff;
-      }
-      &:hover{
-        svg{
-          transform: rotate(0deg);
-        }
-      }
-    }
-  }
   .catalog__container{
     margin-bottom: 40px;
     display: grid;
@@ -3695,10 +3667,21 @@ h1, h2, h3{
       }
     }
     .catalog__sort{
-      display: none;
-    }
-    .catalog__deliver{
-      display: block;
+      flex-wrap: wrap;
+      .catalog__sort__label{
+        margin-bottom: 20px;
+      }
+      .catalog__sort__select{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .catalog__sorting__item{
+          font-size: 18px;
+          & + .catalog__sorting__item{
+            margin-left: 0px;
+          }
+        }
+      }
     }
     .catalog__container{
       .catalog__item{
@@ -4383,6 +4366,13 @@ h1, h2, h3{
         font-size: 28px;
       }
     }
+    .catalog__sort{
+      .catalog__sort__select{
+        .catalog__sorting__item{
+          font-size: 14px;
+        }
+      }
+    }
     .catalog__container{
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
@@ -4945,10 +4935,24 @@ h1, h2, h3{
       }
     }
     .catalog__sort{
-      display: none;
-    }
-    .catalog__deliver{
-      display: block;
+      .catalog__sort__label{
+        margin-right: 0px;
+      }
+      .catalog__sort__select{
+        background-color: transparent;
+        padding: 0px;
+        flex-wrap: wrap;
+        .catalog__sorting__item{
+          border-radius: 8px;
+          background-color: #fff;
+          padding: 12px 20px;
+          width: 100%;
+          font-size: 16px;
+          & + .catalog__sorting__item{
+            margin-top: 20px;
+          }
+        }
+      }
     }
     .catalog__container{
       .catalog__item{
