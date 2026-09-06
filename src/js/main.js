@@ -674,19 +674,23 @@ scrollTopButton.addEventListener('click', () => {
   });
 });
 
-// product-card__tabs mobile dropdown + tab switching
-const tabsNav = document.querySelector('.product-card__tabs__nav');
-if (tabsNav) {
-  const tabsSection = tabsNav.closest('.product-card__tabs');
-  const tabsItems = Array.from(tabsNav.querySelectorAll('.product-card__tabs__nav__item'));
-  const tabsPanels = tabsSection ? Array.from(tabsSection.querySelectorAll('[data-tab__content]')) : [];
+// tabs mobile dropdown + tab switching
+const initTabsNav = (navSelector, itemSelector, openClass) => {
+  const nav = document.querySelector(navSelector);
+  if (!nav) return;
+  const items = Array.from(nav.querySelectorAll(itemSelector));
+  let scope = nav.parentElement;
+  while (scope && !scope.querySelector('[data-tab__content]')) {
+    scope = scope.parentElement;
+  }
+  const panels = scope ? Array.from(scope.querySelectorAll('[data-tab__content]')) : [];
 
   const selectTab = (target) => {
-    tabsItems.forEach((it) => it.classList.toggle('active', it === target));
-    tabsNav.classList.remove('product-card__tabs__nav--open');
+    items.forEach((it) => it.classList.toggle('active', it === target));
+    nav.classList.remove(openClass);
     const key = target.getAttribute('data-tab');
     let shownPanel = null;
-    tabsPanels.forEach((panel) => {
+    panels.forEach((panel) => {
       const show = panel.getAttribute('data-tab__content') === key;
       panel.style.display = show ? '' : 'none';
       if (show) shownPanel = panel;
@@ -700,22 +704,25 @@ if (tabsNav) {
     }
   };
 
-  tabsNav.addEventListener('click', (e) => {
-    const btn = e.target.closest('.product-card__tabs__nav__item');
+  nav.addEventListener('click', (e) => {
+    const btn = e.target.closest(itemSelector);
     if (!btn) return;
-    if (btn.classList.contains('active') && !tabsNav.classList.contains('product-card__tabs__nav--open')) {
-      tabsNav.classList.add('product-card__tabs__nav--open');
+    if (btn.classList.contains('active') && !nav.classList.contains(openClass)) {
+      nav.classList.add(openClass);
       return;
     }
     selectTab(btn);
   });
 
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.product-card__tabs__nav')) {
-      tabsNav.classList.remove('product-card__tabs__nav--open');
+    if (!e.target.closest(navSelector)) {
+      nav.classList.remove(openClass);
     }
   });
 
-  const initialTab = tabsItems.find((it) => it.classList.contains('active')) || tabsItems[0];
+  const initialTab = items.find((it) => it.classList.contains('active')) || items[0];
   if (initialTab) selectTab(initialTab);
-}
+};
+
+initTabsNav('.product-card__tabs__nav', '.product-card__tabs__nav__item', 'product-card__tabs__nav--open');
+initTabsNav('.delivery__tabs__nav', '.delivery__tabs__nav__item', 'delivery__tabs__nav--open');

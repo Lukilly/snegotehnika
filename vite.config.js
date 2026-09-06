@@ -79,6 +79,7 @@ export default defineConfig({
         catalog: resolve(__dirname, "pages/catalog.html"),
         poductCard: resolve(__dirname, "pages/poduct-card.html"),
         cart: resolve(__dirname, "pages/cart.html"),
+        delivery: resolve(__dirname, "pages/delivery.html"),
         // contacts: resolve(__dirname, "pages/contacts.html"),
       },
       output: {

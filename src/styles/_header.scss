@@ -375,7 +375,6 @@ header {
 .header__catalog__item{
   padding: 6px 10px;
   width: 100%;
-  flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -669,11 +668,7 @@ header {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .header__catalog__list{
-    flex: 1;
-  }
   .header__catalog__item{
-    flex: 1;
     .header__catalog__menu__icon{
       transform: rotate(180deg);
     }

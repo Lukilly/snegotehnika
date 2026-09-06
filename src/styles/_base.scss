@@ -2545,7 +2545,7 @@ h1, h2, h3{
     .cart__top__left{
       max-width: 60%;
       h3{
-        margin-bottom: 40px;
+        margin-bottom: 56px;
         font-weight: 700;
       }
       p{
@@ -3079,6 +3079,7 @@ h1, h2, h3{
       .delivery__intro__top__left{
         h3{
           margin-bottom: 40px;
+          font-size: 56px;
           font-weight: 700;
         }
         span{
@@ -3247,7 +3248,7 @@ h1, h2, h3{
     .delivery__delivery-terms__importante{
       text-transform: none;
       & + .delivery__delivery-terms__importante{
-        margin-top: 30px;
+        margin-top: 35px;
       }
     }
     .delivery__transport-list{
@@ -3748,7 +3749,7 @@ h1, h2, h3{
     .cart__top{
       .cart__top__left{
         h3{
-          font-size: 36px;
+          font-size: 50px;
         }
         p{
           font-size: 22px;
@@ -3763,6 +3764,95 @@ h1, h2, h3{
         gap: 30px;
         .cart__payment__button{
           margin-bottom: 0px;
+        }
+      }
+    }
+  }
+  .delivery{
+    .breadcrumbs{
+      margin-top: 30px;
+      margin-bottom: 70px;
+    }
+    .delivery__delivery__importante__item{
+      margin-bottom: 80px;
+    }
+    .delivery__intro{
+      margin-bottom: 80px;
+      .delivery__intro__top{
+        margin-bottom: 55px;
+        .delivery__intro__top__left{
+          h3{
+            margin-bottom: 35px;
+            font-size: 50px;
+          }
+          span{
+            font-size: 22px;
+          }
+        }
+      }
+      .delivery__intro__cards{
+        .delivery__intro__cards__item{
+          padding: 25px;
+          .delivery__intro__cards__item__icon{
+            margin-bottom: 20px;
+            width: 28px;
+            height: 28px;
+          }
+          h3{
+            margin-bottom: 15px;
+            font-size: 16px;
+          }
+          p{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .delivery__tabs__nav{
+      margin-bottom: 80px;
+    }
+    .delivery__delivery-terms{
+      .delivery__delivery-terms__container{
+        margin-bottom: 80px;
+        h3{
+          margin-bottom: 54px;
+          font-size: 38px;
+        }
+        ol{
+          margin-bottom: 54px;
+        }
+      }
+    }
+    .delivery__transport-companies{
+      margin-bottom: 80px;
+      .delivery__transport-list{
+        margin-top: 54px;
+        h3{
+          margin-bottom: 80px;
+          font-size: 38px;
+        }
+        .delivery__transport-list__img__container{
+          .delivery__transport-list__img__item{
+            padding: 20px;
+          }
+        }
+      }
+    }
+    .delivery__refund{
+      margin-bottom: 80px;
+      h2{
+        margin-bottom: 54px;
+        font-size: 38px;
+      }
+    }
+    .delivery__payment-methods{
+      margin-bottom: 80px;
+      .accordion{
+        .accordion__inner{
+          .accordion__title{
+            font-size: 38px;
+            margin-bottom: 54px;
+          }
         }
       }
     }
@@ -4285,10 +4375,127 @@ h1, h2, h3{
     .cart__top{
       .cart__top__left{
         h3{
-          font-size: 34px;
+          font-size: 46px;
         }
         p{
           font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .delivery{
+    .breadcrumbs{
+      margin-top: 22px;
+      margin-bottom: 64px;
+    }
+    .delivery__delivery__importante__item{
+      margin-bottom: 70px;
+      padding: 40px;
+      .delivery__delivery__importante__item__icon{
+        margin-right: 30px;
+      }
+      .delivery__delivery__importante__item__content{
+        p{
+          font-size: 18px;
+        }
+      }
+    }
+    .delivery__delivery-terms__importante{
+      padding: 20px 30px;
+    }
+    .delivery__intro{
+      margin-bottom: 70px;
+      .delivery__intro__top{
+        margin-bottom: 50px;
+        .delivery__intro__top__left{
+          h3{
+            margin-bottom: 20px;
+            font-size: 46px;
+          }
+          span{
+            font-size: 20px;
+          }
+        }
+        .delivery__intro__top__right{
+          .delivery__intro__top__button{
+            padding: 14.5px 20px;
+            font-size: 12px;
+          }
+        }
+      }
+      .delivery__intro__cards{
+        grid-template-columns: 1fr 1fr;
+        .delivery__intro__cards__item{
+          padding: 35px;
+          .delivery__intro__cards__item__icon{
+            margin-bottom: 30px;
+            width: 36px;
+            height: 36px;
+          }
+          h3{
+            margin-bottom: 25px;
+            font-size: 18px;
+          }
+          p{
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .delivery__tabs__nav{
+      margin-bottom: 42px;
+      .delivery__tabs__nav__item{
+        padding: 12.5px 20px;
+        font-size: 12px;
+      }
+    }
+    .delivery__delivery-terms{
+      .delivery__delivery-terms__container{
+        margin-bottom: 70px;
+        h3{
+          margin-bottom: 48px;
+          font-size: 30px;
+        }
+        ul{
+          padding: 25px 30px 15px 30px;
+        }
+        ol{
+          margin-bottom: 48px;
+        }
+      }
+    }
+    .delivery__transport-companies{
+      margin-bottom: 70px;
+      .delivery__transport-list{
+        margin-top: 55px;
+        h3{
+          margin-bottom: 70px;
+          font-size: 30px;
+        }
+        .delivery__transport-list__img__container{
+          gap: 15px;
+          .delivery__transport-list__img__item{
+            padding: 15px 10px;
+          }
+        }
+      }
+    }
+    .delivery__refund{
+      margin-bottom: 70px;
+      h2{
+        margin-bottom: 48px;
+        font-size: 30px;
+      }
+    }
+    .delivery__payment-methods{
+      margin-bottom: 70px;
+      .accordion{
+        .accordion__inner{
+          .accordion__title{
+            font-size: 30px;
+            margin-bottom: 48px;
+          }
         }
       }
     }
@@ -5019,7 +5226,7 @@ h1, h2, h3{
         max-width: none;
         h3{
           margin-bottom: 20px;
-          font-size: 30px;
+          font-size: 38px;
         }
         p{
           font-size: 18px;
@@ -5048,6 +5255,171 @@ h1, h2, h3{
       }
       .cart__right .cart__payment .cart__payment__buttons .cart__buttons{
         gap: 15px;
+      }
+    }
+  }
+
+  .delivery{
+    margin-top: 60px;
+    .breadcrumbs{
+      display: none;
+    }
+    .delivery__delivery__importante__item{
+      margin-bottom: 60px;
+      padding: 40px;
+      .delivery__delivery__importante__item__icon{
+        margin-right: 30px;
+      }
+      .delivery__delivery__importante__item__content{
+        p{
+          font-size: 18px;
+        }
+      }
+    }
+    .delivery__delivery-terms__importante{
+      padding: 20px 30px;
+    }
+    .delivery__intro{
+      margin-bottom: 60px;
+      .delivery__intro__top{
+        display: block;
+        margin-bottom: 42px;
+        .delivery__intro__top__left{
+          margin-bottom: 30px;
+          h3{
+            margin-bottom: 20px;
+            font-size: 38px;
+          }
+          span{
+            font-size: 18px;
+          }
+        }
+        .delivery__intro__top__right{
+          .delivery__intro__top__button{
+            padding: 14.5px 20px;
+            font-size: 12px;
+          }
+        }
+      }
+      .delivery__intro__cards{
+        grid-template-columns: 1fr 1fr;
+        .delivery__intro__cards__item{
+          padding: 35px;
+          .delivery__intro__cards__item__icon{
+            margin-bottom: 30px;
+            width: 36px;
+            height: 36px;
+          }
+          h3{
+            margin-bottom: 25px;
+            font-size: 18px;
+          }
+          p{
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .delivery__tabs__top{
+      display: flex;
+    }
+    .delivery__tabs__nav{
+      margin-bottom: 40px;
+      display: block;
+      .delivery__tabs__nav__item{
+        display: none;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        border: 2px 2px 2px 2px var(--primary-color) solid;
+        font-weight: 500;
+        font-size: 16px;
+        border-radius: 6px 6px 6px 6px;
+        background-color: #E2EAF9;
+        padding: 15px 20px;
+        &:first-child, &:last-child{
+          border-radius: 6px 6px 6px 6px;
+          border: 0px;
+        }
+        & + .delivery__tabs__nav__item{
+          border-top: 0px;
+        }
+        &.active{
+          display: flex;
+          border-radius: 6px 6px 6px 6px;
+          svg{
+            width: 24px;
+            height: 24px;
+            display: block;
+          }
+        }
+      }
+      &.delivery__tabs__nav--open{
+        .delivery__tabs__nav__item{
+          display: flex;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .delivery__delivery-terms{
+      .delivery__delivery-terms__container{
+        margin-bottom: 60px;
+        h3{
+          margin-bottom: 42px;
+          font-size: 28px;
+        }
+        ul{
+          padding: 25px 30px 15px 30px;
+        }
+        ol{
+          margin-bottom: 42px;
+        }
+      }
+    }
+    .delivery__transport-companies{
+      margin-bottom: 60px;
+      .delivery__transport-list{
+        margin-top: 50px;
+        h3{
+          margin-bottom: 60px;
+          font-size: 28px;
+        }
+        .delivery__transport-list__img__container{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 18px;
+          .delivery__transport-list__img__item{
+            padding: 25px;
+            &--wide{
+              width: 48.7%;
+            }
+            &--narrow{
+              width: 23%;
+            }
+            &:last-child{
+              order: -1;
+            }
+          }
+        }
+      }
+    }
+    .delivery__refund{
+      margin-bottom: 60px;
+      h2{
+        margin-bottom: 42px;
+        font-size: 28px;
+      }
+    }
+    .delivery__payment-methods{
+      margin-bottom: 60px;
+      .accordion{
+        .accordion__inner{
+          .accordion__title{
+            font-size: 28px;
+            margin-bottom: 42px;
+          }
+        }
       }
     }
   }
@@ -5606,6 +5978,14 @@ h1, h2, h3{
     margin-top: 50px;
     .cart__top{
       margin-bottom: 38px;
+      .cart__top__left{
+        h3{
+          font-size: 34px;
+        }
+      }
+      .cart__top__right{
+        display: none;
+      }
     }
     .cart__inner{
       .cart__left{
@@ -5721,6 +6101,113 @@ h1, h2, h3{
                 margin-bottom: 15px;
               }
             }
+          }
+        }
+      }
+    }
+  }
+
+  .delivery{
+    margin-top: 50px;
+    .delivery__delivery__importante__item{
+      margin-bottom: 50px;
+      padding: 30px 20px;
+      .delivery__delivery__importante__item__icon{
+        margin-right: 20px;
+      }
+      .delivery__delivery__importante__item__content{
+        gap: 14px;
+        p, h3, span{
+          font-size: 16px;
+        }
+      }
+    }
+    .delivery__delivery-terms__importante{
+      padding: 10px 20px;
+    }
+    .delivery__intro{
+      margin-bottom: 50px;
+      .delivery__intro__top{
+        display: block;
+        margin-bottom: 40px;
+        .delivery__intro__top__left{
+          h3{
+            font-size: 26px;
+          }
+        }
+      }
+      .delivery__intro__cards{
+        grid-template-columns: 1fr 1fr;
+        .delivery__intro__cards__item{
+          padding: 30px 20px;
+          .delivery__intro__cards__item__icon{
+            margin-bottom: 25px;
+            width: 30px;
+            height: 30px;
+          }
+          h3{
+            margin-bottom: 20px;
+            font-size: 16px;
+          }
+          p{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .delivery__delivery-terms{
+      .delivery__delivery-terms__container{
+        margin-bottom: 50px;
+        h3{
+          margin-bottom: 40px;
+          font-size: 26px;
+        }
+        ul{
+          padding: 25px 30px 15px 30px;
+        }
+        ol{
+          margin-bottom: 40px;
+        }
+      }
+    }
+    .delivery__transport-companies{
+      margin-bottom: 50px;
+      .delivery__transport-list{
+        h3{
+          margin-bottom: 50px;
+          font-size: 26px;
+        }
+        .delivery__transport-list__img__container{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 18px;
+          .delivery__transport-list__img__item{
+            padding: 15px;
+            &--wide{
+              width: 48.4%;
+            }
+            &--narrow{
+              width: 22.6%;
+            }
+          }
+        }
+      }
+    }
+    .delivery__refund{
+      margin-bottom: 50px;
+      h2{
+        margin-bottom: 40px;
+        font-size: 26px;
+      }
+    }
+    .delivery__payment-methods{
+      margin-bottom: 50px;
+      .accordion{
+        .accordion__inner{
+          .accordion__title{
+            font-size:26px;
+            margin-bottom: 40px;
           }
         }
       }
@@ -6553,7 +7040,7 @@ h1, h2, h3{
       margin-bottom: 34px;
       .cart__top__left{
         h3{
-          font-size: 28px;
+          font-size: 30px;
         }
         p{
           font-size: 16px;
@@ -6619,6 +7106,156 @@ h1, h2, h3{
       }
       .cart__right{
         margin: 0px -20px;
+      }
+    }
+  }
+
+  .delivery{
+    margin-top: 40px;
+    .delivery__delivery__importante__item{
+      padding: 30px 20px;
+      .delivery__delivery__importante__item__icon{
+        margin-right: 15px;
+      }
+      .delivery__delivery__importante__item__content{
+        gap: 14px;
+        p, h3, span{
+          font-size: 16px;
+        }
+      }
+      svg{
+        width: 24px;
+        height: 24px;
+      }
+    }
+    .delivery__delivery-terms__importante{
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+    .delivery__intro{
+      .delivery__intro__top{
+        display: block;
+        margin-bottom: 38px;
+        .delivery__intro__top__left{
+          margin-bottom: 25px;
+          h3{
+            font-size: 30px;
+          }
+          span{
+            font-size: 16px;
+          }
+        }
+      }
+      .delivery__intro__cards{
+        grid-template-columns: 1fr;
+        gap: 10px;
+        .delivery__intro__cards__item{
+          .delivery__intro__cards__item__icon{
+            margin-bottom: 20px;
+            width: 30px;
+            height: 30px;
+          }
+          h3{
+            margin-bottom: 20px;
+            font-size: 18px;
+          }
+          p{
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .delivery__tabs__top{
+      font-size: 18px;
+      .delivery__tabs__top__icon{
+        svg{
+          width: 20px;
+          height: 16px;
+        }
+      }
+    }
+    .delivery__tabs__nav{
+      margin-bottom: 38px;
+      .delivery__tabs__nav__item{
+        font-size: 14px;
+        &.active{
+          font-size: 14px;
+        }
+      }
+      &.delivery__tabs__nav--open{
+        .delivery__tabs__nav__item{
+          margin-bottom: 8px;
+        }
+      }
+    }
+    .delivery__delivery-terms{
+      .delivery__delivery-terms__container{
+        h3{
+          margin-bottom: 38px;
+          font-size: 22px;
+        }
+        ul{
+          padding: 10px;
+          li{
+            padding: 0px 30px;
+            font-size: 14px;
+          }
+        }
+        ol{
+          li{
+            font-size: 14px;
+            & + li {
+              margin-top: 15px;
+            }
+          }
+        }
+      }
+    }
+    .delivery__transport-companies{
+      .delivery__transport-list{
+        h3{
+          margin-bottom: 40px;
+          font-size: 22px;
+        }
+        .delivery__transport-list__img__container{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 18px;
+          .delivery__transport-list__img__item{
+            padding: 15px;
+            &--wide{
+              width: 48.4%;
+            }
+            &--narrow{
+              width: 22.6%;
+            }
+          }
+        }
+      }
+    }
+    .delivery__refund{
+      h2{
+        margin-bottom: 38px;
+        font-size: 22px;
+      }
+      .delivery__delivery-terms__importante{
+        p{
+          & + p{
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+    .delivery__payment-methods{
+      margin-bottom: 40px;
+      .accordion{
+        .accordion__inner{
+          .accordion__title{
+            font-size: 22px;
+            margin-bottom: 38px;
+          }
+        }
       }
     }
   }
@@ -7342,6 +7979,151 @@ h1, h2, h3{
                 }
               }
             }
+          }
+        }
+      }
+    }
+  }
+  .delivery{
+    .delivery__delivery__importante__item{
+      display: block;
+      padding: 30px 20px;
+      .delivery__delivery__importante__item__icon{
+        margin-bottom: 15px;
+      }
+      .delivery__delivery__importante__item__content{
+        p, h3, span{
+          font-size: 14px;
+        }
+      }
+      svg{
+        width: 24px;
+        height: 24px;
+      }
+    }
+    .delivery__delivery-terms__importante{
+      padding: 0px 15px;
+      font-size: 14px;
+    }
+    .delivery__intro{
+      .delivery__intro__top{
+        display: block;
+        margin-bottom: 35px;
+        .delivery__intro__top__left{
+          margin-bottom: 25px;
+          h3{
+            font-size: 26px;
+          }
+          span{
+            font-size: 16px;
+          }
+        }
+      }
+      .delivery__intro__cards{
+        grid-template-columns: 1fr;
+        gap: 10px;
+        .delivery__intro__cards__item{
+          .delivery__intro__cards__item__icon{
+            margin-bottom: 20px;
+            width: 24px;
+            height: 24px;
+          }
+          h3{
+            margin-bottom: 20px;
+            font-size: 16px;
+          }
+          p{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .delivery__tabs__top{
+      margin-bottom: 16px;
+      font-size: 14px;
+      .delivery__tabs__top__icon{
+        svg{
+          width: 16px;
+          height: 12px;
+        }
+      }
+    }
+    .delivery__tabs__nav{
+      margin-bottom: 35px;
+    }
+    .delivery__delivery-terms{
+      .delivery__delivery-terms__container{
+        margin-bottom: 35px;
+        padding-bottom: 50px;
+        border-bottom: 2px #3F71FF42 solid;
+        h3{
+          margin-bottom: 35px;
+          font-size: 20px;
+        }
+        ul{
+          border-left: 0px;
+          padding: 0px;
+          li{
+            padding: 0px 30px;
+            font-size: 14px;
+          }
+        }
+        ol{
+          margin-bottom: 35px;
+          li{
+            font-size: 14px;
+            & + li {
+              margin-top: 15px;
+            }
+          }
+        }
+      }
+    }
+    .delivery__transport-companies{
+      .delivery__transport-list{
+        h3{
+          margin-bottom: 35px;
+          font-size: 20px;
+        }
+        .delivery__transport-list__img__container{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 18px;
+          .delivery__transport-list__img__item{
+            padding: 25px 15px;
+            &--wide{
+              width: 100%;
+            }
+            &--narrow{
+              width: 46.6%;
+            }
+          }
+        }
+      }
+    }
+    .delivery__refund{
+      padding-bottom: 35px;
+      border-bottom: 2px #3F71FF42 solid;
+      h2{
+        margin-bottom: 35px;
+        font-size: 20px;
+      }
+      .delivery__delivery-terms__importante{
+        p{
+          & + p{
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+    .delivery__payment-methods{
+      margin-bottom: 35px;
+      .accordion{
+        .accordion__inner{
+          .accordion__title{
+            font-size: 20px;
+            margin-bottom: 35px;
           }
         }
       }
