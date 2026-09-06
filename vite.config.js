@@ -78,6 +78,7 @@ export default defineConfig({
         index: resolve(__dirname, "index.html"),
         catalog: resolve(__dirname, "pages/catalog.html"),
         poductCard: resolve(__dirname, "pages/poduct-card.html"),
+        cart: resolve(__dirname, "pages/cart.html"),
         // contacts: resolve(__dirname, "pages/contacts.html"),
       },
       output: {
