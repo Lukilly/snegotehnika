@@ -1,0 +1,1324 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <script type="module" src="/@vite/client"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>SNEGOTEHNIKA</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="Снеготехника">
+  <meta property="og:title" content="Снеготехника">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://">
+  <meta property="og:image" content="">
+  <meta property="og:site_name" content="https://">
+  <meta property="og:description" content="Снеготехника">
+  <link rel="stylesheet" href="/src/styles/global.scss"></head>
+
+<body>
+  <!-- Sprite -->
+  <svg style="display: none;">
+
+    <symbol viewBox="0 0 32 32" id="accordion__plus"><path d="M16.0013 2.66699C8.6373 2.66699 2.66797 8.63633 2.66797 16.0003C2.66797 23.3643 8.6373 29.3337 16.0013 29.3337C23.3653 29.3337 29.3346 23.3643 29.3346 16.0003C29.3346 8.63633 23.3653 2.66699 16.0013 2.66699ZM21.3346 17.3337H17.3346V21.3337C17.3346 22.0697 16.7373 22.667 16.0013 22.667C15.2653 22.667 14.668 22.0697 14.668 21.3337V17.3337H10.668C9.93197 17.3337 9.33464 16.7363 9.33464 16.0003C9.33464 15.2643 9.93197 14.667 10.668 14.667H14.668V10.667C14.668 9.93099 15.2653 9.33366 16.0013 9.33366C16.7373 9.33366 17.3346 9.93099 17.3346 10.667V14.667H21.3346C22.0706 14.667 22.668 15.2643 22.668 16.0003C22.668 16.7363 22.0706 17.3337 21.3346 17.3337Z" fill="currentColor"/></symbol>
+    <symbol viewBox="0 0 24 24" fill="none" id="buttonArrow"><path d="M6 6V8H14.59L5 17.59L6.41 19L16 9.41V18H18V6H6Z" fill="currentColor"/></symbol>
+
+  </svg>
+
+
+  <div class="dart_wrapper">
+    <header class="dart_header">
+     <div class="header-top">
+        <div class="dart-container">
+          <div class="header-top__inner">
+            <a href="/index.html" class="header__logo">
+              <img src="/img/logo.svg" alt="">
+            </a>
+            <div class="hedaer__info">
+              <div class="header__info__info">Российское производство  <span>|</span>  доставка по всей России <br> Ярославская область, г. Рыбинск, ул. Орджоникидзе, 33</div>
+            </div>
+            <div class="header__buttons">
+            <a class="header__btn header__btn--red" href="#">Акции</a>
+            <a class="header__btn" href="#">Оптом</a>
+            </div>
+            <div class="header__number">
+              <a class="header__number__number" href="tel:+74855320355">+7 (4855) 32-03-55</a>
+              <div class="header__number__info">с 9:00 до 19:00</div>
+            </div>
+    
+            <div class="header__right">
+              <div class="header__cart">
+                <a class="header__cart__link" href="/pages/cart.html">
+                  <img src="/img/icons/cart.svg" alt="" class="header__cart__icon">
+                  <span class="cart-count">0</span>
+                </a>
+              </div>
+              <button type="button" class="header__menu__btn">
+                <span>Меню</span>
+                <img src="/img/iconsMenu/exit.svg" alt="">
+              </button>
+              <ul class="header__menu__sidebar">
+                <li>
+                  <a href="#">
+                    <img src="/img/iconsMenu/stocks.svg" alt="">
+                    <span>Акции</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="/img/iconsMenu/pay.svg" alt="">
+                    <span>Оплата</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/delivery.html">
+                    <img src="/img/iconsMenu/delivery.svg" alt="">
+                    <span>Доставка</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="/img/iconsMenu/info.svg" alt="">
+                    <span>О компании</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="/img/iconsMenu/blog.svg" alt="">
+                    <span>Блог</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/pages/wholesale.html">
+                    <img src="/img/iconsMenu/star.svg" alt="">
+                    <span>Оптом</span>
+                  </a>
+                </li>
+                <li class="header__menu__info">
+                  <a href="tel:+74855320355">
+                    <img src="/img/iconsMenu/phone.svg" alt="">
+                    <span>+7 (4855) 32-03-55</span>
+                  </a>
+                </li>
+                <li class="header__menu__info">
+                  <a href="#">
+                    <img src="/img/iconsMenu/email.svg" alt="">
+                    <span>info@snegotehnika.ru</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+    
+          </div>
+        </div>
+     </div>
+     <div class="header-bottom">
+      <div class="dart-container">
+        <div class="header-bottom__inner">
+    
+    
+    
+          <button type="button" class="header__catalog__toggle">
+            <p>Каталог</p>
+            <div class="header__catalog__hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+    
+          <div class="header__catalog__dropdown">
+    
+            <div class="header__catalog__sidebar">
+              <ul class="header__catalog__list">
+    
+    
+                <li class="header__catalog__item" data-category="snegohod">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/sneg.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Снегоходы</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+    
+                <li class="header__catalog__item" data-category="kvadro">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/kvadro.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Квадроциклы</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+    
+                <li class="header__catalog__item" data-category="sad">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/sad.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Погрузчики</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+    
+                <li class="header__catalog__item" data-category="zap_sneg">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/zap_sneg.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Запчасти для снегоходов</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+    
+                <li class="header__catalog__item" data-category="sneg-aks">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/sneg-aks.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Аксессуары для снегоходов</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+    
+                <li class="header__catalog__item" data-category="gus">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/gus.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Гусеницы для мотоблока</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+    
+                <li class="header__catalog__item" data-category="motob">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/motob.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Мотобуксировщики</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+    
+                <li class="header__catalog__item" data-category="sad_teh">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/zap_sneg.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Садовая техника</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+    
+                <li class="header__catalog__item" data-category="vezd">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/vezd.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Вездеходы</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+    
+                <li class="header__catalog__item" data-category="aero">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/aero.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Сани волокушки</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+    
+                <li class="header__catalog__item" data-category="eles">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/eles.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Электросамокаты</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+    
+                <li class="header__catalog__item" data-category="lifan">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/lifan.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Lifan</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+    
+                <li class="header__catalog__item" data-category="hab">
+                  <button type="button" class="header__catalog__item__btn">
+                    <div class="header__catalog__left">
+                      <div class="header__catalog__logo">
+                        <img src="/img/icons/habert.svg" alt="">
+                      </div>
+                      <div class="header__catalog__name">Habert</div>
+                    </div>
+                    <div class="header__catalog__icon">
+                      <img class="header__catalog__menu__icon" src="/img/icons/exit.svg" alt="">
+                    </div>
+                  </button>
+                </li>
+    
+              </ul>
+            </div>
+    
+    
+    
+    
+            <div class="header__catalog__content">
+              <ul class="header__catalog__panel" id="snegohod">
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Снегоходы для рыбалки</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Снегоходы Арктик</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Снегоходы Шихан</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Снегоходы Беркут</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Снегоходы Бурлак</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Снегоходы Азимут</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Снегоходы Тайга</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Снегоходы Ирбис</span>
+                  </a>
+                </li>
+              </ul>
+    
+    
+    
+    
+              <ul class="header__catalog__panel" id="kvadro">
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Квадроциклы для рыбалки</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Квадроциклы Арктик</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Квадроциклы Шихан</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Квадроциклы Беркут</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Квадроциклы Бурлак</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Квадроциклы Азимут</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Квадроциклы Тайга</span>
+                  </a>
+                </li>
+                <li class="header__catalog__content__inner">
+                  <a class="header__catalog__option" href="#">
+                    <span class="header__catalog__circle"></span>
+                    <span class="header__catalog__text">Квадроциклы Ирбис</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+    
+          </div>
+    
+    
+    
+          <nav class="navigation">
+            <a class="nav__link" href="#">ОПЛАТА</a>
+            <a class="nav__link" href="/pages/delivery.html">ДОСТАВКА</a>
+            <a class="nav__link" href="#">О ПРОИЗВОДСТВЕ</a>
+            <a class="nav__link" href="/pages/wholesale.html">ДИЛЕРАМ</a>
+            <a class="nav__link" href="#">КОНТАКТЫ</a>
+            <a class="nav__link" href="#">ВОПРОСЫ И ОТВЕТЫ</a>
+            <a class="nav__link" href="#">БЛОГ</a>
+          </nav>
+    
+          <div class="header__search d-col-xxl-4 d-col-xl-6 d-col-lg-8 d-col-md-8 d-col-sm-8 d-col-8 posr">
+            <div class="header-search-form">
+              <form data-key="3dd1fbfccc050858f955f7d3f2a34c0af8929a24" action="/" class="msearch2">
+                <input type="text" name="query" placeholder="Введите фразу для поиска" value=""
+                  class="ui-autocomplete-input" autocomplete="off">
+                <button type="submit">
+                  <img src="/img/icons/search.svg" alt="">
+                </button>
+              </form>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+     </div>
+    
+      <div class="side__navigation">
+        <div class="side__navigation__close">
+          <button type="button" class="side__navigation__close__link">
+            <img src="/img/icons/close.svg" alt="">
+          </button>
+        </div>
+        <a class="side__navigation__item" href="#">
+          <img src="/img/icons/pdf.svg" alt="" class="side__navigation__icon">
+          <p class="side__navigation__text">каталог</p>
+        </a>
+        <a class="side__navigation__item" href="#">
+          <img src="/img/icons/telegram.svg" alt="" class="side__navigation__icon">
+          <p class="side__navigation__text">telegrem</p>
+        </a>
+        <a class="side__navigation__item" href="#">
+          <img src="/img/icons/max.svg" alt="" class="side__navigation__icon">
+          <p class="side__navigation__text">max</p>
+        </a>
+        <a class="side__navigation__item" href="#">
+          <img src="/img/icons/phone.svg" alt="" class="side__navigation__icon">
+          <p class="side__navigation__text">телефон</p>
+        </a>
+      </div>
+    </header>    <div class="dart_main">
+
+<!-- Catalog -->
+    <div class="catalog">
+      <div class="dart-container">
+        <ul class="breadcrumbs">
+          <li>
+            <a href="/index.html">Главная</a>
+          </li>
+          <li>
+            <a href="/pages/catalog.html">Каталог</a>
+          </li>
+          <li>
+            <span>Снегоходы 4T Лифан и 2Т</span>
+          </li>
+        </ul>
+        <div class="catalog__top">
+          <h1 class="catalog__title">СНЕГОХОДЫ <b>4Т ЛИФАН И 2Т</b></h1>
+          <button class="catalog__pay__qr">
+            Оплата по qr коду
+            <img src="/img/icons/QR.svg" alt="">
+          </button>
+        </div>
+      </div>
+        <div class="catalog__info">
+          <div class="swiper__catalog__inner">
+            <div class="swiper__catalog">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="catalog__info__item">
+                    <div class="catalog__info__item__inner">
+                      <div class="catalog__info__item__left">
+                        <img src="/img/icons/logo_no_text.svg" alt="">
+                      </div>
+                      <div class="catalog__info__item__right">
+                        <h3>Мы производители</h3>
+                        <p>Производство и поставка c завода г. Рыбинск.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="catalog__info__item">
+                    <div class="catalog__info__item__inner">
+                      <div class="catalog__info__item__left">
+                        <img src="/img/icons/hot-price.svg" alt="">
+                      </div>
+                      <div class="catalog__info__item__right">
+                        <h3>Спец Тариф </h3>
+                        <p>Специальные предложения на доставку в ТК</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="catalog__info__item">
+                    <div class="catalog__info__item__inner">
+                      <div class="catalog__info__item__left">
+                        <img src="/img/icons/ShieldCheck.svg" alt="">
+                      </div>
+                      <div class="catalog__info__item__right">
+                        <h3>Гарантия - 1 год</h3>
+                        <p>Заводская гарантия 12 месяцев</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="catalog__info__item">
+                    <div class="catalog__info__item__inner">
+                      <div class="catalog__info__item__left">
+                        <img src="/img/icons/ShieldCheck.svg" alt="">
+                      </div>
+                      <div class="catalog__info__item__right">
+                        <h3>еще преимущество</h3>
+                        <p>Заводская гарантия 12 месяцев</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="dart-container">
+                <div class="swiper__catalog-scrollbar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="dart-container">
+        <div class="catalog__sort">
+          <span class="catalog__sort__label">сортировка:</span>
+          <div class="catalog__sort__select">
+            <button class="catalog__sorting__item catalog__sorting__item--choice active">
+              по наименованию
+              <span class="icon-arrow-top"></span>
+            </button>
+            <button class="catalog__sorting__item">новинки</button>
+            <button class="catalog__sorting__item">акции</button>
+            <button class="catalog__sorting__item catalog__sorting__item--choice">
+              по цене
+              <span class="icon-arrow-top"></span>
+            </button>
+            <button class="catalog__sorting__item catalog__sorting__item--choice">
+              по наличию
+              <span class="icon-arrow-top"></span>
+            </button>
+          </div>
+        </div>
+
+
+
+
+        <div class="catalog__container">
+
+
+
+          <div class="catalog__item">
+            <div class="catalog__item__img">
+              <img src="/img/catalog/img.png" alt="">
+            </div>
+            <div class="catalog__item__inner">
+              <div class="catalog__item__header">
+                <div class="catalog__item__header__top">
+                  <span class="catalog__item__parameter">В наличии: 3 шт.</span>
+                  <div class="catalog__item__container__parameter">
+                    <span class="catalog__item__parameter catalog__item__parameter--stock">Акция</span>
+                    <span class="catalog__item__parameter catalog__item__parameter--new">Новинка</span>
+                  </div>
+                </div>
+                <a href="/pages/poduct-card.html" class="catalog__item__name">Снегоход 4Т с двигателем Лончин</a>
+              </div>
+              <div class="catalog__item__info">
+                <div class="catalog__item__info__item">
+                  <h4>Габариты:</h4>
+                  <p>3100×910×1335 мм</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Мощность:</h4>
+                  <p>12 л.с при 7500 об/мин</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Скорость:</h4>
+                  <p>50 км/ч</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Гусеница,<b>Д×Ш×В</b>:</h4>
+                  <p>2×(3685×380×17.5)</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Грузоподъ-ть:</h4>
+                  <p>250 кг / на сцепке 300 кг</p>
+                </div>
+              </div>
+              <div class="catalog__item__footer">
+                <span>от <b>300 000₽</b></span>
+                <div class="catalog__item__footer__buttons">
+                  <a href="#" class="catalog__item__footer__calculation">
+                    <p>рассчитать стоимость</p>
+                    <span class="icon-calculyator"></span>
+                  </a>
+                  <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
+                    <svg>
+                      <use xlink:href="#buttonArrow"></use>
+                    </svg>
+                  </a>
+                </div>
+                <p class="catalog__item__footer__loan">Рассрочка/кредит от 12 167 ₽/мес</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog__item">
+            <div class="catalog__item__img">
+              <img src="/img/catalog/img.png" alt="">
+            </div>
+            <div class="catalog__item__inner">
+              <div class="catalog__item__header">
+                <div class="catalog__item__header__top">
+                  <span class="catalog__item__parameter">В наличии: 3 шт.</span>
+                  <div class="catalog__item__container__parameter">
+                    <span class="catalog__item__parameter catalog__item__parameter--stock">Акция</span>
+                  </div>
+                </div>
+                <a href="/pages/poduct-card.html" class="catalog__item__name">Снегоход 4Т с двигателем Лончин</a>
+              </div>
+              <div class="catalog__item__info">
+                <div class="catalog__item__info__item">
+                  <h4>Габариты:</h4>
+                  <p>3100×910×1335 мм</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Мощность:</h4>
+                  <p>12 л.с при 7500 об/мин</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Скорость:</h4>
+                  <p>50 км/ч</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Гусеница,<b>Д×Ш×В</b>:</h4>
+                  <p>2×(3685×380×17.5)</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Грузоподъ-ть:</h4>
+                  <p>250 кг / на сцепке 300 кг</p>
+                </div>
+              </div>
+              <div class="catalog__item__footer">
+                <span>от <b>300 000₽</b></span>
+                <div class="catalog__item__footer__buttons">
+                  <a href="#" class="catalog__item__footer__calculation">
+                    <p>рассчитать стоимость</p>
+                    <span class="icon-calculyator"></span>
+                  </a>
+                  <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
+                    <svg>
+                      <use xlink:href="#buttonArrow"></use>
+                    </svg>
+                  </a>
+                </div>
+                <p class="catalog__item__footer__loan">Рассрочка/кредит от 12 167 ₽/мес</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog__item catalog__item--advertisement">
+            <div class="catalog__advertisement__item">
+              <h3>Снегоход от производителя</h3>
+              <p>Подберем снегоход под Ваши задачи и бюджет</p>
+              <div class="catalog__advertisement__buttons">
+                <input 
+                type="tel"
+                class="catalog__advertisement__input"
+                name="phone"
+                placeholder="Телефон"
+                autocomplete="tel"
+                pattern="[+]?[0-9\s\-\(\)]+"
+                >
+                <a class="catalog__advertisement__button" href="#">
+                  Подобрать снегоход
+                  <svg class="button__icon">
+                    <use xlink:href="#buttonArrow"></use>
+                  </svg>
+                </a>
+                <input type="checkbox" id="privacy__catalog" name="approval">
+                <label for="privacy__catalog" class="catalog__advertisement__approval">
+                    <span class="check-circle"></span>
+                    <div>нажимая на кнопку, я соглашаюсь с <a href="#">политикой о конфиденциальности</a></div>
+                </label>
+              </div>
+              <div class="catalog__advertisement__buttons catalog__advertisement__buttons--mobile">
+                <a href="#">Подобрать снегоход</a>
+              </div>
+              <img src="/img/catalog/catalog__advertisement.png" alt="" class="catalog__advertisement__image">
+            </div>
+          </div>
+
+          <div class="catalog__item">
+            <div class="catalog__item__img">
+              <img src="/img/catalog/img.png" alt="">
+            </div>
+            <div class="catalog__item__inner">
+              <div class="catalog__item__header">
+                <div class="catalog__item__header__top">
+                  <span class="catalog__item__parameter">В наличии: 3 шт.</span>
+                  <div class="catalog__item__container__parameter">
+                    <span class="catalog__item__parameter catalog__item__parameter--new">Новинка</span>
+                  </div>
+                </div>
+                <a href="/pages/poduct-card.html" class="catalog__item__name">Снегоход 4Т с двигателем Лончин</a>
+              </div>
+              <div class="catalog__item__info">
+                <div class="catalog__item__info__item">
+                  <h4>Габариты:</h4>
+                  <p>3100×910×1335 мм</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Мощность:</h4>
+                  <p>12 л.с при 7500 об/мин</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Скорость:</h4>
+                  <p>50 км/ч</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Гусеница,<b>Д×Ш×В</b>:</h4>
+                  <p>2×(3685×380×17.5)</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Грузоподъ-ть:</h4>
+                  <p>250 кг / на сцепке 300 кг</p>
+                </div>
+              </div>
+              <div class="catalog__item__footer">
+                <span>от <b>300 000₽</b></span>
+                <div class="catalog__item__footer__buttons">
+                  <a href="#" class="catalog__item__footer__calculation">
+                    <p>рассчитать стоимость</p>
+                    <span class="icon-calculyator"></span>
+                  </a>
+                  <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
+                    <svg>
+                      <use xlink:href="#buttonArrow"></use>
+                    </svg>
+                  </a>
+                </div>
+                <p class="catalog__item__footer__loan">Рассрочка/кредит от 12 167 ₽/мес</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog__item">
+            <div class="catalog__item__img">
+              <img src="/img/catalog/img.png" alt="">
+            </div>
+            <div class="catalog__item__inner">
+              <div class="catalog__item__header">
+                <div class="catalog__item__header__top">
+                  <span class="catalog__item__parameter">В наличии: 3 шт.</span>
+                  <div class="catalog__item__container__parameter">
+                    <span class="catalog__item__parameter catalog__item__parameter--stock">Акция</span>
+                    <span class="catalog__item__parameter catalog__item__parameter--new">Новинка</span>
+                  </div>
+                </div>
+                <a href="/pages/poduct-card.html" class="catalog__item__name">Снегоход 4Т с двигателем Лончин</a>
+              </div>
+              <div class="catalog__item__info">
+                <div class="catalog__item__info__item">
+                  <h4>Габариты:</h4>
+                  <p>3100×910×1335 мм</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Мощность:</h4>
+                  <p>12 л.с при 7500 об/мин</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Скорость:</h4>
+                  <p>50 км/ч</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Гусеница,<b>Д×Ш×В</b>:</h4>
+                  <p>2×(3685×380×17.5)</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Грузоподъ-ть:</h4>
+                  <p>250 кг / на сцепке 300 кг</p>
+                </div>
+              </div>
+              <div class="catalog__item__footer">
+                <span>от <b>300 000₽</b></span>
+                <div class="catalog__item__footer__buttons">
+                  <a href="#" class="catalog__item__footer__calculation">
+                    <p>рассчитать стоимость</p>
+                    <span class="icon-calculyator"></span>
+                  </a>
+                  <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
+                    <svg>
+                      <use xlink:href="#buttonArrow"></use>
+                    </svg>
+                  </a>
+                </div>
+                <p class="catalog__item__footer__loan">Рассрочка/кредит от 12 167 ₽/мес</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog__item">
+            <div class="catalog__item__img">
+              <img src="/img/catalog/img.png" alt="">
+            </div>
+            <div class="catalog__item__inner">
+              <div class="catalog__item__header">
+                <div class="catalog__item__header__top">
+                  <span class="catalog__item__parameter">В наличии: 3 шт.</span>
+                  <div class="catalog__item__container__parameter">
+                    <span class="catalog__item__parameter catalog__item__parameter--new">Новинка</span>
+                  </div>
+                </div>
+                <a href="/pages/poduct-card.html" class="catalog__item__name">Снегоход 4Т с двигателем Лончин</a>
+              </div>
+              <div class="catalog__item__info">
+                <div class="catalog__item__info__item">
+                  <h4>Габариты:</h4>
+                  <p>3100×910×1335 мм</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Мощность:</h4>
+                  <p>12 л.с при 7500 об/мин</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Скорость:</h4>
+                  <p>50 км/ч</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Гусеница,<b>Д×Ш×В</b>:</h4>
+                  <p>2×(3685×380×17.5)</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Грузоподъ-ть:</h4>
+                  <p>250 кг / на сцепке 300 кг</p>
+                </div>
+              </div>
+              <div class="catalog__item__footer">
+                <span>от <b>300 000₽</b></span>
+                <div class="catalog__item__footer__buttons">
+                  <a href="#" class="catalog__item__footer__calculation">
+                    <p>рассчитать стоимость</p>
+                    <span class="icon-calculyator"></span>
+                  </a>
+                  <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
+                    <svg>
+                      <use xlink:href="#buttonArrow"></use>
+                    </svg>
+                  </a>
+                </div>
+                <p class="catalog__item__footer__loan">Рассрочка/кредит от 12 167 ₽/мес</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog__item catalog__item--desktop">
+            <div class="catalog__item__img">
+              <img src="/img/catalog/img.png" alt="">
+            </div>
+            <div class="catalog__item__inner">
+              <div class="catalog__item__header">
+                <div class="catalog__item__header__top">
+                  <span class="catalog__item__parameter">В наличии: 3 шт.</span>
+                  <div class="catalog__item__container__parameter">
+                    <span class="catalog__item__parameter catalog__item__parameter--stock">Акция</span>
+                    <span class="catalog__item__parameter catalog__item__parameter--new">Новинка</span>
+                  </div>
+                </div>
+                <a href="/pages/poduct-card.html" class="catalog__item__name">Снегоход 4Т с двигателем Лончин</a>
+              </div>
+              <div class="catalog__item__info">
+                <div class="catalog__item__info__item">
+                  <h4>Габариты:</h4>
+                  <p>3100×910×1335 мм</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Мощность:</h4>
+                  <p>12 л.с при 7500 об/мин</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Скорость:</h4>
+                  <p>50 км/ч</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Гусеница,<b>Д×Ш×В</b>:</h4>
+                  <p>2×(3685×380×17.5)</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Грузоподъ-ть:</h4>
+                  <p>250 кг / на сцепке 300 кг</p>
+                </div>
+              </div>
+              <div class="catalog__item__footer">
+                <span>от <b>300 000₽</b></span>
+                <div class="catalog__item__footer__buttons">
+                  <a href="#" class="catalog__item__footer__calculation">
+                    <p>рассчитать стоимость</p>
+                    <span class="icon-calculyator"></span>
+                  </a>
+                  <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
+                    <svg>
+                      <use xlink:href="#buttonArrow"></use>
+                    </svg>
+                  </a>
+                </div>
+                <p class="catalog__item__footer__loan">Рассрочка/кредит от 12 167 ₽/мес</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog__item catalog__item--desktop">
+            <div class="catalog__item__img">
+              <img src="/img/catalog/img.png" alt="">
+            </div>
+            <div class="catalog__item__inner">
+              <div class="catalog__item__header">
+                <div class="catalog__item__header__top">
+                  <span class="catalog__item__parameter">В наличии: 3 шт.</span>
+                  <div class="catalog__item__container__parameter">
+                    <span class="catalog__item__parameter catalog__item__parameter--stock">Акция</span>
+                  </div>
+                </div>
+                <a href="/pages/poduct-card.html" class="catalog__item__name">Снегоход 4Т с двигателем Лончин</a>
+              </div>
+              <div class="catalog__item__info">
+                <div class="catalog__item__info__item">
+                  <h4>Габариты:</h4>
+                  <p>3100×910×1335 мм</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Мощность:</h4>
+                  <p>12 л.с при 7500 об/мин</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Скорость:</h4>
+                  <p>50 км/ч</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Гусеница,<b>Д×Ш×В</b>:</h4>
+                  <p>2×(3685×380×17.5)</p>
+                </div>
+                <div class="catalog__item__info__item">
+                  <h4>Грузоподъ-ть:</h4>
+                  <p>250 кг / на сцепке 300 кг</p>
+                </div>
+              </div>
+              <div class="catalog__item__footer">
+                <span>от <b>300 000₽</b></span>
+                <div class="catalog__item__footer__buttons">
+                  <a href="#" class="catalog__item__footer__calculation">
+                    <p>рассчитать стоимость</p>
+                    <span class="icon-calculyator"></span>
+                  </a>
+                  <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
+                    <svg>
+                      <use xlink:href="#buttonArrow"></use>
+                    </svg>
+                  </a>
+                </div>
+                <p class="catalog__item__footer__loan">Рассрочка/кредит от 12 167 ₽/мес</p>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+        <div class="catalog__more">
+          <a href="#" class="catalog__more__link">
+            еще больше товаров
+            <svg>
+              <use xlink:href="#buttonArrow"></use>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Accordion -->
+        <div class="accordion">
+          <div class="accordion__inner">
+            <h3 class="accordion__title">раскрывающаяся информация, поведение при наведении</h3>
+
+            <div class="accordion__item">
+              <button class="accordion__button" type="button">
+                <span>Оплата банковской картой</span>
+                <svg class="accordion__icon">
+                  <use xlink:href="#accordion__plus"></use>
+                </svg>
+              </button>
+
+              <div class="accordion__content">
+                <p>Оплата банковской картой, через Интернет, возможна через системы электронных платежей.</p>
+                <p>Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.</p>
+                <p>Мы принимаем платежи с сайта по следующим банковским картам</p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__button" type="button">
+                <span>Оплата через СПБ (Система быстрых платежей)</span>
+                <svg class="accordion__icon">
+                  <use xlink:href="#accordion__plus"></use>
+                </svg>
+              </button>
+
+              <div class="accordion__content">
+                <p>Оплата банковской картой, через Интернет, возможна через системы электронных платежей.</p>
+                <p>Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.</p>
+                <p>Мы принимаем платежи с сайта по следующим банковским картам</p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__button" type="button">
+                <span>Оплата наложенным платежом</span>
+                <svg class="accordion__icon">
+                  <use xlink:href="#accordion__plus"></use>
+                </svg>
+              </button>
+
+              <div class="accordion__content">
+                <p>Оплата банковской картой, через Интернет, возможна через системы электронных платежей.</p>
+                <p>Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.</p>
+                <p>Мы принимаем платежи с сайта по следующим банковским картам</p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__button" type="button">
+                <span>Оплата на счёт юридических лиц</span>
+                <svg class="accordion__icon">
+                  <use xlink:href="#accordion__plus"></use>
+                </svg>
+              </button>
+
+              <div class="accordion__content">
+                <p>Оплата банковской картой, через Интернет, возможна через системы электронных платежей.</p>
+                <p>Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.</p>
+                <p>Мы принимаем платежи с сайта по следующим банковским картам</p>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button class="accordion__button" type="button">
+                <span>Покупка в кредит</span>
+                <svg class="accordion__icon">
+                  <use xlink:href="#accordion__plus"></use>
+                </svg>
+              </button>
+
+              <div class="accordion__content">
+                <p>Оплата банковской картой, через Интернет, возможна через системы электронных платежей.</p>
+                <p>Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.</p>
+                <p>Мы принимаем платежи с сайта по следующим банковским картам</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <ul class="catalog__tags">
+          <li>
+            <a href="#">Название тега</a>
+          </li>
+          <li>
+            <a href="#">Название тега</a>
+          </li>
+          <li>
+            <a href="#">Название тега</a>
+          </li>
+          <li>
+            <a href="#">Тег</a>
+          </li>
+          <li>
+            <a href="#">Название тега</a>
+          </li>
+          <li>
+            <a href="#">Тег</a>
+          </li>
+          <li>
+            <a href="#">Название тега</a>
+          </li>
+          <li>
+            <a href="#">Тег</a>
+          </li>
+        </ul>
+        
+        <p class="catalog__text">
+          <span>Захватите зиму по максимуму с техникой для ледяной рыбалки!</span>
+          <span>У нас — только проверенные снегоходы и надежное снаряжение, которые превратят путь к заветной лунке в часть приключения. Доберитесь до самых рыбных мест быстро, комфортно и безопасно, а вся ваша экипировка будет надежно защищена от мороза и непогоды.</span>
+          <span>Отправляйтесь за трофеем с уверенностью — наша техника создана для тех, кто ценит каждую минуту зимней рыбалки.</span>
+        </p>
+
+      </div>
+    </div>
+
+
+
+    </div>
+    <footer class="dart_footer">
+      <div class="dart-container">
+        <a href="#" class="footer__logo__link__mobile">
+          <img src="/img/logo.svg" alt="" class="footer__logo__mobile">
+        </a>
+    
+        <div class="footer__top">
+    
+          <div class="footer__left">
+            <button type="button" data-scroll-top class="footer__scroll__top">
+              <span class="icon-arrow-top"></span>
+            </button>
+            <div class="contacts">
+              <div class="footer__tablet">
+                <div class="footer__search posr">
+                  <div class="footer-search-form">
+                    <form data-key="3dd1fbfccc050858f955f7d3f2a34c0af8929a24" action="/" class="msearch2">
+                      <input type="text" name="query" placeholder="Введите фразу для поиска" value=""
+                        class="ui-autocomplete-input" autocomplete="off">
+                      <button type="submit">
+                        <img src="/img/icons/search-white.svg" alt="">
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress">
+                <div>
+                  <span class="contacts__title contacts__title--bold">Адрес производства:</span><br>
+                  <span><span itemprop="postalCode">152900</span>, Россия, <span itemprop="addressLocality">Ярославская
+                      область, г. Рыбинск,</span> <span itemprop="streetAddress">ул. Орджоникидзе,
+                      33</span></span>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div class="contacts__bottom">
+                    <a class="contacts__title" href="tel:+74855320355">+7 (4855) 32-03-55</a>
+                    <a href="#">
+                      <img class="contacts__icon" src="/img/iconsFooter/Phone.svg" alt="">
+                    </a>
+                    <a href="#">
+                      <img class="contacts__icon" src="/img/iconsFooter/WhatsApp.svg" alt="">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+    
+          <div class="footer__right">
+            <div>
+              <h4>Наши группы:</h4>
+              <div class="footer__social__link">
+                <a href="#">
+                  <span class="icon-rutube"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span>
+                </a>
+                <a href="#">
+                  <span class="icon-tiktok"></span>
+                </a>
+                <a href="#">
+                  <span class="icon-vk"></span>
+                </a>
+                <a href="#">
+                  <span class="icon-youtube"></span>
+                </a>
+              </div>
+            </div>
+            <div class="footer__tablet">
+              <h4>Каталог</h4>
+              <ul>
+                <li>
+                  <a href="#">снегоходы</a>
+                </li>
+                <li>
+                  <a href="#">мотобуксировщики</a>
+                </li>
+                <li>
+                  <a href="#">аксессуары / запчасти</a>
+                </li>
+              </ul>
+    
+              <div>
+                <h4><b>Отзывы</b></h4>
+                <div class="reviews__info__inner">
+                  <iframe
+                    src="https://yandex.ru/sprav/widget/rating-badge/126289223109?theme=light"
+                    class="reviews__info"
+                    frameborder="0"
+                    style="border: none;"
+                  ></iframe>
+                </div>
+                <button type="button" class="footer__reviews__btn">
+                  Оставить отзыв
+                  <svg class="button__icon">
+                    <use xlink:href="#buttonArrow"></use>
+                  </svg>
+                </button>
+              </div>
+    
+            </div>
+            <div class="footer__tablet__sm">
+              <h4>Информация</h4>
+              <ul>
+                <li>
+                  <a href="#">акции</a>
+                </li>
+                <li>
+                  <a href="#">оплата / доставка</a>
+                </li>
+                <li>
+                  <a href="#">о производстве</a>
+                </li>
+                <li>
+                  <a href="#">дилерам</a>
+                </li>
+                <li>
+                  <a href="#">контакты</a>
+                </li>
+                <li>
+                  <a href="#">вопросы и ответы</a>
+                </li>
+                <li>
+                  <a href="#">новости</a>
+                </li>
+                <li>
+                  <a href="#">полезные статьи</a>
+                </li>
+              </ul>
+            </div>
+    
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <div>
+            <div class="footer__agreements">
+              <a href="#">Договор публичной офёрты</a>
+              <a href="#">Политика о конфиденциальности</a>
+            </div>
+    
+            <div class="footer__reviews__mobile">
+              <iframe
+                src="https://yandex.ru/sprav/widget/rating-badge/126289223109?theme=light"
+                class="footer__reviews__mobile__inner"
+                frameborder="0"
+                style="border: none;"
+              ></iframe>
+              <button type="button" class="footer__reviews__btn">
+                Оставить отзыв
+              </button>
+            </div>
+    
+    
+            <p class="d-col-xxl-7 d-col-xl-6 d-col-lg-12">© 2026 Данный сайт не является публичной офертой. Цены на товары уточняйте у менеджеров. официальный сайт СнегоТехника Снегоходы, квадроциклы, погрузчики | Тел: 8 (4855) 32-03-55</p>
+          </div>
+          <a href="#" class="footer__logo__link">
+            <img src="/img/logo.svg" alt="" class="footer__logo__desktop">
+          </a>
+        </div>
+     </div>
+    </footer>  </div>
+  <script src="/src/js/main.js" type="module"></script></body>
+</html>
