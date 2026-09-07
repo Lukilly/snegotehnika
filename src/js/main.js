@@ -194,6 +194,17 @@ const getSliderOffset = () => {
   return rect.left + paddingLeft;
 };
 
+const onResize = (fn) => {
+  let raf = null;
+  return () => {
+    if (raf !== null) return;
+    raf = requestAnimationFrame(() => {
+      raf = null;
+      fn();
+    });
+  };
+};
+
 const swiperEl = document.querySelector('.swiper');
 if (swiperEl) {
   const applySwiperOffset = () => {
@@ -214,7 +225,7 @@ if (swiperEl) {
     },
   });
 
-  window.addEventListener("resize", applySwiperOffset);
+  window.addEventListener("resize", onResize(applySwiperOffset));
 }
 
 // slider catalog
@@ -249,7 +260,7 @@ if (sliderCards.length > 0) {
       },
     });
 
-    window.addEventListener("resize", () => applySliderOffset(swiperCard));
+    window.addEventListener("resize", onResize(() => applySliderOffset(swiperCard)));
   });
 }
 
@@ -287,7 +298,7 @@ sliders.forEach((slider) => {
   const isProductsSlider = slider.classList.contains('swiper__product-card__products');
 
   updateTabsArrows();
-  window.addEventListener('resize', updateTabsArrows);
+  window.addEventListener('resize', onResize(updateTabsArrows));
 
   new Swiper(slider, {
     spaceBetween: 22,
@@ -411,10 +422,10 @@ const clampSetSwiper = () => {
 swiper.on('setTranslate', clampSetSwiper);
 swiper.on('init', updateSetScrollbar);
 swiper.on('progress', updateSetScrollbar);
-window.addEventListener('resize', () => {
+window.addEventListener('resize', onResize(() => {
   swiper.update();
   updateSetScrollbar();
-});
+}));
 window.addEventListener('load', updateSetScrollbar);
 requestAnimationFrame(updateSetScrollbar);
 
