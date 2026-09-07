@@ -257,10 +257,22 @@ if (sliderCards.length > 0) {
 const sliders = document.querySelectorAll('[data-slider]')
 sliders.forEach((slider) => {
   const sliderName = slider.dataset.slider;
-  const scope = slider.closest('.product-card__features__item') || slider.parentElement;
+  let scope = slider.closest('.product-card__features__item') || slider.parentElement;
+  if (slider.closest('.wholesale')) {
+    while (
+      scope &&
+      scope.tagName !== 'BODY' &&
+      !scope.querySelector(`[data-slider-prev="${sliderName}"]`) &&
+      !scope.querySelector(`[data-slider-next="${sliderName}"]`)
+    ) {
+      scope = scope.parentElement;
+    }
+  }
   const next = scope.querySelector(`[data-slider-next="${sliderName}"]`)
   const prev = scope.querySelector(`[data-slider-prev="${sliderName}"]`)
-  const scrollbar = scope.querySelector(`[data-scrollbar="${sliderName}"]`)
+  const panel = slider.closest('[data-tab__content]');
+  const scrollbarScope = (panel && slider.closest('.wholesale')) ? panel : scope;
+  const scrollbar = scrollbarScope.querySelector(`[data-scrollbar="${sliderName}"]`)
   const slidesCount = slider.querySelectorAll('.swiper-slide').length;
 
   const isTabs = slider.closest('.product-card__tabs');
@@ -289,13 +301,26 @@ sliders.forEach((slider) => {
       draggable: true,
     },
     breakpoints: {
-      1800: {slidesPerView: sliderName === 'product__intro' ? 3 : 4,},
+      1800: {slidesPerView: slider.classList.contains('swiper__images__intro') ? 3 : 4,},
       1200: {slidesPerView: 3},
       991: {slidesPerView: 2.4},
       768: {slidesPerView: 'auto', spaceBetween: 22},
       0: {slidesPerView: 'auto', spaceBetween: 14}
     }
   });
+});
+
+// wholesale shared photo-gallery buttons: advance only the active panel's swiper
+const wholesaleBtns = document.querySelectorAll('.wholesale__photo-gallery [data-slider-next="photo-gallery"], .wholesale__photo-gallery [data-slider-prev="photo-gallery"]');
+wholesaleBtns.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
+    const key = btn.dataset.sliderNext ? 'next' : 'prev';
+    const activePanel = document.querySelector('.wholesale__photo-gallery__swiper[data-tab__content]:not([style*="display: none"])');
+    if (!activePanel) return;
+    const sl = activePanel.querySelector('[data-slider="photo-gallery"]');
+    if (sl && sl.swiper) key === 'next' ? sl.swiper.slideNext() : sl.swiper.slidePrev();
+  }, true);
 });
 
 // Product-card__set__Swiper
@@ -694,6 +719,11 @@ const initTabsNav = (navSelector, itemSelector, openClass) => {
       const show = panel.getAttribute('data-tab__content') === key;
       panel.style.display = show ? '' : 'none';
       if (show) shownPanel = panel;
+      if (!show) {
+        panel.querySelectorAll('[data-slider]').forEach((sl) => {
+          if (sl.swiper) sl.swiper.slideTo(0, 0);
+        });
+      }
     });
     if (shownPanel) {
       requestAnimationFrame(() => {
@@ -726,3 +756,4 @@ const initTabsNav = (navSelector, itemSelector, openClass) => {
 
 initTabsNav('.product-card__tabs__nav', '.product-card__tabs__nav__item', 'product-card__tabs__nav--open');
 initTabsNav('.delivery__tabs__nav', '.delivery__tabs__nav__item', 'delivery__tabs__nav--open');
+initTabsNav('.wholesale__photo-gallery__tabs__nav', '.wholesale__photo-gallery__tabs__nav__item', 'wholesale__photo-gallery__tabs__nav--open');
