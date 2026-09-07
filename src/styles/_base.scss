@@ -5760,6 +5760,7 @@ h1, h2, h3{
     }
     .product-card__set{
       padding: 60px 0px;
+      border-radius: 10px;
       margin-bottom: 60px;
       .product-card__set__top{
         max-width: 610px;
@@ -6221,6 +6222,12 @@ h1, h2, h3{
             .swiper-slide{
               width: auto;
               height: auto;
+              .video__container{
+                .video__item{
+                  width: 268px;
+                  height: 373px;
+                }
+              }
             }
           }
         }
@@ -8376,7 +8383,7 @@ h1, h2, h3{
         .swiper__product-card__videoReviews{
           .swiper-wrapper{
             .swiper-slide{
-              width: 267px;
+              width: 268px;
               height: auto;
               .video__container{
                 margin-bottom: 15px;
