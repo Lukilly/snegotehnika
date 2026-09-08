@@ -1,7 +1,7 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import handlebars from "vite-plugin-handlebars";
-import HandlebarUpdate from "./hbaTrigger";
+import HandlebarUpdate from "./hbaTrigger.js";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 const partDirs = [
@@ -73,16 +73,15 @@ export default defineConfig({
     cssMinify: "lightningcss",
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "src/js/main.js"),
-        style: resolve(__dirname, "src/styles/global.scss"),
-        index: resolve(__dirname, "index.html"),
-        catalog: resolve(__dirname, "pages/catalog.html"),
-        poductCard: resolve(__dirname, "pages/poduct-card.html"),
-        cart: resolve(__dirname, "pages/cart.html"),
-        delivery: resolve(__dirname, "pages/delivery.html"),
-        wholesale: resolve(__dirname, "pages/wholesale.html"),
-        contacts: resolve(__dirname, "pages/contacts.html"),
-        // contacts: resolve(__dirname, "pages/contacts.html"),
+        main: resolve(import.meta.dirname, "src/js/main.js"),
+        style: resolve(import.meta.dirname, "src/styles/global.scss"),
+        index: resolve(import.meta.dirname, "index.html"),
+        catalog: resolve(import.meta.dirname, "pages/catalog.html"),
+        poductCard: resolve(import.meta.dirname, "pages/poduct-card.html"),
+        cart: resolve(import.meta.dirname, "pages/cart.html"),
+        delivery: resolve(import.meta.dirname, "pages/delivery.html"),
+        wholesale: resolve(import.meta.dirname, "pages/wholesale.html"),
+        contacts: resolve(import.meta.dirname, "pages/contacts.html"),
       },
       output: {
         entryFileNames: `js/[name].js`,
