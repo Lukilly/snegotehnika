@@ -640,13 +640,25 @@ initTabsNav('.contacts__tabs__nav', '.contacts__tabs__nav__item', 'contacts__tab
 // авто-высота textarea (растёт при вводе)
 const autoResizeTextareas = (root) => {
   if (!root) return;
+  const TAs = Array.from(root.querySelectorAll('textarea'));
+  const APPLY_ROWS = () => {
+    const rows = window.innerWidth <= 768 ? 3 : 5;
+    TAs.forEach((ta) => {
+      ta.rows = rows;
+    });
+  };
   const autoResize = (ta) => {
     ta.style.height = 'auto';
     ta.style.height = `${ta.scrollHeight}px`;
   };
-  root.querySelectorAll('textarea').forEach((ta) => {
+  APPLY_ROWS();
+  TAs.forEach((ta) => {
     autoResize(ta);
     ta.addEventListener('input', () => autoResize(ta));
+  });
+  window.addEventListener('resize', () => {
+    APPLY_ROWS();
+    TAs.forEach((ta) => autoResize(ta));
   });
 };
 autoResizeTextareas(document.querySelector('.contacts__support__inputs'));
