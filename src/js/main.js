@@ -1,5 +1,5 @@
 ﻿import Swiper from 'swiper';
-import { Navigation, Pagination, Autoplay, Scrollbar, Mousewheel } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, Scrollbar } from 'swiper/modules';
 
 import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
@@ -334,133 +334,7 @@ wholesaleBtns.forEach((btn) => {
   }, true);
 });
 
-// Product-card__set__Swiper
-const setSwiperEl = document.querySelector('.product-card__set__swiper');
-
-if (setSwiperEl) {
-  const swiper = new Swiper(setSwiperEl, {
-  loop: false,
-  modules: [Mousewheel],
-  breakpoints: {
-    991: {
-      direction: "vertical",
-      slidesPerView: 'auto',
-      spaceBetween: 0,
-      watchOverflow: true,
-      freeMode: { enabled: true, momentum: true, sticky: false },
-      mousewheel: { enabled: true },
-      allowTouchMove: true,
-    },
-    768: {
-      direction: "horizontal",
-      slidesPerView: 'auto',
-      spaceBetween: 20,
-      watchOverflow: true,
-      freeMode: false,
-      mousewheel: false,
-      allowTouchMove: true,
-    },
-    0: {
-      direction: "horizontal",
-      slidesPerView: 'auto',
-      spaceBetween: 18,
-      watchOverflow: true,
-      freeMode: false,
-      mousewheel: false,
-      allowTouchMove: true,
-    }
-  }
-});
-
-// не давать листать за последний ряд (карточки не должны уходить за wrapper)
-  const setWrapperEl = setSwiperEl.querySelector('.swiper-wrapper');
-const setScrollbarEl = setSwiperEl.querySelector('.swiper-scrollbar');
-const setScrollbarDragEl = setSwiperEl.querySelector('.swiper-scrollbar-drag');
-
-const isHorizontalSetSwiper = () => window.innerWidth < 991;
-
-const getSetMaxScroll = () => {
-  if (!setWrapperEl) return 0;
-  if (isHorizontalSetSwiper()) {
-    return Math.max(0, setWrapperEl.scrollWidth - setSwiperEl.clientWidth);
-  }
-  return Math.max(0, setWrapperEl.scrollHeight - setSwiperEl.clientHeight);
-};
-
-const updateSetScrollbar = () => {
-  if (!setScrollbarEl || !setScrollbarDragEl) return;
-  const max = getSetMaxScroll();
-  const progress = max > 0 ? Math.min(1, Math.max(0, -swiper.translate / max)) : 0;
-
-  if (isHorizontalSetSwiper()) {
-    const trackW = setScrollbarEl.clientWidth;
-    const thumbW = Math.max(20, trackW * (setSwiperEl.clientWidth / setWrapperEl.scrollWidth));
-    setScrollbarDragEl.style.height = '';
-    setScrollbarDragEl.style.width = `${thumbW}px`;
-    setScrollbarDragEl.style.transform = `translateX(${Math.round((trackW - thumbW) * progress)}px)`;
-    return;
-  }
-
-  const trackH = setScrollbarEl.clientHeight;
-  const thumbH = Math.max(20, trackH * (setSwiperEl.clientHeight / setWrapperEl.scrollHeight));
-  setScrollbarDragEl.style.width = '';
-  setScrollbarDragEl.style.height = `${thumbH}px`;
-  setScrollbarDragEl.style.transform = `translateY(${Math.round((trackH - thumbH) * progress)}px)`;
-};
-
-const clampSetSwiper = () => {
-  if (isHorizontalSetSwiper()) return;
-  const maxTranslate = getSetMaxScroll() + 70;
-  if (swiper.translate > 0) {
-    swiper.setTranslate(0);
-  }
-  if (swiper.translate < -maxTranslate) {
-    swiper.setTranslate(-maxTranslate);
-  }
-  updateSetScrollbar();
-};
-swiper.on('setTranslate', clampSetSwiper);
-swiper.on('init', updateSetScrollbar);
-swiper.on('progress', updateSetScrollbar);
-window.addEventListener('resize', onResize(() => {
-  swiper.update();
-  updateSetScrollbar();
-}));
-window.addEventListener('load', updateSetScrollbar);
-requestAnimationFrame(updateSetScrollbar);
-
-// перетаскивание кастомного скроллбара
-if (setScrollbarDragEl && setSwiperEl && setScrollbarEl) {
-  const dragSet = (clientX, clientY) => {
-    const isH = isHorizontalSetSwiper();
-    const track = isH ? setScrollbarEl.clientWidth : setScrollbarEl.clientHeight;
-    const thumb = isH ? setScrollbarDragEl.clientWidth : setScrollbarDragEl.clientHeight;
-    const rect = setScrollbarEl.getBoundingClientRect();
-    const pos = isH ? (clientX - rect.left) : (clientY - rect.top);
-    const max = getSetMaxScroll();
-    const ratio = max > 0 ? max / (track - thumb) : 0;
-    const progress = Math.min(1, Math.max(0, (pos - thumb / 2) / (track - thumb)));
-    swiper.setTranslate(-progress * max);
-    updateSetScrollbar();
-  };
-
-  setScrollbarDragEl.addEventListener('mousedown', (e) => {
-    e.preventDefault();
-    const onMove = (ev) => dragSet(ev.clientX, ev.clientY);
-    const onUp = () => {
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('mouseup', onUp);
-    };
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseup', onUp);
-  });
-
-  setScrollbarEl.addEventListener('mousedown', (e) => {
-    if (e.target === setScrollbarDragEl) return;
-    dragSet(e.clientX, e.clientY);
-  });
-}
-}
+// Product-card__set__list
 
 // чтобы не переходило на fancybox при клике на ссылку
 const featuresLinks = document.querySelectorAll('.swiper__product-card__features .video__container a');
@@ -597,15 +471,8 @@ collapseButtons.forEach(button =>{
   });
 });
 
-// product-card__set list scroll
-const setListWrapper = document.querySelector('.product-card__set__list-wrapper');
-if (setListWrapper) {
-  setListWrapper.addEventListener('scroll', () => {
-    setListWrapper.classList.toggle('is-scrolled', setListWrapper.scrollTop > 0);
-  });
-}
-
-// product-card__set add/remove item
+// product-card__set list
+// добавление/удаление позиций в наборе
 const setItems = document.querySelectorAll('.product-card__set__list__item');
 setItems.forEach((item) => {
   const btn = item.querySelector('.product-card__set__list__item__icon__container');
@@ -768,3 +635,18 @@ const initTabsNav = (navSelector, itemSelector, openClass) => {
 initTabsNav('.product-card__tabs__nav', '.product-card__tabs__nav__item', 'product-card__tabs__nav--open');
 initTabsNav('.delivery__tabs__nav', '.delivery__tabs__nav__item', 'delivery__tabs__nav--open');
 initTabsNav('.wholesale__photo-gallery__tabs__nav', '.wholesale__photo-gallery__tabs__nav__item', 'wholesale__photo-gallery__tabs__nav--open');
+initTabsNav('.contacts__tabs__nav', '.contacts__tabs__nav__item', 'contacts__tabs__nav--open');
+
+// авто-высота textarea (растёт при вводе)
+const autoResizeTextareas = (root) => {
+  if (!root) return;
+  const autoResize = (ta) => {
+    ta.style.height = 'auto';
+    ta.style.height = `${ta.scrollHeight}px`;
+  };
+  root.querySelectorAll('textarea').forEach((ta) => {
+    autoResize(ta);
+    ta.addEventListener('input', () => autoResize(ta));
+  });
+};
+autoResizeTextareas(document.querySelector('.contacts__support__inputs'));
