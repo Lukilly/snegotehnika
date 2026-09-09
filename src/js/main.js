@@ -10,6 +10,42 @@ Fancybox.bind("[data-fancybox]", {
   dragToClose: false,
 });
 
+// Универсальное модальное окно
+const modal = document.querySelector("[data-modal]");
+const openModal = () => {
+  if (!modal) return;
+  modal.classList.add("modal--open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+};
+const closeModal = () => {
+  if (!modal) return;
+  modal.classList.remove("modal--open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+};
+
+document.querySelectorAll("[data-modal-open]").forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+    event.preventDefault();
+    openModal();
+  });
+});
+
+if (modal) {
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal || event.target.closest("[data-modal-close]")) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.classList.contains("modal--open")) {
+      closeModal();
+    }
+  });
+}
+
 
 // side-navigation
 const sideNavigationBtn = document.querySelector('.side__navigation__close')
