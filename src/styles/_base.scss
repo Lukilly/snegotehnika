@@ -2255,6 +2255,8 @@ h1, h2, h3{
           .product-card__set__list__item__img{
             img{
               display: block;
+              width: 100%;
+              height: auto;
             }
           }
           .product-card__set__list__item__inner{
@@ -6253,6 +6255,12 @@ h1, h2, h3{
           .product-card__set__list__item{
             flex: 0 0 auto;
             width: auto;
+            .product-card__set__list__item__img{
+              img{
+                width: auto;
+                height: auto;
+              }
+            }
           }
           .product-card__set__list__receiveCatalog{
             flex: 0 0 auto;

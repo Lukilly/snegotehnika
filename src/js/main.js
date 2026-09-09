@@ -662,3 +662,13 @@ const autoResizeTextareas = (root) => {
   });
 };
 autoResizeTextareas(document.querySelector('.contacts__support__inputs'));
+
+// подсветка активного пункта меню в шапке под текущую страницу
+const highlightActiveNavLink = () => {
+  const currentHref = new URL(location.href).pathname.replace(/\/+$/, '');
+  document.querySelectorAll('.navigation .nav__link').forEach((link) => {
+    const linkHref = new URL(link.href, location.href).pathname.replace(/\/+$/, '');
+    link.classList.toggle('active', linkHref === currentHref);
+  });
+};
+highlightActiveNavLink();

@@ -12,7 +12,7 @@
 }
 
 .nav__link{
-  padding: 13.5px 5px;
+  padding: 13.5px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,6 +24,11 @@
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   color: var(--primary-color);
+  &.active{
+    border-radius: 6px;
+    background-color: var(--secondary-color);
+    color: #fff;
+  }
 }
 
 .side__navigation{
