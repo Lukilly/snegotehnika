@@ -264,6 +264,21 @@ if (sliderCards.length > 0) {
   });
 }
 
+// swiper__new__blokcs
+const newBlocksSwipers = document.querySelectorAll(".swiper__new__blocks");
+newBlocksSwipers.forEach((slider) => {
+  new Swiper(slider, {
+    spaceBetween: 22,
+    breakpoints: {
+      1800: { slidesPerView: 4 },
+      1200: { slidesPerView: 3 },
+      991: { slidesPerView: 2.4 },
+      768: { slidesPerView: 2, spaceBetween: 20 },
+      0: { slidesPerView: 1.2, spaceBetween: 14 },
+    },
+  });
+});
+
 // swipers__product-card__features
 const sliders = document.querySelectorAll('[data-slider]')
 sliders.forEach((slider) => {
@@ -471,17 +486,6 @@ collapseButtons.forEach(button =>{
   });
 });
 
-// product-card__set list
-// добавление/удаление позиций в наборе
-const setItems = document.querySelectorAll('.product-card__set__list__item');
-setItems.forEach((item) => {
-  const btn = item.querySelector('.product-card__set__list__item__icon__container');
-  btn.addEventListener('click', (event) => {
-    event.preventDefault();
-    item.classList.toggle('active');
-  });
-});
-
 // cart__buttons
 const deliveryButtons = document.querySelectorAll('.delivery-choice__button');
 deliveryButtons.forEach(button => {
@@ -672,3 +676,39 @@ const highlightActiveNavLink = () => {
   });
 };
 highlightActiveNavLink();
+
+// синхронизация кастомной полосы прокрутки списка «Рассчитайте цену за комплект»
+const setScrollbars = document.querySelectorAll('[data-set-scrollbar]');
+setScrollbars.forEach((scrollbar) => {
+  const wrapper = scrollbar.closest('.product-card__set__list-wrapper');
+  const list = wrapper && wrapper.querySelector('.product-card__set__list');
+  const drag = scrollbar.querySelector('.product-card__set__list__scrollbar__drag');
+  if (!list || !drag) return;
+
+  const updateScrollbar = () => {
+    const maxScroll = list.scrollWidth - list.clientWidth;
+    if (maxScroll <= 0) {
+      drag.style.width = '0%';
+      return;
+    }
+    const trackWidth = scrollbar.clientWidth;
+    const dragWidth = Math.max((list.clientWidth / list.scrollWidth) * trackWidth, 40);
+    drag.style.width = `${dragWidth}px`;
+    const progress = list.scrollLeft / maxScroll;
+    drag.style.transform = `translateX(${(trackWidth - dragWidth) * progress}px)`;
+  };
+
+  list.addEventListener('scroll', updateScrollbar, {passive: true});
+  window.addEventListener('resize', updateScrollbar);
+  requestAnimationFrame(updateScrollbar);
+
+  scrollbar.addEventListener('click', (event) => {
+    if (event.target === drag) return;
+    const rect = scrollbar.getBoundingClientRect();
+    const trackWidth = scrollbar.clientWidth;
+    const dragWidth = parseFloat(drag.style.width) || 40;
+    const pos = (event.clientX - rect.left);
+    const progress = (pos - dragWidth / 2) / (trackWidth - dragWidth);
+    list.scrollLeft = Math.max(0, Math.min(1, progress)) * (list.scrollWidth - list.clientWidth);
+  });
+});
