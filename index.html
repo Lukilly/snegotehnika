@@ -131,7 +131,7 @@
           <div class="swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <a class="offers__item" href="#">
+                <a class="offers__item" data-modal-open="modal-offers" data-offer="offer-1">
                   <div class="offers__item__top">
                     <div class="offers__item__title">Приведи друга и получи <br> 5000₽ на карту</div>
                   </div>
@@ -147,7 +147,7 @@
                 </a>
               </div>
               <div class="swiper-slide">
-                <a class="offers__item" href="#">
+                <a class="offers__item" data-modal-open="modal-offers" data-offer="offer-2">
                   <div class="offers__item__top">
                     <div class="offers__item__title">Приведи друга и получи <br> 5000₽ на карту</div>
                   </div>
@@ -163,7 +163,7 @@
                 </a>
               </div>
               <div class="swiper-slide">
-                <a class="offers__item" href="#">
+                <a class="offers__item" data-modal-open="modal-offers" data-offer="offer-3">
                   <div class="offers__item__top">
                     <div class="offers__item__title">Приведи друга и получи <br> 5000₽ на карту</div>
                   </div>
@@ -179,7 +179,7 @@
                 </a>
               </div>
               <div class="swiper-slide">
-                <a class="offers__item" href="#">
+                <a class="offers__item" data-modal-open="modal-offers" data-offer="offer-4">
                   <div class="offers__item__top">
                     <div class="offers__item__title">Приведи друга и получи <br> 5000₽ на карту</div>
                   </div>
@@ -195,7 +195,7 @@
                 </a>
               </div>
               <div class="swiper-slide">
-                <a class="offers__item" href="#">
+                <a class="offers__item" data-modal-open="modal-offers" data-offer="offer-5">
                   <div class="offers__item__top">
                     <div class="offers__item__title">Приведи друга и получи <br> 5000₽ на карту</div>
                   </div>
@@ -211,7 +211,7 @@
                 </a>
               </div>
               <div class="swiper-slide">
-                <a class="offers__item" href="#">
+                <a class="offers__item" data-modal-open="modal-offers" data-offer="offer-6">
                   <div class="offers__item__top">
                     <div class="offers__item__title">Приведи друга и получи <br> 5000₽ на карту</div>
                   </div>
@@ -227,7 +227,7 @@
                 </a>
               </div>
               <div class="swiper-slide">
-                <a class="offers__item" href="#">
+                <a class="offers__item" data-modal-open="modal-offers" data-offer="offer-7">
                   <div class="offers__item__top">
                     <div class="offers__item__title">Приведи друга и получи <br> 5000₽ на карту</div>
                   </div>
@@ -535,6 +535,25 @@
     </div>
     {{> footer}}
   </div>
+
+    <div class="modal" id="modal-offers" data-modal aria-hidden="true">
+      <div class="modal__overlay" data-modal-close></div>
+      <div class="modal__dialog">
+        <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 8L24 24M24 8L8 24" stroke="#5380FF" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="modal__content">
+          <div class="modal__offers">
+            <h3 data-offers-title>Приведи друга и получи 5000₽ на карту</h3>
+            <img src="/img/modals/img.jpg" alt="" data-offers-img>
+            <p data-offers-text>Подробное описание</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   {{> scripts}}
 </body>
 </html>

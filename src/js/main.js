@@ -6,6 +6,8 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 import 'swiper/css';
 
+import { addToCart, removeFromCart, setQty, clearCart, getCart, updateCartCount } from './cart';
+
 Fancybox.bind("[data-fancybox]", {
   dragToClose: false,
 });
@@ -92,18 +94,8 @@ sideNavigationBtn.addEventListener('click', () => {
 
 
 
-// Cart
-let cartCount = 0;
-const cartCountElement = document.querySelector('.cart-count')
-const addToCartButton = document.querySelector('.header__catalog__toggle')
-addToCartButton.addEventListener('click', () => {
-  cartCount++;
-  cartCountElement.textContent = cartCount
-
-  if (cartCount > 0) {
-    cartCountElement.classList.add('has-items')
-  }
-});
+// Cart count
+updateCartCount();
 
 
 // Header search placeholder
@@ -423,18 +415,214 @@ wholesaleBtns.forEach((btn) => {
 
 // Product-card__set__list
 
-document.querySelectorAll('.product-card__set__list__item__icon__container').forEach((btn) => {
+document.querySelectorAll('.product-card__set__list__item__icon__container').forEach((btn, index) => {
   btn.addEventListener('click', () => {
     const item = btn.closest('.product-card__set__list__item');
-    if (item) item.classList.toggle('active');
+    if (!item) return;
+    item.classList.add('active');
+    const name = item.querySelector('.product-card__set__list__item__name')?.textContent.trim();
+    const price = parseInt((item.querySelector('.product-card__set__list__item__price')?.textContent || '').replace(/[^0-9]/g, ''), 10) || 0;
+    const img = item.querySelector('.product-card__set__list__item__img img')?.getAttribute('src') || '';
+    addToCart({
+      id: `set-item-${index}`,
+      name,
+      price,
+      img,
+    });
   });
 });
 
-// чтобы не переходило на fancybox при клике на ссылку
-const featuresLinks = document.querySelectorAll('.swiper__product-card__features .video__container a');
-featuresLinks.forEach((link) => {
-  link.addEventListener('click', (event) => {
+// чтобы не переходило на fancybox при клике на кнопку/ссылку открытия модалки
+const featuresModalTriggers = document.querySelectorAll('.swiper__product-card__features .video__container [data-modal-open]');
+featuresModalTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', (event) => {
     event.stopPropagation();
+  });
+});
+
+// Modal video info: заголовок и список преимуществ по ключу data-video-info
+const videoInfoContent = {
+  'engine-lonchin': {
+    title: 'Модернизированный 4-тактный двигатель Лончин',
+    pros: [
+      'Быстрый разгон снегохода до 60 км/ч.',
+      'Стабильная работа двигателя на холостом ходу.',
+      'Уверенный запуск двигателя при низких температурах.',
+    ],
+  },
+  'engine-reverse': {
+    title: 'Усиленная коробка реверса',
+    pros: [
+      'Плавное включение заднего хода.',
+      'Усиленная конструкция выдерживает повышенные нагрузки.',
+      'Долгий срок службы без обслуживания.',
+    ],
+  },
+  'engine-gearbox': {
+    title: 'Надежный механизм переключения передач',
+    pros: [
+      'Четкое включение передач при любой температуре.',
+      'Проверенная на практике надежность механизма.',
+      'Простой и удобный алгоритм переключения.',
+    ],
+  },
+  'engine-cvt-belt': {
+    title: 'Ремень вариатора Rubena',
+    pros: [
+      'Износостойкий ремень проверенного производителя.',
+      'Стабильная передача мощности на гусеницу.',
+      'Уверенное поведение на высоких скоростях.',
+    ],
+  },
+  'undercarriage-suspension': {
+    title: 'Независимая облегченная подвеска',
+    pros: [
+      'Плавный ход по неровностям и ухабам.',
+      'Меньший вес улучшает маневренность.',
+      'Уверенное поведение на пересеченной местности.',
+    ],
+  },
+  'undercarriage-track': {
+    title: 'Гусеница Полярник',
+    pros: [
+      'Отличное сцепление на глубоком снегу.',
+      'Высокая износостойкость при движении по насту.',
+      'Уверенное преодоление перепадов высот.',
+    ],
+  },
+  'undercarriage-bearings': {
+    title: 'Подшипники SKF',
+    pros: [
+      'Проверенное качество компонентов SKF.',
+      'Устойчивость к нагрузкам и перепадам температур.',
+      'Сниженное трение и долгий ресурс.',
+    ],
+  },
+  'undercarriage-steering': {
+    title: 'Новое рулевое управление',
+    pros: [
+      'Точная и информативная обратная связь.',
+      'Легкость управления на любой скорости.',
+      'Меньше усилий при маневрировании.',
+    ],
+  },
+  'undercarriage-frame': {
+    title: 'Рама открытого типа',
+    pros: [
+      'Открытая конструкция упрощает обслуживание.',
+      'Высокая жесткость при умеренном весе.',
+      'Удобная компоновка узлов и агрегатов.',
+    ],
+  },
+  'equipment-design': {
+    title: 'Агрессивный современный дизайн',
+    pros: [
+      'Современный облик, отражающий характер.',
+      'Продуманная эргономика посадки.',
+      'Аккуратная интеграция всех элементов.',
+    ],
+  },
+  'equipment-hood': {
+    title: 'Откидной капот',
+    pros: [
+      'Быстрый доступ к узлам под капотом.',
+      'Упрощает обслуживание в полевых условиях.',
+      'Прочный и надежный механизм фиксации.',
+    ],
+  },
+  'equipment-headlight': {
+    title: 'Мощная светодиодная фара',
+    pros: [
+      'Яркое освещение трассы в темноте.',
+      'Экономия энергии благодаря светодиодам.',
+      'Долгий ресурс работы без замены.',
+    ],
+  },
+  'equipment-canisters': {
+    title: 'Добавили крепление экспедиционных канистр',
+    pros: [
+      'Надежная фиксация экспедиционных канистр.',
+      'Расширяет возможности дальних поездок.',
+      'Крепление не мешает основным узлам снегохода.',
+    ],
+  },
+  'equipment-electrics': {
+    title: 'Управление электрооборудованием',
+    pros: [
+      'Удобное управление всеми электросистемами.',
+      'Надежная защита от перегрузок.',
+      'Простая диагностика при обслуживании.',
+    ],
+  },
+};
+
+const videoInfoModal = document.querySelector('#modal-video-info');
+const videoInfoTitle = videoInfoModal?.querySelector('[data-modal-video-title]');
+const videoInfoPros = videoInfoModal?.querySelector('[data-modal-video-pros]');
+
+const escapeVideoInfoHtml = (value) =>
+  value.replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+
+document.querySelectorAll('[data-modal-open="modal-video-info"]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const data = videoInfoContent[btn.dataset.videoInfo];
+    if (!data || !videoInfoModal) return;
+    videoInfoTitle.textContent = data.title;
+    videoInfoPros.innerHTML = data.pros.map((pro) => `<li>${escapeVideoInfoHtml(pro)}</li>`).join('');
+  });
+});
+
+// Modal offers: акция и описание по ключу data-offer
+const offerContent = {
+  'offer-1': {
+    title: 'Приведи друга и получи 5000₽ на карту',
+    img: '/img/modals/img.jpg',
+    text: 'Описание акции. Подробные условия участия — замените этот текст реальным описанием.',
+  },
+  'offer-2': {
+    title: 'Приведи друга и получи 5000₽ на карту',
+    img: '/img/modals/img.jpg',
+    text: 'Описание акции. Подробные условия участия — замените этот текст реальным описанием.',
+  },
+  'offer-3': {
+    title: 'Приведи друга и получи 5000₽ на карту',
+    img: '/img/modals/img.jpg',
+    text: 'Описание акции. Подробные условия участия — замените этот текст реальным описанием.',
+  },
+  'offer-4': {
+    title: 'Приведи друга и получи 5000₽ на карту',
+    img: '/img/modals/img.jpg',
+    text: 'Описание акции. Подробные условия участия — замените этот текст реальным описанием.',
+  },
+  'offer-5': {
+    title: 'Приведи друга и получи 5000₽ на карту',
+    img: '/img/modals/img.jpg',
+    text: 'Описание акции. Подробные условия участия — замените этот текст реальным описанием.',
+  },
+  'offer-6': {
+    title: 'Приведи друга и получи 5000₽ на карту',
+    img: '/img/modals/img.jpg',
+    text: 'Описание акции. Подробные условия участия — замените этот текст реальным описанием.',
+  },
+  'offer-7': {
+    title: 'Приведи друга и получи 5000₽ на карту',
+    img: '/img/modals/img.jpg',
+    text: 'Описание акции. Подробные условия участия — замените этот текст реальным описанием.',
+  },
+};
+
+const offersModal = document.querySelector('#modal-offers');
+const offersTitle = offersModal?.querySelector('[data-offers-title]');
+const offersImg = offersModal?.querySelector('[data-offers-img]');
+const offersText = offersModal?.querySelector('[data-offers-text]');
+
+document.querySelectorAll('[data-modal-open="modal-offers"]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const data = offerContent[btn.dataset.offer];
+    if (!data || !offersModal) return;
+    offersTitle.textContent = data.title;
+    if (offersImg) offersImg.src = data.img;
+    offersText.textContent = data.text;
   });
 });
 
@@ -605,62 +793,105 @@ if (promocodeInput && promocodeButton) {
   });
 }
 
-// Cart__total__price
-const formatCartPrice = (value) => value.toLocaleString('ru-RU').replace(/\s/g, '\u00A0');
+// Cart page rendering
+const formatCartPrice = (value) => Number(value || 0).toLocaleString('ru-RU').replace(/\s/g, '\u00A0');
 
 const parseCartPrice = (text) => Number(text.replace(/[^0-9]/g, ''));
 
-const recalcCartTotal = () => {
-  let productsTotal = 0;
-  document.querySelectorAll('.cart__product').forEach((product) => {
-    const qty = Number(product.querySelector('.quantity-value').textContent) || 0;
-    const unitPrice = Number(product.dataset.price) || 0;
-    const lineTotal = qty * unitPrice;
-    const priceEl = product.querySelector('.cart__product__right__price span');
-    if (priceEl) priceEl.textContent = formatCartPrice(lineTotal);
-    productsTotal += lineTotal;
-  });
+const escapeHtml = (str) =>
+  String(str ?? '').replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  }[c]));
 
-  const delivery = parseCartPrice(deliverySumEl ? deliverySumEl.textContent : '0');
-  productsSumEl.textContent = formatCartPrice(productsTotal);
-  totalSumEl.textContent = formatCartPrice(productsTotal + delivery);
-};
-
-const cartProducts = document.querySelectorAll('.cart__product');
+const cartProductsContainer = document.querySelector('[data-cart-products]');
+const cartEmptyState = document.querySelector('[data-cart-empty]');
 const productsSumEl = document.querySelector('[data-cart-products-sum]');
 const deliverySumEl = document.querySelector('[data-cart-delivery-sum]');
 const totalSumEl = document.querySelector('[data-cart-total-sum]');
 
-if (cartProducts.length > 0 && productsSumEl && totalSumEl) {
-  cartProducts.forEach((product) => {
-    const qtyEl = product.querySelector('.quantity-value');
-    const minusBtn = product.querySelector('.quantity-minus');
-    const plusBtn = product.querySelector('.quantity-plus');
+const recalcCartTotal = () => {
+  if (!productsSumEl && !totalSumEl) return;
+  let productsTotal = 0;
+  document.querySelectorAll('.cart__product').forEach((product) => {
+    const qty = Number(product.querySelector('.quantity-value').textContent) || 0;
+    productsTotal += qty * (Number(product.dataset.price) || 0);
+  });
+  const delivery = deliverySumEl ? parseCartPrice(deliverySumEl.textContent) : 0;
+  if (productsSumEl) productsSumEl.textContent = formatCartPrice(productsTotal);
+  if (totalSumEl) totalSumEl.textContent = formatCartPrice(productsTotal + delivery);
+};
 
-    const changeQty = (delta) => {
-      qtyEl.textContent = Math.max(1, (Number(qtyEl.textContent) || 1) + delta);
-      recalcCartTotal();
-    };
+const renderCart = () => {
+  if (!cartProductsContainer) return;
+  const cart = getCart();
+  cartProductsContainer.innerHTML = '';
 
-    minusBtn.addEventListener('click', () => changeQty(-1));
-    plusBtn.addEventListener('click', () => changeQty(1));
+  cart.forEach((product) => {
+    const row = document.createElement('div');
+    row.className = 'cart__product';
+    row.dataset.price = product.price;
+    row.dataset.id = product.id;
+    row.innerHTML = `
+      <div class="cart__product__left">
+        <img src="${escapeHtml(product.img || '/img/cart/product__img.jpg')}" alt="" class="cart__product__img">
+        <div class="cart__product__left__container">
+          <span>${escapeHtml(product.sku || product.id)}</span>
+          <a href="#">${escapeHtml(product.name)}</a>
+        </div>
+      </div>
+      <div class="cart__product__right">
+        <div class="cart__product__quantity">
+          <div class="cart__product__quantity__inner">
+            <button class="quantity-minus">-</button>
+            <span class="quantity-value">${product.qty}</span>
+            <button class="quantity-plus">+</button>
+          </div>
+        </div>
+        <div class="cart__product__right__container">
+          <button type="button">
+            <svg><use xlink:href="#product-delete"></use></svg>
+          </button>
+          <div class="cart__product__right__price">
+            <span>${formatCartPrice(product.price * product.qty)}</span> руб.
+          </div>
+        </div>
+      </div>`;
 
-    product.querySelector('.cart__product__right__container button').addEventListener('click', () => {
-      product.remove();
-      recalcCartTotal();
-    });
+    const qtyEl = row.querySelector('.quantity-value');
+    row.querySelector('.quantity-minus').addEventListener('click', () => setQty(product.id, (Number(qtyEl.textContent) || 1) - 1));
+    row.querySelector('.quantity-plus').addEventListener('click', () => setQty(product.id, (Number(qtyEl.textContent) || 1) + 1));
+    row.querySelector('.cart__product__right__container button').addEventListener('click', () => removeFromCart(product.id));
+
+    cartProductsContainer.appendChild(row);
   });
 
+  const isEmpty = cart.length === 0;
+  if (cartEmptyState) cartEmptyState.style.display = isEmpty ? '' : 'none';
+  ['.cart__delivery', '.cart__address', '.cart__right'].forEach((sel) => {
+    document.querySelectorAll(sel).forEach((el) => {
+      el.style.display = isEmpty ? 'none' : '';
+    });
+  });
   recalcCartTotal();
+};
+
+if (cartProductsContainer) {
+  renderCart();
 }
 
 const clearCartBtn = document.querySelector('.cart__top__button');
 if (clearCartBtn) {
-  clearCartBtn.addEventListener('click', () => {
-    document.querySelectorAll('.cart__product').forEach((product) => product.remove());
-    recalcCartTotal();
-  });
+  clearCartBtn.addEventListener('click', () => clearCart());
 }
+
+window.addEventListener('cart:change', () => {
+  updateCartCount();
+  if (cartProductsContainer) renderCart();
+});
 
 // Modal added-to-cart quantity
 document.querySelectorAll('.modal__cart__item .cart__product__quantity').forEach((quantity) => {
@@ -674,6 +905,26 @@ document.querySelectorAll('.modal__cart__item .cart__product__quantity').forEach
   });
   plusBtn.addEventListener('click', () => {
     qtyEl.textContent = (Number(qtyEl.textContent) || 1) + 1;
+  });
+});
+
+// Modal added-to-cart: actions
+document.querySelector('.modal__cart__button')?.addEventListener('click', closeModal);
+document.querySelector('.modal__cart__button-red')?.addEventListener('click', () => {
+  window.location.href = '/pages/cart.html';
+});
+
+document.querySelectorAll('.modal__cart__item .modal__cart__btn').forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.modal__cart__item');
+    if (!item) return;
+    const name = item.querySelector('.modal__cart__item__left__info p')?.textContent?.trim();
+    const price = parseInt((item.querySelector('.modal__cart__item__left__info span')?.textContent || '').replace(/[^0-9]/g, ''), 10) || 0;
+    const qty = Number(item.querySelector('.quantity-value')?.textContent) || 1;
+    const img = item.querySelector('.modal__cart__item__left img')?.getAttribute('src') || '';
+    addToCart({ id: `modal-item-${index + 1}`, name, price, img, qty });
+    const qtyEl = item.querySelector('.quantity-value');
+    if (qtyEl) qtyEl.textContent = '1';
   });
 });
 
