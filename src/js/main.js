@@ -51,6 +51,38 @@ document.addEventListener("keydown", (event) => {
 });
 
 
+// Model choice accordion
+document.querySelectorAll(".model__choice__dropdown").forEach((dropdown) => {
+  const btn = dropdown.querySelector(".model__choice__btn");
+  const list = dropdown.querySelector(".model__choice__list");
+  if (!btn || !list) return;
+
+  btn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    dropdown.classList.toggle("is-open");
+  });
+
+  list.addEventListener("click", (event) => {
+    const item = event.target.closest(".model__choice__item");
+    if (!item) return;
+    const text = dropdown.querySelector(".model__choice__btn__text");
+    if (text) text.textContent = item.textContent;
+    list.querySelectorAll(".model__choice__item").forEach((el) => {
+      el.classList.toggle("active", el === item);
+    });
+    dropdown.classList.remove("is-open");
+  });
+});
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".model__choice__dropdown")) {
+    document.querySelectorAll(".model__choice__dropdown.is-open").forEach((dropdown) => {
+      dropdown.classList.remove("is-open");
+    });
+  }
+});
+
+
 // side-navigation
 const sideNavigationBtn = document.querySelector('.side__navigation__close')
 const sideNavigationContent = document.querySelector('.side__navigation')
@@ -391,6 +423,13 @@ wholesaleBtns.forEach((btn) => {
 
 // Product-card__set__list
 
+document.querySelectorAll('.product-card__set__list__item__icon__container').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.product-card__set__list__item');
+    if (item) item.classList.toggle('active');
+  });
+});
+
 // чтобы не переходило на fancybox при клике на ссылку
 const featuresLinks = document.querySelectorAll('.swiper__product-card__features .video__container a');
 featuresLinks.forEach((link) => {
@@ -575,8 +614,11 @@ const recalcCartTotal = () => {
   let productsTotal = 0;
   document.querySelectorAll('.cart__product').forEach((product) => {
     const qty = Number(product.querySelector('.quantity-value').textContent) || 0;
-    const price = parseCartPrice(product.querySelector('.cart__product__right__price span').textContent);
-    productsTotal += qty * price;
+    const unitPrice = Number(product.dataset.price) || 0;
+    const lineTotal = qty * unitPrice;
+    const priceEl = product.querySelector('.cart__product__right__price span');
+    if (priceEl) priceEl.textContent = formatCartPrice(lineTotal);
+    productsTotal += lineTotal;
   });
 
   const delivery = parseCartPrice(deliverySumEl ? deliverySumEl.textContent : '0');
@@ -619,6 +661,21 @@ if (clearCartBtn) {
     recalcCartTotal();
   });
 }
+
+// Modal added-to-cart quantity
+document.querySelectorAll('.modal__cart__item .cart__product__quantity').forEach((quantity) => {
+  const qtyEl = quantity.querySelector('.quantity-value');
+  const minusBtn = quantity.querySelector('.quantity-minus');
+  const plusBtn = quantity.querySelector('.quantity-plus');
+  if (!qtyEl || !minusBtn || !plusBtn) return;
+
+  minusBtn.addEventListener('click', () => {
+    qtyEl.textContent = Math.max(1, (Number(qtyEl.textContent) || 1) - 1);
+  });
+  plusBtn.addEventListener('click', () => {
+    qtyEl.textContent = (Number(qtyEl.textContent) || 1) + 1;
+  });
+});
 
 
 // Scroll__footer
