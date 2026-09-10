@@ -10,19 +10,19 @@ Fancybox.bind("[data-fancybox]", {
   dragToClose: false,
 });
 
-// Универсальное модальное окно
+// Modal
 const modal = document.querySelector("[data-modal]");
 const openModal = () => {
   if (!modal) return;
   modal.classList.add("modal--open");
   modal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
+  document.documentElement.classList.add("modal-open");
 };
 const closeModal = () => {
   if (!modal) return;
   modal.classList.remove("modal--open");
   modal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("modal-open");
+  document.documentElement.classList.remove("modal-open");
 };
 
 document.querySelectorAll("[data-modal-open]").forEach((btn) => {
@@ -465,6 +465,16 @@ document.addEventListener('click', (e) => {
   if (!e.target.closest('.catalog__sort__select')) {
     closeCatalogSort();
   }
+});
+
+// Сортировка на мобильных (<991px): спан раскрывает/сворачивает аккордион
+const catalogSortTrigger = document.querySelector('[data-sort-trigger]');
+const catalogSortMobile = window.matchMedia('(max-width: 991px)');
+
+catalogSortTrigger?.addEventListener('click', (e) => {
+  if (!catalogSortMobile.matches) return;
+  e.stopPropagation();
+  catalogSortSelect?.classList.toggle('catalog__sort__select--open');
 });
 
 // Accordion
