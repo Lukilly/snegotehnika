@@ -11,40 +11,44 @@ Fancybox.bind("[data-fancybox]", {
 });
 
 // Modal
-const modal = document.querySelector("[data-modal]");
-const openModal = () => {
-  if (!modal) return;
-  modal.classList.add("modal--open");
-  modal.setAttribute("aria-hidden", "false");
+let activeModal = null;
+
+const openModal = (id) => {
+  const target = document.getElementById(id);
+  if (!target) return;
+  target.classList.add("modal--open");
+  target.setAttribute("aria-hidden", "false");
   document.documentElement.classList.add("modal-open");
+  activeModal = target;
 };
 const closeModal = () => {
-  if (!modal) return;
-  modal.classList.remove("modal--open");
-  modal.setAttribute("aria-hidden", "true");
+  if (!activeModal) return;
+  activeModal.classList.remove("modal--open");
+  activeModal.setAttribute("aria-hidden", "true");
   document.documentElement.classList.remove("modal-open");
+  activeModal = null;
 };
 
 document.querySelectorAll("[data-modal-open]").forEach((btn) => {
   btn.addEventListener("click", (event) => {
     event.preventDefault();
-    openModal();
+    openModal(btn.dataset.modalOpen);
   });
 });
 
-if (modal) {
+document.querySelectorAll("[data-modal]").forEach((modal) => {
   modal.addEventListener("click", (event) => {
     if (event.target === modal || event.target.closest("[data-modal-close]")) {
       closeModal();
     }
   });
+});
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && modal.classList.contains("modal--open")) {
-      closeModal();
-    }
-  });
-}
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && activeModal) {
+    closeModal();
+  }
+});
 
 
 // side-navigation

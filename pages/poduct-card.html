@@ -953,7 +953,7 @@
               <div class="product-card__reviews__top">
                 <h3>Отзывы покупателей</h3>
                 <!-- ВИджет яндекса -->
-                <button type="button" data-modal-open="reviews">
+                <button type="button" data-modal-open="modal-reviews">
                   Оставить отзыв
                   <svg class="button__icon">
                     <use xlink:href="#buttonArrow"></use>
@@ -1039,7 +1039,7 @@
               </ul>
               <div class="product-card__reviews__bottom">
                 <button type="button" class="product-card__reviews__button">еще больше отзывов</button>
-                <button type="button" class="product-card__reviews__button__mobile" data-modal-open="reviews">
+                <button type="button" class="product-card__reviews__button__mobile" data-modal-open="modal-reviews">
                   Оставить отзыв
                   <svg class="button__icon">
                     <use xlink:href="#buttonArrow"></use>
@@ -1723,9 +1723,9 @@
         </div>
 
       </div>
-
-{{> footer}}
+    </div>
   </div>
+{{> footer}}
 
     <div class="modal modal--calculation" id="modal-price_calculation" data-modal aria-hidden="true">
       <div class="modal__overlay" data-modal-close></div>
@@ -1782,10 +1782,25 @@
             </svg>
           </button>
           <input type="checkbox" id="modal__approval" name="approval">
-            <label for="modal__approval" class="modal__approval">
-              <span class="check-circle"></span>
-              <div>нажимая на кнопку, я соглашаюсь с <a href="#">политикой о конфиденциальности</a></div>
-            </label>
+          <label for="modal__approval" class="modal__approval">
+            <span class="check-circle"></span>
+            <div>нажимая на кнопку, я соглашаюсь с <a href="#">политикой о конфиденциальности</a></div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal modal--calculation" id="modal-reviews" data-modal aria-hidden="true">
+      <div class="modal__overlay" data-modal-close></div>
+      <div class="modal__dialog">
+        <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 8L24 24M24 8L8 24" stroke="#5380FF" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="modal__content">
+          <h2>оставить отзыв о снеготехнике</h2>
+          
         </div>
       </div>
     </div>
