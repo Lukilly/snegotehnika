@@ -19,7 +19,7 @@
     {{> header}}
     <div class="dart_main">
 
-<!-- Catalog -->
+    <!-- Catalog -->
     <div class="catalog">
       <div class="dart-container">
         <ul class="breadcrumbs">
@@ -176,10 +176,10 @@
               <div class="catalog__item__footer">
                 <span>от <b>300 000₽</b></span>
                 <div class="catalog__item__footer__buttons">
-                  <a href="#" class="catalog__item__footer__calculation">
+                  <button type="button" class="catalog__item__footer__calculation" data-modal-open="modal-price_calculation">
                     <p>рассчитать стоимость</p>
                     <span class="icon-calculyator"></span>
-                  </a>
+                  </button>
                   <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
                     <svg>
                       <use xlink:href="#buttonArrow"></use>
@@ -230,10 +230,10 @@
               <div class="catalog__item__footer">
                 <span>от <b>300 000₽</b></span>
                 <div class="catalog__item__footer__buttons">
-                  <a href="#" class="catalog__item__footer__calculation">
+                  <button type="button" class="catalog__item__footer__calculation" data-modal-open="modal-price_calculation">
                     <p>рассчитать стоимость</p>
                     <span class="icon-calculyator"></span>
-                  </a>
+                  </button>
                   <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
                     <svg>
                       <use xlink:href="#buttonArrow"></use>
@@ -316,10 +316,10 @@
               <div class="catalog__item__footer">
                 <span>от <b>300 000₽</b></span>
                 <div class="catalog__item__footer__buttons">
-                  <a href="#" class="catalog__item__footer__calculation">
+                  <button type="button" class="catalog__item__footer__calculation" data-modal-open="modal-price_calculation">
                     <p>рассчитать стоимость</p>
                     <span class="icon-calculyator"></span>
-                  </a>
+                  </button>
                   <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
                     <svg>
                       <use xlink:href="#buttonArrow"></use>
@@ -371,10 +371,10 @@
               <div class="catalog__item__footer">
                 <span>от <b>300 000₽</b></span>
                 <div class="catalog__item__footer__buttons">
-                  <a href="#" class="catalog__item__footer__calculation">
+                  <button type="button" class="catalog__item__footer__calculation" data-modal-open="modal-price_calculation">
                     <p>рассчитать стоимость</p>
                     <span class="icon-calculyator"></span>
-                  </a>
+                  </button>
                   <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
                     <svg>
                       <use xlink:href="#buttonArrow"></use>
@@ -425,10 +425,10 @@
               <div class="catalog__item__footer">
                 <span>от <b>300 000₽</b></span>
                 <div class="catalog__item__footer__buttons">
-                  <a href="#" class="catalog__item__footer__calculation">
+                  <button type="button" class="catalog__item__footer__calculation" data-modal-open="modal-price_calculation">
                     <p>рассчитать стоимость</p>
                     <span class="icon-calculyator"></span>
-                  </a>
+                  </button>
                   <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
                     <svg>
                       <use xlink:href="#buttonArrow"></use>
@@ -480,10 +480,10 @@
               <div class="catalog__item__footer">
                 <span>от <b>300 000₽</b></span>
                 <div class="catalog__item__footer__buttons">
-                  <a href="#" class="catalog__item__footer__calculation">
+                  <button type="button" class="catalog__item__footer__calculation" data-modal-open="modal-price_calculation">
                     <p>рассчитать стоимость</p>
                     <span class="icon-calculyator"></span>
-                  </a>
+                  </button>
                   <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
                     <svg>
                       <use xlink:href="#buttonArrow"></use>
@@ -534,10 +534,10 @@
               <div class="catalog__item__footer">
                 <span>от <b>300 000₽</b></span>
                 <div class="catalog__item__footer__buttons">
-                  <a href="#" class="catalog__item__footer__calculation">
+                  <button type="button" class="catalog__item__footer__calculation" data-modal-open="modal-price_calculation">
                     <p>рассчитать стоимость</p>
                     <span class="icon-calculyator"></span>
-                  </a>
+                  </button>
                   <a href="/pages/poduct-card.html" class="catalog__item__footer__link">
                     <svg>
                       <use xlink:href="#buttonArrow"></use>
@@ -685,6 +685,72 @@
     </div>
     {{> footer}}
   </div>
+
+    <div class="modal" id="modal-price_calculation" data-modal aria-hidden="true">
+      <div class="modal__overlay" data-modal-close></div>
+      <div class="modal__dialog">
+        <button class="modal__close" type="button" data-modal-close aria-label="Закрыть">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 8L24 24M24 8L8 24" stroke="#5380FF" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="modal__content">
+          <div class="modal__top">
+            <h2><b>Расчет цены</b> Снегоход 4Т с двигателем Лончин</h2>
+          </div>
+          <input type="text" placeholder="Ваш город">
+          <div class="modal__choice__item">
+            <h4>Выберите способ доставки</h4>
+            <div class="modal__choice__item__container">
+              <input type="checkbox" id="self‑pickup" name="approval">
+              <label for="self‑pickup" class="modal__choice">
+                <span class="check-circle"></span>
+                <div>Самовывоз + подарок</div>
+              </label>
+              <input type="checkbox" id="special-rate" name="approval">
+              <label for="special-rate" class="modal__choice">
+                <span class="check-circle"></span>
+                <div>ТК спецтариф - скидка до 20%</div>
+              </label>
+            </div>
+          </div>
+          <div class="modal__choice__item">
+            <h4>Счет, квитанция для оплаты в банке</h4>
+            <div class="modal__choice__item__container">
+              <input type="checkbox" id="bank-account" name="approval">
+              <label for="bank-account" class="modal__choice">
+                <span class="check-circle"></span>
+                <div>Счет, квитанция для оплаты в банке</div>
+              </label>
+              <input type="checkbox" id="bank" name="approval">
+              <label for="bank" class="modal__choice">
+                <span class="check-circle"></span>
+                <div>Банк. карта <b>Безопасно и быстро</b></div>
+              </label>
+            </div>
+          </div>
+          <div class="modal__phone">
+            <p>Ваш телефон:</p>
+            <input type="tel" placeholder="+79991234567">
+          </div>
+          <div class="modal__captcha">
+            
+          </div>
+          <button class="modal__btn">
+            получить рачет
+            <svg>
+              <use xlink:href="#buttonArrow"></use>
+            </svg>
+          </button>
+          <input type="checkbox" id="modal__calculation__approval" name="approval">
+          <label for="modal__calculation__approval" class="modal__approval">
+            <span class="check-circle"></span>
+            <div>нажимая на кнопку, я соглашаюсь с <a href="#">политикой о конфиденциальности</a></div>
+          </label>
+        </div>
+      </div>
+    </div>
+
   {{> scripts}}
 </body>
 </html>

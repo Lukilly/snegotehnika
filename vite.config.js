@@ -83,6 +83,7 @@ export default defineConfig({
         wholesale: resolve(import.meta.dirname, "pages/wholesale.html"),
         contacts: resolve(import.meta.dirname, "pages/contacts.html"),
         aboutProduction: resolve(import.meta.dirname, "pages/about-production.html"),
+        newBlocks: resolve(import.meta.dirname, "pages/new-blocks.html"),
       },
       output: {
         entryFileNames: `js/[name].js`,

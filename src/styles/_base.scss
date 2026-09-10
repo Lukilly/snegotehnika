@@ -1653,7 +1653,7 @@ h1, h2, h3{
                 z-index: 100;
                 transform: translate(-50%, -50%);
               }
-                button{
+                .product-card__features__info{
                   padding: 12px 15px;
                   width: 80%;
                   min-height: 70px;
@@ -7309,6 +7309,10 @@ body.modal-open{
               background-color: var(--secondary-color);
               cursor: grab;
               opacity: 1;
+            }
+            &.is-dragging,
+            &.is-dragging .product-card__set__list__scrollbar__drag{
+              cursor: grabbing;
             }
           }
           .product-card__set__list__receiveCatalog{

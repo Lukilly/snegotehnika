@@ -626,6 +626,8 @@ document.querySelectorAll('[data-modal-open="modal-offers"]').forEach((btn) => {
   });
 });
 
+// Modal price calculation: открытие из каталога (название подставляет бекенд)
+
 // Video
 const videoBlocks = document.querySelectorAll('.video__container');
 
@@ -1068,5 +1070,28 @@ setScrollbars.forEach((scrollbar) => {
     const pos = (event.clientX - rect.left);
     const progress = (pos - dragWidth / 2) / (trackWidth - dragWidth);
     list.scrollLeft = Math.max(0, Math.min(1, progress)) * (list.scrollWidth - list.clientWidth);
+  });
+
+  drag.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    const trackWidth = scrollbar.clientWidth;
+    const dragWidth = parseFloat(drag.style.width) || 40;
+    const maxScroll = list.scrollWidth - list.clientWidth;
+    if (maxScroll <= 0) return;
+    scrollbar.classList.add('is-dragging');
+
+    const onMove = (moveEvent) => {
+      const rect = scrollbar.getBoundingClientRect();
+      const pos = moveEvent.clientX - rect.left;
+      const progress = (pos - dragWidth / 2) / (trackWidth - dragWidth);
+      list.scrollLeft = Math.max(0, Math.min(1, progress)) * maxScroll;
+    };
+    const onUp = () => {
+      scrollbar.classList.remove('is-dragging');
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+    };
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
   });
 });
