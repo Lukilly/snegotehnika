@@ -5416,7 +5416,7 @@ body.modal-open{
             .swiper-wrapper{
               .swiper-slide{
                 .video__container{
-                  button{
+                  .product-card__features__info{
                     min-height: 48px;
                     font-size: 16px;
                   }
@@ -7345,7 +7345,6 @@ body.modal-open{
               .swiper-slide{
                 width: auto;
                 height: auto;
-
               }
             }
             .scrollbar--features{
@@ -9931,7 +9930,7 @@ body.modal-open{
                     width: 268px;
                     height: 374px;
                   }
-                  button{
+                  .product-card__features__info{
                     min-height: 42px;
                     font-size: 14px;
                     bottom: 12px;
