@@ -1429,6 +1429,27 @@ h1, h2, h3{
           font-weight: 500;
           color: #fff;
         }
+        .yandex-rating{
+          margin-left: 60px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .product-card__stars{
+            display: inline-flex;
+            gap: 4px;
+            .product-card__stars__star{
+              width: 20px;
+              height: 20px;
+              background-color: var(--star-color, #ffab1d);
+              clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            }
+          }
+          p{
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary-color);
+          }
+        }
       }
       .swiper__buttons{
         @include swiper-buttons-style;
@@ -1466,6 +1487,28 @@ h1, h2, h3{
       display: flex;
       justify-content: space-between;
       align-items: center;
+      .yandex-rating{
+        margin-bottom: 25px;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        .product-card__stars{
+          margin-bottom: 10px;
+          display: inline-flex;
+          gap: 4px;
+          .product-card__stars__star{
+            width: 20px;
+            height: 20px;
+            background-color: var(--star-color, #ffab1d);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+          }
+        }
+        p{
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--primary-color);
+        }
+      }
       .product-card__intro__info__buttons{
         display: flex;
         .product-card__intro__info__receiveCatalog{
@@ -6185,6 +6228,11 @@ body.modal-open{
       margin-bottom: 70px;
       .product-card__intro__top{
         margin-bottom: 48px;
+        .product-card__intro__top__container{
+          .yandex-rating{
+            display: none;
+          }
+        }
       }
       .swiper__images__intro{
         margin-bottom: 48px;
@@ -6192,6 +6240,9 @@ body.modal-open{
       .product-card__intro__info{
         flex-wrap: wrap;
         margin-bottom: 66px;
+        .yandex-rating{
+          display: flex;
+        }
         .product-card__intro__info__buttons{
           margin-bottom: 20px;
           width: 100%;
@@ -6214,7 +6265,6 @@ body.modal-open{
         .product-card__intro__info__price{
           width: 100%;
           justify-content: center;
-
         }
       }
     }
@@ -8746,7 +8796,6 @@ body.modal-open{
       }
       .product-card__intro__top{
         .product-card__intro__top__container{
-
           .product-card__intro__top__product-code{
             padding: 10px 30px;
           }
