@@ -353,6 +353,7 @@ h1, h2, h3{
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     .video__container{
+      margin-bottom: 0px;
       position: relative;
       cursor: pointer;
       border-radius: 15px;
@@ -5846,6 +5847,9 @@ body.modal-open{
         margin-bottom: 55px;
       }
     }
+    .video__container{
+      margin-bottom: 80px;
+    }
     .wholesale__intro__inner{
       margin-bottom: 80px;
       display: block;
@@ -6735,6 +6739,9 @@ body.modal-open{
         font-size: 30px;
         margin-bottom: 50px;
       }
+    }
+    .video__container{
+      margin-bottom: 70px;
     }
     .wholesale__intro__inner{
       margin-bottom: 70px;
@@ -8178,6 +8185,9 @@ body.modal-open{
         margin-bottom: 60px;
       }
     }
+    .video__container{
+      margin-bottom: 60px;
+    }
     h3{
       font-size: 28px;
       margin-bottom: 45px;
@@ -9394,6 +9404,9 @@ body.modal-open{
         font-size: 34px;
         margin-bottom: 50px;
       }
+    }
+    .video__container{
+      margin-bottom: 50px;
     }
     h3{
       font-size: 26px;
